@@ -1,0 +1,115 @@
+Starting Dynare (version 6.3).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ... 
+Found 8 equation(s). 
+Evaluating expressions... 
+Computing static model derivatives (order 1). 
+Normalizing the static model... 
+Finding the optimal block decomposition of the static model... 
+2 block(s) found: 
+  1 recursive block(s) and 1 simultaneous block(s). 
+  the largest simultaneous block has 7 equation(s) 
+                                 and 7 feedback variable(s). 
+Computing dynamic model derivatives (order 1). 
+Normalizing the dynamic model... 
+Finding the optimal block decomposition of the dynamic model... 
+2 block(s) found: 
+  1 recursive block(s) and 1 simultaneous block(s). 
+  the largest simultaneous block has 7 equation(s) 
+                                 and 6 feedback variable(s). 
+Preprocessing completed. 
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+C 		 0.648382
+I 		 0.199215
+Y 		 0.847597
+K 		 7.96859
+R 		 0.035101
+W 		 2.02027
+H 		 0.281097
+A 		 1
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.9472           0.9472                0
+            0.95             0.95                0
+           1.072            1.072                0
+       1.844e+18        1.844e+18                0
+
+There are 2 eigenvalue(s) larger than 1 in modulus for 2 forward-looking variable(s)
+The rank condition is verified.
+
+
+
+Residuals of the static equations:
+Equation number 1: 1 :       0.000000
+Equation number 2: 2 :      -0.000000
+Equation number 3: 3 :       0.000000
+Equation number 4: R :      -0.000000
+Equation number 5: W :       0.000000
+Equation number 6: I :       0.000000
+Equation number 7: Y :       0.000001
+Equation number 8: 8 :       0.000000
+
+
+
+MODEL SUMMARY
+
+  Number of variables:         8
+  Number of stochastic shocks: 1
+  Number of state variables:   2
+  Number of jumpers:           2
+  Number of static variables:  4
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         eps
+eps          0.000100
+
+POLICY AND TRANSITION FUNCTIONS
+                                   log(Y)               log(C)               log(I)               log(K)               log(H)               log(W)               log(A)               log(R)
+Constant                        -0.165350            -0.433275            -1.613372             2.075507            -1.269057             0.703229                    0            -3.349525
+log(K(-1))                       0.128971             0.510164            -1.111696             0.947208            -0.274041             0.403012                    0            -0.818241
+log(A(-1))                       1.508774             0.434418             5.005474             0.125137             0.772358             0.736416             0.950000             1.383645
+eps                              1.588183             0.457282             5.268920             0.131723             0.813009             0.775174             1.000000             1.456468
+
+
+THEORETICAL MOMENTS (HP filter, lambda = 1600)
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+log(Y)        -0.1653     0.0207     0.0004
+log(C)        -0.4333     0.0068     0.0000
+log(I)        -1.6134     0.0687     0.0047
+log(K)         2.0755     0.0060     0.0000
+log(H)        -1.2691     0.0107     0.0001
+log(W)         0.7032     0.0105     0.0001
+log(A)         0.0000     0.0130     0.0002
+log(R)        -3.3495     0.0194     0.0004
+
+
+
+MATRIX OF CORRELATIONS (HP filter, lambda = 1600)
+Variables    log(Y)  log(C)  log(I)  log(K)  log(H)  log(W)  log(A)  log(R)
+log(Y)       1.0000  0.9091  0.9909  0.3580  0.9815  0.9809  0.9993  0.9572
+log(C)       0.9091  1.0000  0.8448  0.7145  0.8125  0.9728  0.8928  0.7496
+log(I)       0.9909  0.8448  1.0000  0.2292  0.9983  0.9458  0.9953  0.9874
+log(K)       0.3580  0.7145  0.2292  1.0000  0.1726  0.5329  0.3228  0.0725
+log(H)       0.9815  0.8125  0.9983  0.1726  1.0000  0.9255  0.9880  0.9949
+log(W)       0.9809  0.9728  0.9458  0.5329  0.9255  1.0000  0.9729  0.8826
+log(A)       0.9993  0.8928  0.9953  0.3228  0.9880  0.9729  1.0000  0.9674
+log(R)       0.9572  0.7496  0.9874  0.0725  0.9949  0.8826  0.9674  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION (HP filter, lambda = 1600)
+Order           1        2        3        4        5
+log(Y)     0.7171   0.4772   0.2781   0.1169  -0.0099
+log(C)     0.7999   0.6080   0.4299   0.2694   0.1289
+log(I)     0.7065   0.4605   0.2587   0.0974  -0.0276
+log(K)     0.9585   0.8586   0.7207   0.5616   0.3947
+log(H)     0.7048   0.4577   0.2555   0.0942  -0.0305
+log(W)     0.7472   0.5247   0.3333   0.1723   0.0405
+log(A)     0.7133   0.4711   0.2711   0.1098  -0.0163
+log(R)     0.7059   0.4595   0.2576   0.0963  -0.0287
+Total computing time : 0h00m07s
