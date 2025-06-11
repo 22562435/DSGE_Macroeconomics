@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  11 JUN 2025 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  11 JUN 2025 19:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -657,47 +657,33 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [8]
 
+LaTeX Warning: Reference `household_utility_fun' on page 9 undefined on input line 693.
+
+
+
 [9]
 
 [10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-LaTeX Warning: Reference `household_utility_fun' on page 16 undefined on input line 997.
-
-
-
-[16]
-
-[17]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1119.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 815.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[18{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=338, 354.6048pt x 275.3487pt>
+[11{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=227, 354.6048pt x 275.3487pt>
 File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
 <use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 1150.
+Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 846.
 (pdftex.def)             Requested size: 354.60391pt x 275.348pt.
 
 
-[19 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
+[12 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
 
-[20]
+[13]
 No file DSGE_Project.bbl.
 
 
-[21] (./DSGE_Project.aux)
+[14] (./DSGE_Project.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -706,21 +692,21 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: ACC8BAFE399E7AC3108DDDD5DA3A501E;3203.
+(rerunfilecheck)             Checksum: C201AA7F685AE81FC03356393409CA9C;3130.
  ) 
 Here is how much of TeX's memory you used:
- 16889 strings out of 469866
- 317635 string characters out of 5482728
- 702312 words of memory out of 5000000
- 44854 multiletter control sequences out of 15000+600000
+ 16864 strings out of 469866
+ 317340 string characters out of 5482728
+ 702142 words of memory out of 5000000
+ 44846 multiletter control sequences out of 15000+600000
  689360 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,13n,79p,549b,1217s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (21 pages, 440514 bytes).
+Output written on DSGE_Project.pdf (14 pages, 421441 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 258 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
