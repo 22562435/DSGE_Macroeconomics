@@ -3,7 +3,7 @@
 # Remove comments and add values where applicable.
 # The descriptions below should be self-explanatory
 
-title: "Helping You Write Academic Papers in R using Texevier"
+title: "Macroeconomics Assignment"
 #subtitle: "This will appear as Right Header"
 
 documentclass: "elsarticle"
@@ -25,23 +25,9 @@ Thesis_FP: FALSE
 # --------- Front Page
 # Comment: ----- Follow this pattern for up to 5 authors
 AddTitle: TRUE # Use FALSE when submitting to peer reviewed platform. This will remove author names.
-Author1: "Jane Doe^[__Contributions:__  \\newline _The authors would like to thank no institution for money donated to this project. Thank you sincerely._]"  # First Author - note the thanks message displayed as an italic footnote of first page.
-Ref1: "Some Institution, Cape Town, South Africa" # First Author's Affiliation
-Email1: "nfkatzke\\@gmail.com" # First Author's Email address
-
-Author2: "John Smith"
-Ref2: "Some other Institution, Cape Town, South Africa"
-Email2: "John\\@gmail.com"
-CommonAffiliation_12: TRUE # If Author 1 and 2 have a common affiliation. Works with _13, _23, etc.
-
-Author3: "John Doe"
-Email3: "Joe\\@gmail.com"
-
-CorrespAuthor_1: TRUE  # If corresponding author is author 3, e.g., use CorrespAuthor_3: TRUE
-
-# Comment out below to remove both. JEL Codes only given if keywords also given.
-keywords: "Multivariate GARCH \\sep Kalman Filter \\sep Copula" # Use \\sep to separate
-JELCodes: "L250 \\sep L100"
+Author1: "Liam Andrew Beattie"  # First Author - note the thanks message displayed as an italic footnote of first page.
+Ref1: "Macroeconomics 871, Stellenbosch University, South Africa" # First Author's Affiliation
+Email1: "22562435\\@sun.ac.za"
 
 # ----- Manage headers and footers:
 #BottomLFooter: $Title$
@@ -117,10 +103,493 @@ library(DynareR)
 <!-- # Start Writing here: -->
 <!-- ############################## -->
 
-I haved used an R package from @{Mati2019}
+Start writing about what you are planning to do, note that this is an assignment and what it is (introduction vibes)
+
+
+Please give credit: I haved used an R package from @{Mati2019}
+
+
+# Model Specification
+
+ ## Core RBC Foundations
+
+Above could note be a heading on itself. Just a paragraph that it is a core rbc foundations and what that means. 
+
+Note that capital letters denote nominal amounts and lowercase denote real values.
+
+
+\begin{equation}
+C_t \;=\; P_t \, c_t,
+\qquad
+I_t \;=\; P_t \, i_t
+\label{nominal_definitions}
+\end{equation}
+
+\begin{equation}
+\max_{\{C_t,\,h_t,\,M_t,\,B_t,\,K_t\}}
+\mathbb{E}_0 \sum_{t=1}^{\infty} \beta^{t-1}
+\left[
+\frac{\Bigl(\frac{C_t}{P_t} - \eta\,\frac{C_{t-1}}{P_{t-1}}\Bigr)^{1-\theta}}{1-\theta}
+\;-\;\chi\,\frac{h_t^{1+\gamma}}{1+\gamma}
+\;+\;\psi\,\ln\!\Bigl(\frac{M_t}{P_t}\Bigr)
+\right]
+\label{lifetime_utility_nominal}
+\end{equation}
+
+
+\begin{equation}
+C_t \;+\; I_t \;+\; B_t \;+\; M_t
+\;\le\;
+R^B_{\,t-1}\,B_{t-1}
+\;+\; M_{t-1}
+\;+\; W_t\,h_t
+\;+\; R^k_t\,K_{t-1}
+\;+\; \Pi_t
+\;-\; P_t\,\tau_t
+\label{flow_constraint_nominal}
+\end{equation}
 
 
 
+\begin{equation}
+K_t
+\;=\;
+(1 - \delta)\,K_{t-1}
+\;+\; I_t
+\;-\;\frac{\phi}{2}
+\left(\frac{I_t}{K_{t-1}} - \delta\right)^{2}
+\,K_{t-1}
+\label{capital_accumulation_nominal}
+\end{equation}
+
+
+---
+
+# Appendix 
+
+## Household First Order Conditions
+
+\begin{equation}
+\mathcal{L} = \mathbb{E}_0 \sum_{t=1}^{\infty} \beta^{t-1} 
+\left\{
+\begin{aligned}
+& \frac{\left( \frac{C_t}{P_t} - \eta \frac{C_{t-1}}{P_{t-1}} \right)^{1-\theta}}{1-\theta} 
+- \chi \frac{h_t^{1+\gamma}}{1+\gamma} 
++ \psi \ln \left( \frac{M_t}{P_t} \right) \\
+& + \lambda_t \left[ R^B_{t-1} B_{t-1} + M_{t-1} + W_t h_t + R^k_t K_{t-1} + \Pi_t - P_t \tau_t - C_t - I_t - B_t - M_t \right] \\
+& + \mu_t \left[ (1 - \delta) K_{t-1} + I_t - \frac{\phi}{2} \left( \frac{I_t}{K_{t-1}} - \delta \right)^2 K_{t-1} - K_t \right]
+\end{aligned}
+\right.
+\end{equation}
+
+Key components:
+
+$\lambda_t$: Lagrange multiplier for the nominal flow constraint (\ref{flow_constraint_nominal})
+
+$\mu_t$: Lagrange multiplier for the capital accumulation constraint (\ref{capital_accumulation_nominal})
+
+Constraints are embedded within the period-$t$ terms of the infinite sum.
+
+
+\begin{align*}
+  \frac{\partial \mathcal{L}}{\partial C_t} = 0
+  \quad\Rightarrow\quad
+  &\Bigl[\,(c_t - \eta c_{t-1})^{-\theta}/P_t - \lambda_t\Bigr]
+    - \beta \mathbb{E}_t\!\Bigl[\eta\,(c_{t+1}-\eta c_t)^{-\theta}/P_t\Bigr]
+    = 0,\\
+  \intertext{Combining terms:}
+  &\frac{1}{P_t}\Bigl[
+     (c_t - \eta c_{t-1})^{-\theta}
+     - \beta \eta\,\mathbb{E}_t (c_{t+1} - \eta c_t)^{-\theta}
+   \Bigr]
+   - \lambda_t
+   = 0,\\
+  \intertext{Multiply by \(P_t\):}
+  &(c_t - \eta c_{t-1})^{-\theta}
+   - \beta \eta\,\mathbb{E}_t\bigl[(c_{t+1} - \eta c_t)^{-\theta}\bigr]
+   - \lambda_t P_t
+   = 0.
+\end{align*}
+
+\begin{equation}\label{foc_C}
+  \boxed{%
+    \lambda_t P_t
+    \;=\;
+    (c_t - \eta c_{t-1})^{-\theta}
+    \;-\;
+    \beta \eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta c_t)^{-\theta}\bigr]
+  }
+\end{equation}
+
+
+\begin{align*}
+  \frac{\partial \mathcal{L}}{\partial h_t} = 0
+  \quad\Rightarrow\quad
+  &\lambda_t W_t = \chi h_t^{\gamma}.
+\end{align*}
+\begin{equation}\label{foc_h}
+  \boxed{\lambda_t W_t = \chi h_t^{\gamma}}
+\end{equation}
+
+
+
+
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial M_t} 
+&= \beta^{t-1} \left[ 
+   \psi \cdot \frac{\partial}{\partial M_t} \left( \ln \frac{M_t}{P_t} \right) 
+   + \lambda_t \cdot \frac{\partial}{\partial M_t} (-M_t) 
+\right] \\
+&\quad + \beta^{t} \mathbb{E}_t \left[ 
+   \lambda_{t+1} \cdot \frac{\partial}{\partial M_t} (M_t)
+\right] \\
+&= \beta^{t-1} \left[ 
+   \psi \cdot \frac{1}{M_t} 
+   - \lambda_t 
+\right] 
++ \beta^{t} \mathbb{E}_t \left[ \lambda_{t+1} \right] \\
+&= 0 \quad\Rightarrow\quad
+\psi \frac{1}{M_t} - \lambda_t + \beta \mathbb{E}_t \lambda_{t+1} = 0
+\end{align*}
+
+\begin{equation}\label{foc_M}
+\boxed{\frac{\psi}{M_t} = \lambda_t - \beta \mathbb{E}_t \lambda_{t+1}}
+\end{equation}
+
+
+
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial B_t} 
+&= \beta^{t-1} \left[ 
+   \lambda_t \cdot \frac{\partial}{\partial B_t} (-B_t) % Current period cost of bond purchase
+\right] \\
+&\quad + \beta^{t} \mathbb{E}_t \left[ 
+   \lambda_{t+1} \cdot \frac{\partial}{\partial B_t} (R^B_t B_t) % Next period bond return
+\right] \\
+&= \beta^{t-1} \left[ -\lambda_t \right] % Derivative of -B_t is -1
++ \beta^{t} \mathbb{E}_t \left[ \lambda_{t+1} R^B_t \right] % Derivative of R^B_t B_t is R^B_t
+\end{align*}
+
+Setting the derivative equal to zero and simplifying:
+\begin{align*}
+-\beta^{t-1}\lambda_t + \beta^{t}\mathbb{E}_t\left[\lambda_{t+1}R^B_t\right] &= 0 \\
+\beta^{t-1}\left(-\lambda_t + \beta\mathbb{E}_t\left[\lambda_{t+1}R^B_t\right]\right) &= 0 \\
+-\lambda_t + \beta\mathbb{E}_t\left[\lambda_{t+1}R^B_t\right] &= 0 \quad \text{(divide through by } \beta^{t-1} \neq 0\text{)}
+\end{align*}
+
+Final Euler equation for bonds:
+\begin{equation}\label{foc_B}
+\boxed{\lambda_t = \beta \mathbb{E}_t\left[\lambda_{t+1}R^B_t\right]}
+\end{equation}
+
+
+
+
+
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial K_t}
+&= \beta^{t-1}\bigl(-\mu_t\bigr)
+  + \beta^t\,\mathbb{E}_t\Bigl[
+      \lambda_{t+1}R^k_{t+1}
+    + \mu_{t+1}\Bigl(
+        (1-\delta)
+      + \frac{\phi}{2}\bigl((I_{t+1}/K_t)^2 - \delta^2\bigr)
+    \Bigr)
+  \Bigr], \\[1ex]
+0
+&= -\mu_t
+  + \beta\,\mathbb{E}_t\Bigl[
+      \lambda_{t+1}R^k_{t+1}
+    + \mu_{t+1}\Bigl(
+        1-\delta
+      + \frac{\phi}{2}\bigl((I_{t+1}/K_t)^2 - \delta^2\bigr)
+    \Bigr)
+  \Bigr], \\[1ex]
+\mu_t
+&= \beta\,\mathbb{E}_t\Bigl[
+      \lambda_{t+1}R^k_{t+1}
+    + \mu_{t+1}\Bigl(
+        1-\delta
+      + \frac{\phi}{2}\bigl((I_{t+1}/K_t)^2 - \delta^2\bigr)
+    \Bigr)
+  \Bigr].
+\end{align*}
+
+\begin{equation}\label{foc_K}
+  \boxed{%
+    \mu_t
+    = \beta\,\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          1-\delta
+        + \tfrac{\phi}{2}\bigl((I_{t+1}/K_t)^2 - \delta^2\bigr)
+      \Bigr)
+    \Bigr]
+  }
+\end{equation}
+
+
+
+
+<!-- ```{=latex, eval=FALSE} -->
+<!-- % 1. Consumption Euler Equation (from FOC_C and FOC_B) -->
+<!-- % Combines consumption habit dynamics with bond returns -->
+<!-- \begin{equation}\label{reduced_C} -->
+<!-- \frac{(c_t - \eta c_{t-1})^{-\theta} - \beta\eta \mathbb{E}_t[(c_{t+1} - \eta c_t)^{-\theta}]} -->
+<!--      {(c_{t+1} - \eta c_t)^{-\theta} - \beta\eta \mathbb{E}_{t+1}[(c_{t+2} - \eta c_{t+1})^{-\theta}]} -->
+<!-- = \beta \mathbb{E}_t \left[ R^B_t \frac{P_t}{P_{t+1}} \right] -->
+<!-- \end{equation} -->
+<!-- \textit{Interpretation:} Marginal rate of substitution between current and future consumption equals real bond return. Habit formation ($\eta$) and inflation ($P_t/P_{t+1}$) directly affect consumption smoothing. -->
+
+<!-- % 2. Labor Supply (from FOC_h and FOC_C) -->
+<!-- % Links real wage to labor hours and consumption -->
+<!-- \begin{equation}\label{reduced_h} -->
+<!-- W_t / P_t = \frac{\chi h_t^{\gamma}}  -->
+<!--                    {(c_t - \eta c_{t-1})^{-\theta} - \beta\eta \mathbb{E}_t[(c_{t+1} - \eta c_t)^{-\theta}]} -->
+<!-- \end{equation} -->
+<!-- \textit{Interpretation:} Real wage equals marginal rate of substitution between consumption and leisure. Habit persistence reduces current consumption's marginal utility, increasing required compensation for labor. -->
+
+<!-- % 3. Money Demand (from FOC_M and FOC_B) -->
+<!-- % Relates money holdings to nominal interest rates -->
+<!-- \begin{equation}\label{reduced_M} -->
+<!-- M_t = \frac{\psi}  -->
+<!--              {\beta \mathbb{E}_t \left[ (R^B_t - 1) \cdot \frac{(c_{t+1} - \eta c_t)^{-\theta} - \beta\eta \mathbb{E}_{t+1}[(c_{t+2} - \eta c_{t+1})^{-\theta}]}{P_{t+1}} \right]} -->
+<!-- \end{equation} -->
+<!-- \textit{Interpretation:} Money demand inversely related to nominal interest rate ($R^B_t - 1$). Future consumption marginal utility serves as stochastic discount factor. -->
+
+<!-- % 4. Capital Euler Equation (from FOC_K, FOC_B, and investment adjustment) -->
+<!-- % Investment dynamics and capital returns -->
+<!-- \begin{equation}\label{reduced_K} -->
+<!-- \mathbb{E}_t \left[ \frac{R^k_{t+1} + q_{t+1}(1-\delta + \tfrac{\phi}{2}[(I_{t+1}/K_t)^2 - \delta^2])} -->
+<!--                    {q_t} \right]  -->
+<!-- = \mathbb{E}_t \left[ \frac{R^B_t P_t}{P_{t+1}} \right] -->
+<!-- \end{equation} -->
+<!-- \textit{where }  -->
+<!-- q_t = 1 - \phi \left( \frac{I_t}{K_{t-1}} - \delta \right)  -->
+<!-- \text{ (Tobin's q)} -->
+<!-- \end{equation} -->
+<!-- \textit{Interpretation:} Expected return on capital (including adjustment costs) equals real bond return. Investment adjustment costs ($\phi$) create frictions in capital accumulation. -->
+<!-- ``` -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+Components breakdown:
+
+Expenditures:
+
+Consumption: $P_t c_t$
+
+Investment: $P_t i_t$
+
+Bonds: $B_t$
+
+Money holdings: $M_t$
+
+Income sources:
+
+Bond returns: $(1 + i_{t-1}) B_{t-1}$
+
+Money carryover: $M_{t-1}$
+
+Labor income: $W_t h_t$
+
+Capital returns: $R_t^k K_{t-1}$ (Key addition missing in Sims)
+
+Firm profits: $\Pi_t$
+
+Net transfers: $-P_t \tau_t$
+
+The utility function above (\ref{household_utility_fun}) must be maximised subject to some sort of flow constraint. Note that the flow budget is undefined as of now because i am unsure if captial shows up there (which it should), bonds must too, hours worked and consumption (taxes too surely?)
+
+
+\begin{equation}
+K_t = (1 - \delta) K_{t-1} + i_t - \frac{\phi}{2} \left( \frac{i_t}{K_{t-1}} - \delta \right)^2 K_{t-1}
+\end{equation}
+
+
+
+
+Key Improvements over Sims
+Capital integration:
+
+Explicit rental rate $R_t^k$ for capital services
+
+Physical capital stock $K_t$ in accumulation process
+
+Convex adjustment costs ($\phi > 0$)
+
+Real money balances:
+
+Maintains money-in-utility (MIU) specification
+
+Consistent with Walsh (2010) framework
+
+Habit persistence:
+
+$c_t - \eta c_{t-1}$ with $\eta \in (0,1)$
+
+Generates consumption inertia matching SA data
+
+
+
+
+
+
+## Firm Sector with Nominal Rigidities
+
+
+Production function with capital: 
+
+\begin{equation}
+Y_t(i) = A_t K_t(i)^{\alpha} H_t(i)^{1-\alpha}, \quad \alpha \in (0,1)
+\label{production}
+\end{equation}
+
+
+Cost minisations:
+
+\begin{equation}
+\min_{K_t(i), H_t(i)} R_t^k K_t(i) + W_t H_t(i) \quad \text{s.t.} \quad Y_t(i) = A_t K_t(i)^{\alpha} H_t(i)^{1-\alpha}
+\end{equation}
+
+
+### Perfect competion final goods firl
+
+CES aggreagation:
+
+\begin{equation}
+Y_t = \left( \int_0^1 Y_t(i)^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1
+\label{ces_aggregator}
+\end{equation}
+
+
+demand function:
+
+\begin{equation}
+Y_t(i) = \left( \frac{P_t(i)}{P_t} \right)^{-\epsilon} Y_t
+\label{demand_curve}
+\end{equation}
+
+
+
+### Pricing setting (calvo)
+
+\begin{equation}
+P_t^* = \frac{\epsilon}{\epsilon-1} \frac{
+\mathbb{E}_t \sum_{k=0}^{\infty} (\beta\theta)^k \lambda_{t+k} MC_{t+k} P_{t+k}^{\epsilon} Y_{t+k}
+}{
+\mathbb{E}_t \sum_{k=0}^{\infty} (\beta\theta)^k \lambda_{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}
+}
+\label{optimal_price}
+\end{equation}
+
+
+Price index dynamics:
+
+\begin{equation}
+P_t^{1-\epsilon} = \theta P_{t-1}^{1-\epsilon} + (1-\theta)(P_t^*)^{1-\epsilon}
+\label{price_index}
+\end{equation}
+
+
+
+devidenet distribution:
+
+\begin{equation}
+\Pi_t = \int_0^1 \left[ P_t(i)Y_t(i) - W_t H_t(i) - R_t^k K_t(i) \right] di
+\label{dividends}
+\end{equation}
+
+Aggregate equivalent:
+
+\begin{equation}
+\Pi_t = P_t Y_t - W_t H_t - R_t^k K_t
+\label{agg_dividends}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$Y_t = A_t K_t^\alpha H_t^{1-\alpha}$ Cobb-Douglas 
+
+Capital accumulation: $K_{t+1} = (1-\delta)K_t + I_t - \frac{\phi}{2}\left(\frac{I_t}{K_t} - \delta\right)^2 K_t$ 
+
+
+### Nominal Rigidities
+
+Probability $\theta=0.75$ of price non-adjustment
+
+Phillips Curve derivation: $\pi_t = \beta E_t\pi_{t+1} + \kappa mc_t$
+
+Dividend specification: $\Pi_t = Y_t - w_t h_t - r_t^k k_t$
+
+
+## Government Sector 
+
+Fiscal rule: $T_t = \tau Y_t$ (lump-sum taxes)
+
+Monetary authority:
+- Taylor Rule: $R_t = \rho R_{t-1} + (1-\rho)[\phi_\pi \pi_t + \phi_y \hat{Y}_t] + \varepsilon_t^r$
+
+-Money Growth Rule: $\ln \mu_t = \rho_\mu \ln \mu_{t-1} + \varepsilon_t^m$
+
+## Exogenous Processes
+
+- TFP shock: $\ln A_t = (1-\rho_A)\ln A_{ss} + \rho_A \ln A_{t-1} + \varepsilon_t^A$
+
+- Monetary policy shocks ($\varepsilon_t^r, \varepsilon_t^m$
+
+## Equilibrium and Model Closure
+
+- Output Gap: $\hat{Y}_t = Y_t - Y_t^n$ (natural rate output)
+
+- Market clearing conditions
+
+- Determinacy Requirements: Blanchard-Kahn conditions for policy rules
+
+
+
+# Solution Strategy
+
+## Steady State Derivation
+
+## Log-Linearization Techniques
+
+## Determinacy Analysis
+
+Taylor principle verification ($\phi_\pi > 1$)
 
 ```{r model}
 dynareCodes='%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,7 +668,7 @@ stoch_simul(order=1, irf=40, hp_filter=1600, loglinear,graph_format=fig) Y C I K
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 # 1. Write the .mod file into the code/ folder
 write_mod(
   code  = dynareCodes,
@@ -220,6 +689,18 @@ rbc_results <- run_dynare(
 
 
 
+
+# Parameterization
+
+## Calibration Table
+
+## Data Alignment
+
+
+
+# Quantitative Analysis
+
+
 <!-- ```{r} -->
 <!-- ![image](code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png) -->
 
@@ -228,6 +709,15 @@ rbc_results <- run_dynare(
 
 
 
+```{r}
+print("works")
+```
 
 
 
+
+
+
+\newpage
+
+# References
