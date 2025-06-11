@@ -360,14 +360,13 @@ new formatting of wack
 
 
 **Consumption Euler Equation**  
-(from \eqref{foc_B} and \eqref{foc_C})  
-Combines consumption--habit dynamics with bond returns:
+Combines consumption--habit dynamics with bond returns (from \eqref{foc_B} and \eqref{foc_C}) :  
 
 \begin{align*}
-& \textbf{Step 1:} \quad \text{Start with FOC\_B} \\
+& \textbf{Step 1:} \quad \text{Start with FOC for Bonds} \\
 & \lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] \quad \text{(Equation \ref{foc_B})} \\
 & \\
-& \textbf{Step 2:} \quad \text{Substitute } \lambda_t \text{ and } \lambda_{t+1} \text{ from FOC\_C} \\
+& \textbf{Step 2:} \quad \text{Substitute } \lambda_t \text{ and } \lambda_{t+1} \text{ from FOC for Consumption} \\
 & \lambda_t = \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} \quad \text{(from Equation \ref{foc_C} rearranged)} \\
 & \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \quad \text{(time-shifted)} \\
 & \\
@@ -378,37 +377,39 @@ Combines consumption--habit dynamics with bond returns:
 & (c_t - \eta\,c_{t-1})^{-\theta} = \beta\,\mathbb{E}_t\!\left[ R_t^B \cdot \frac{P_t}{P_{t+1}} \cdot (c_{t+1} - \eta\,c_t)^{-\theta} \right]
 \end{align*}
 
-\[
-\boxed{
+
+\begin{equation}\label{consEuler_app}
+\boxed{%
   (c_t - \eta\,c_{t-1})^{-\theta}
   \;=\;
   \beta\,\mathbb{E}_t\!\Bigl[
     R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
   \Bigr]
 }
-\]
-\textit{Interpretation:} Marginal rate of substitution between current and future consumption equals the expected real bond return. Habit persistence (\(\eta\)) links today's utility to past and future consumption, and inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
+\end{equation}
 
-% ========== LABOR SUPPLY ==========
-\subsection*{Labor Supply}  
-(from \eqref{foc_C} and \eqref{foc_h})  
-Real wage equals the marginal rate of substitution between leisure and consumption:
+Interpretation: Marginal rate of substitution between current and future consumption equals the expected real bond return. Habit persistence (\(\eta\)) links today's utility to past and future consumption, and inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
+
+
+**Labour Supply**  
+
+Real wage equals the marginal rate of substitution between leisure and consumption (from \eqref{foc_C} and \eqref{foc_h}) :
 
 \begin{align*}
-& \textbf{Step 1:} \quad \text{Start with FOC\_h} \\
+& \textbf{Step 1:} \quad \text{Start with FOC for Hours Worked} \\
 & \lambda_t W_t = \chi\,h_t^{\gamma} \quad \text{(Equation \ref{foc_h})} \\
 & \\
 & \textbf{Step 2:} \quad \text{Solve for } \lambda_t \\
 & \lambda_t = \frac{\chi\,h_t^{\gamma}}{W_t} \\
 & \\
-& \textbf{Step 3:} \quad \text{Equate to FOC\_C expression} \\
+& \textbf{Step 3:} \quad \text{Equate to FOC of Consumption expression} \\
 & \frac{\chi\,h_t^{\gamma}}{W_t} = \frac{(c_t - \eta\,c_{t-1})^{-\theta} - \beta\,\eta\,\mathbb{E}_t[(c_{t+1} - \eta\,c_t)^{-\theta}]}{P_t} \\
 & \\
 & \textbf{Step 4:} \quad \text{Solve for real wage } (W_t/P_t) \\
 & \frac{W_t}{P_t} = \frac{\chi\,h_t^{\gamma}}{(c_t - \eta\,c_{t-1})^{-\theta} - \beta\,\eta\,\mathbb{E}_t[(c_{t+1} - \eta\,c_t)^{-\theta}]}
 \end{align*}
 
-\[
+\begin{equation}\label{labourSupply_app}
 \boxed{
   \frac{W_t}{P_t}
   \;=\;
@@ -417,31 +418,31 @@ Real wage equals the marginal rate of substitution between leisure and consumpti
         \;-\;
         \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
 }
-\]
-\textit{Interpretation:} Habit formation reduces effective marginal utility of consumption, so stronger habits (\(\eta\uparrow\)) or more elastic labor supply (\(\gamma\uparrow\)) require a higher real wage to induce the same hours.
+\end{equation}
 
-% ========== MONEY DEMAND ==========
-\subsection*{Money Demand}  
-(from \eqref{foc_M}, \eqref{foc_B} and \eqref{foc_C})  
-Opportunity cost of holding money vs. bonds:
+Interpretation: Habit formation reduces effective marginal utility of consumption, so stronger habits (\(\eta\uparrow\)) or more elastic labour supply (\(\gamma\uparrow\)) require a higher real wage to induce the same hours.
+
+
+**Money Demand**  
+Opportunity cost of holding money vs. bonds (from \eqref{foc_M}, \eqref{foc_B} and \eqref{foc_C})  :
 
 \begin{align*}
-& \textbf{Step 1:} \quad \text{Combine FOC\_M and FOC\_B} \\
+& \textbf{Step 1:} \quad \text{Combine FOC for Money and Bonds} \\
 & \frac{\psi}{M_t} = \lambda_t - \beta\,\mathbb{E}_t[\lambda_{t+1}] \quad \text{(Equation \ref{foc_M})} \\
 & \lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] \quad \text{(Equation \ref{foc_B})} \\
 & \\
-& \textbf{Step 2:} \quad \text{Substitute } \lambda_t \text{ into FOC\_M} \\
+& \textbf{Step 2:} \quad \text{Substitute } \lambda_t \text{ into FOC of money} \\
 & \frac{\psi}{M_t} = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] - \beta\,\mathbb{E}_t[\lambda_{t+1}] \\
 & \frac{\psi}{M_t} = \beta\,\mathbb{E}_t\left[\lambda_{t+1}(R_t^B - 1)\right] \\
 & \\
-& \textbf{Step 3:} \quad \text{Substitute } \lambda_{t+1} \text{ from FOC\_C} \\
+& \textbf{Step 3:} \quad \text{Substitute } \lambda_{t+1} \text{ from FOC of Consumption} \\
 & \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta} - \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}{P_{t+1}} \\
 & \\
 & \textbf{Step 4:} \quad \text{Solve for } M_t \\
 & M_t = \frac{\psi}{\beta\,\mathbb{E}_t\!\left[ (R_t^B - 1) \cdot \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta} - \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}{P_{t+1}} \right]}
 \end{align*}
 
-\[
+\begin{equation}\label{money_demand_app}
 \boxed{
   M_t
   \;=\;
@@ -455,19 +456,18 @@ Opportunity cost of holding money vs. bonds:
               {P_{t+1}}
        \Bigr]}
 }
-\]
-\textit{Interpretation:} Higher expected nominal rates \((R_t^B - 1)\) raise the opportunity cost of money, while habits and inflation expectations shape the curvature of demand. The denominator captures the liquidity premium adjusted for consumption dynamics.
+\end{equation}
+Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportunity cost of money, while habits and inflation expectations shape the curvature of demand. The denominator captures the liquidity premium adjusted for consumption dynamics.
 
-% ========== CAPITAL EULER EQUATION ==========
-\subsection*{Capital Euler Equation}  
-(from \eqref{foc_I}, \eqref{foc_K} and \eqref{foc_B})  
-Defines Tobin’s \(q\) and links required returns on capital to bond returns:
+
+**Capital Euler Equation **
+Defines Tobin’s \(q\) and links required returns on capital to bond returns (from \eqref{foc_I}, \eqref{foc_K} and \eqref{foc_B}) :
 
 \begin{align*}
-& \textbf{Step 1:} \quad \text{Define Tobin's } q \text{ from FOC\_I} \\
+& \textbf{Step 1:} \quad \text{Define Tobin's } q \text{ from FOC for Investment} \\
 & \lambda_t = \mu_t q_t \quad \text{where} \quad q_t \equiv 1 - \phi\left(\tfrac{I_t}{K_{t-1}} - \delta\right) \\
 & \\
-& \textbf{Step 2:} \quad \text{Rearrange FOC\_K} \\
+& \textbf{Step 2:} \quad \text{Rearrange FOC for Capital} \\
 & \mu_t = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1}R_{t+1}^k + \mu_{t+1}\!\left(1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]\right) \right] \\
 & \\
 & \textbf{Step 3:} \quad \text{Substitute } \mu_t = \lambda_t / q_t \text{ and } \mu_{t+1} = \lambda_{t+1} / q_{t+1} \\
@@ -476,12 +476,12 @@ Defines Tobin’s \(q\) and links required returns on capital to bond returns:
 & \textbf{Step 4:} \quad \text{Factor } \lambda_{t+1} \\
 & \frac{\lambda_t}{q_t} = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1} \left( R_{t+1}^k + \frac{1}{q_{t+1}}\left(1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]\right) \right) \right] \\
 & \\
-& \textbf{Step 5:} \quad \text{Substitute FOC\_B } (\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B]) \\
+& \textbf{Step 5:} \quad \text{Substitute FOC for Bonds } (\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B]) \\
 & \frac{\beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B]}{q_t} = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1} \left( R_{t+1}^k + \frac{1}{q_{t+1}}\Gamma_{t+1} \right) \right] \\
 & \text{where } \Gamma_{t+1} \equiv 1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]
 \end{align*}
 
-\[
+\begin{equation}\label{capital_euler_app}
 \boxed{
   \begin{gathered}
   q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
@@ -500,8 +500,9 @@ Defines Tobin’s \(q\) and links required returns on capital to bond returns:
   \Bigr]
   \end{gathered}
 }
-\]
-\textit{Interpretation:} The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
+\end{equation}
+
+Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
 
 
 
