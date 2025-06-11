@@ -165,9 +165,71 @@ K_t
 
 ---
 
-# Appendix 
+From which we can derive the following equations, found in full form in Appendix \ref{household_FOC}
 
-## Household First Order Conditions
+\begin{equation}\label{consEuler}
+  (c_t - \eta\,c_{t-1})^{-\theta}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
+  \Bigr]
+\end{equation}
+
+
+Interpretation: Marginal rate of substitution between current and future consumption equals the expected real bond return. Habit persistence (\(\eta\)) links today's utility to past and future consumption, and inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
+
+
+\begin{equation}\label{labourSupply}
+  \frac{W_t}{P_t}
+  \;=\;
+  \frac{\chi\,h_t^{\gamma}}
+       {(c_t - \eta\,c_{t-1})^{-\theta}
+        \;-\;
+        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
+\end{equation}
+
+Interpretation: Habit formation reduces effective marginal utility of consumption, so stronger habits (\(\eta\uparrow\)) or more elastic labour supply (\(\gamma\uparrow\)) require a higher real wage to induce the same hours.
+
+\begin{equation}\label{money_demand}
+  M_t
+  \;=\;
+  \frac{\psi}
+       {\beta\,\mathbb{E}_t\!\Bigl[
+         (R_t^B - 1)
+         \;\cdot\;
+         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
+               \;-\;
+               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
+              {P_{t+1}}
+       \Bigr]}
+\end{equation}
+
+Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportunity cost of money, while habits and inflation expectations shape the curvature of demand. The denominator captures the liquidity premium adjusted for consumption dynamics.
+
+\begin{equation}\label{capital_euler}
+  \begin{gathered}
+  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
+  \\
+  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    \lambda_{t+1}\Bigl(
+      R_{t+1}^k
+      + \frac{1}{q_{t+1}}
+        \Bigl(
+          1 - \delta
+          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+        \Bigr)
+    \Bigr)
+  \Bigr]
+  \end{gathered}
+\end{equation}
+
+Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
+
+# Appendix  
+
+## Household First Order Conditions \label{household_FOC}
 
 \begin{equation}
 \mathcal{L} = \mathbb{E}_0 \sum_{t=1}^{\infty} \beta^{t-1} 
@@ -355,7 +417,6 @@ Final Euler equation for bonds:
 
 \newpage
 
-new formatting of wack
 
 
 
