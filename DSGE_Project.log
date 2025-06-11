@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.10)  10 JUN 2025 20:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  11 JUN 2025 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **DSGE_Project.tex
 (./DSGE_Project.tex
-LaTeX2e <2025-06-01>
+LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/elsarticle/elsarticle.cls
 Document Class: elsarticle 2025/01/11, 3.4c: Elsevier Ltd
@@ -304,7 +304,7 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 618.
 ) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 ) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/05/19 v2.6i Tabular extension package (FMi)
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
 \col@sep=\dimen175
 \ar@mcellbox=\box68
 \extrarowheight=\dimen176
@@ -649,56 +649,70 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [4]
 
-LaTeX Warning: Reference `household_utility_fun' on page 5 undefined on input line 507.
-
-
-
 [5]
 
 [6]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 629.
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+LaTeX Warning: Reference `household_utility_fun' on page 12 undefined on input line 834.
+
+
+
+[12]
+
+[13]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 956.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[7{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=155, 354.6048pt x 275.3487pt>
+[14{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=268, 354.6048pt x 275.3487pt>
 File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
 <use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 660.
+Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 987.
 (pdftex.def)             Requested size: 354.60391pt x 275.348pt.
 
 
-[8 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
+[15 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
 
-[9]
+[16]
 No file DSGE_Project.bbl.
 
 
-[10] (./DSGE_Project.aux)
+[17] (./DSGE_Project.aux)
  ***********
-LaTeX2e <2025-06-01>
+LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: C201AA7F685AE81FC03356393409CA9C;3130.
+(rerunfilecheck)             Checksum: ACC8BAFE399E7AC3108DDDD5DA3A501E;3203.
  ) 
 Here is how much of TeX's memory you used:
- 16844 strings out of 469866
- 317068 string characters out of 5482728
- 696775 words of memory out of 5000000
- 44837 multiletter control sequences out of 15000+600000
- 683374 words of font info for 81 fonts, out of 8000000 for 9000
+ 16877 strings out of 469866
+ 317485 string characters out of 5482728
+ 702063 words of memory out of 5000000
+ 44850 multiletter control sequences out of 15000+600000
+ 689360 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,12n,79p,549b,1217s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,549b,1217s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (10 pages, 409681 bytes).
+Output written on DSGE_Project.pdf (17 pages, 431279 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 396 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
