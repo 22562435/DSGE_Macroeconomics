@@ -404,6 +404,172 @@ investment frictions.
 
 \subsection{Firm Problem}\label{firm-problem}
 
+While the RBC model features a single representative firm under perfect
+competition, we now introduce two layers of firms to capture
+monopolistic competition and nominal rigidities:\\
+\textbf{1. Final goods producer} (perfectly competitive aggregator)\\
+\textbf{2. Intermediate goods producers} (monopolistically competitive
+with sticky prices)
+
+\subsection{Final Goods Producer}\label{final-goods-producer}
+
+\textbf{(Perfectly competitive, zero profits)}\\
+\textbf{Role}: Aggregates differentiated inputs into final output.
+
+\textbf{Key equations:}
+
+\begin{itemize}
+\item
+  \textbf{CES Production Function}: \[
+  Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}} \, dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1
+  \]
+\item
+  \textbf{Demand for good \(j\)}: \[
+  Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t
+  \]
+\item
+  \textbf{Aggregate Price Index}: \[
+  P_t = \left( \int_0^1 P_t(j)^{1-\epsilon} \, dj \right)^{\frac{1}{1-\epsilon}}
+  \]
+\end{itemize}
+
+\textbf{Economic Intuition:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\epsilon\): Elasticity of substitution (lower \(\epsilon\) implies
+  more market power)
+\item
+  Demand for \(j\) decreases with its relative price
+  \(\frac{P_t(j)}{P_t}\)
+\end{itemize}
+
+\subsection{Intermediate Goods
+Producers}\label{intermediate-goods-producers}
+
+\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))}
+
+\subsubsection{Technology and Factor
+Inputs}\label{technology-and-factor-inputs}
+
+\textbf{Production Function} (same as RBC): \[
+Y_t(j) = A_t K_t(j)^\alpha h_t(j)^{1-\alpha}
+\]
+
+\textbf{Assumptions:}
+
+\begin{itemize}
+\tightlist
+\item
+  Identical technology \(A_t\) (common TFP shock)
+\item
+  Firms rent capital \(K_t(j)\) and labor \(h_t(j)\) from households
+\item
+  Competitive factor markets: prices \(R_t^k\), \(W_t\)
+\end{itemize}
+
+\subsubsection{Price-Setting Friction}\label{price-setting-friction}
+
+\textbf{Rotemberg Price Adjustment Cost}: \[
+\text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
+\]
+
+\textbf{Intuition:}
+
+\begin{itemize}
+\tightlist
+\item
+  Convex cost for price changes (relative to past price)
+\item
+  \(\psi\): Adjustment cost parameter (higher → more stickiness)
+\item
+  Scaling by \(Y_t\) ensures cost grows with output
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Firm Optimization and
+Equilibrium}\label{firm-optimization-and-equilibrium}
+
+\subsubsection{Profit Maximization
+Problem}\label{profit-maximization-problem}
+
+\textbf{Objective}: Choose \(P_t(j)\) to maximize discounted real
+profits: \[
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^\infty \beta^s \frac{\lambda_{t+s}}{\lambda_t} \left[
+\underbrace{\frac{P_t(j)}{P_{t+s}} Y_{t+s}(j)}_{\text{Revenue}} - 
+\underbrace{\text{MC}_{t+s} Y_{t+s}(j)}_{\text{Cost}} - 
+\underbrace{\text{AdjCost}_{t+s}(j)}_{\text{Price adjustment cost}}
+\right]
+\]
+
+\textbf{Where:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\beta^s \frac{\lambda_{t+s}}{\lambda_t}\): Household stochastic
+  discount factor
+\item
+  \(\text{MC}_t\): Real marginal cost (defined next)
+\end{itemize}
+
+\subsubsection{Key Equilibrium Concepts}\label{key-equilibrium-concepts}
+
+\textbf{Marginal Cost}: \[
+\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^\alpha \left( \frac{W_t}{1 - \alpha} \right)^{1 - \alpha}
+\]
+
+\textbf{Intuition}: Inverse of TFP times Cobb-Douglas cost
+
+\textbf{Symmetric Equilibrium}: \textgreater{} All firms face identical
+conditions, so \(P_t(j) = P_t\), \(Y_t(j) = Y_t\).
+
+\subsubsection{New Keynesian Phillips Curve
+(NKPC)}\label{new-keynesian-phillips-curve-nkpc}
+
+\textbf{Core NKPC Equation}: \[
+\psi (\Pi_t - 1) \Pi_t = \epsilon \left( 1 - \frac{\text{MC}_t}{\mu} \right) + 
+\beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
+\]
+
+\textbf{Definitions:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\Pi_t \equiv \frac{P_t}{P_{t-1}}\): Gross inflation
+\item
+  \(\mu \equiv \frac{\epsilon}{\epsilon - 1}\): Desired markup
+\end{itemize}
+
+\textbf{Interpretation:}
+
+\begin{itemize}
+\tightlist
+\item
+  LHS: Current inflation cost\\
+\item
+  RHS:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\epsilon (1 - \text{MC}_t / \mu)\): Markup gap\\
+  \item
+    Expectation term: Forward-looking inflation pressure
+  \end{itemize}
+\end{itemize}
+
+\subsection{Resource Constraint}\label{resource-constraint}
+
+\textbf{Final Output Allocation}: \[
+Y_t = C_t + I_t + \frac{\psi}{2} (\Pi_t - 1)^2 Y_t
+\]
+
+\textbf{Interpretation}: Price adjustment costs are a deadweight loss.
+
 Here's a concise explanation of how the firm section extends a simple
 RBC model, integrating monopolistic competition and Rotemberg price
 rigidity.

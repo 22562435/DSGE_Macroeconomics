@@ -234,6 +234,189 @@ Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals
 
 ## Firm Problem 
 
+
+While the RBC model features a single representative firm under perfect competition, we now introduce two layers of firms to capture monopolistic competition and nominal rigidities:  
+**1. Final goods producer** (perfectly competitive aggregator)  
+**2. Intermediate goods producers** (monopolistically competitive with sticky prices)
+
+
+### Final Goods Producer
+
+**(Perfectly competitive, zero profits)**  
+**Role**: Aggregates differentiated inputs into final output.
+
+**Key equations:**
+
+- **CES Production Function**:
+  \[
+  Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}} \, dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1
+  \]
+
+- **Demand for good \( j \)**:
+  \[
+  Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t
+  \]
+
+- **Aggregate Price Index**:
+  \[
+  P_t = \left( \int_0^1 P_t(j)^{1-\epsilon} \, dj \right)^{\frac{1}{1-\epsilon}}
+  \]
+
+**Economic Intuition:**
+
+- \( \epsilon \): Elasticity of substitution (lower \( \epsilon \) implies more market power)
+- Demand for \( j \) decreases with its relative price \( \frac{P_t(j)}{P_t} \)
+
+
+### Intermediate Goods Producers
+
+**(Monopolistic competitors, indexed by \( j \in [0,1] \))**
+
+### Technology and Factor Inputs
+
+**Production Function** (same as RBC):
+\[
+Y_t(j) = A_t K_t(j)^\alpha h_t(j)^{1-\alpha}
+\]
+
+**Assumptions:**
+
+- Identical technology \( A_t \) (common TFP shock)
+- Firms rent capital \( K_t(j) \) and labor \( h_t(j) \) from households
+- Competitive factor markets: prices \( R_t^k \), \( W_t \)
+
+### Price-Setting Friction
+
+**Rotemberg Price Adjustment Cost**:
+\[
+\text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
+\]
+
+**Intuition:**
+
+- Convex cost for price changes (relative to past price)
+- \( \psi \): Adjustment cost parameter (higher → more stickiness)
+- Scaling by \( Y_t \) ensures cost grows with output
+
+---
+
+## Firm Optimization and Equilibrium
+
+### Profit Maximization Problem
+
+**Objective**: Choose \( P_t(j) \) to maximize discounted real profits:
+\[
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^\infty \beta^s \frac{\lambda_{t+s}}{\lambda_t} \left[
+\underbrace{\frac{P_t(j)}{P_{t+s}} Y_{t+s}(j)}_{\text{Revenue}} - 
+\underbrace{\text{MC}_{t+s} Y_{t+s}(j)}_{\text{Cost}} - 
+\underbrace{\text{AdjCost}_{t+s}(j)}_{\text{Price adjustment cost}}
+\right]
+\]
+
+**Where:**
+
+- \( \beta^s \frac{\lambda_{t+s}}{\lambda_t} \): Household stochastic discount factor
+- \( \text{MC}_t \): Real marginal cost (defined next)
+
+### Key Equilibrium Concepts
+
+**Marginal Cost**:
+\[
+\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^\alpha \left( \frac{W_t}{1 - \alpha} \right)^{1 - \alpha}
+\]
+
+**Intuition**: Inverse of TFP times Cobb-Douglas cost
+
+**Symmetric Equilibrium**:
+> All firms face identical conditions, so \( P_t(j) = P_t \), \( Y_t(j) = Y_t \).
+
+### New Keynesian Phillips Curve (NKPC)
+
+**Core NKPC Equation**:
+\[
+\psi (\Pi_t - 1) \Pi_t = \epsilon \left( 1 - \frac{\text{MC}_t}{\mu} \right) + 
+\beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
+\]
+
+**Definitions:**
+
+- \( \Pi_t \equiv \frac{P_t}{P_{t-1}} \): Gross inflation
+- \( \mu \equiv \frac{\epsilon}{\epsilon - 1} \): Desired markup
+
+**Interpretation:**
+
+- LHS: Current inflation cost  
+- RHS: 
+  - \( \epsilon (1 - \text{MC}_t / \mu) \): Markup gap  
+  - Expectation term: Forward-looking inflation pressure
+
+
+
+## Resource Constraint
+
+**Final Output Allocation**:
+\[
+Y_t = C_t + I_t + \frac{\psi}{2} (\Pi_t - 1)^2 Y_t
+\]
+
+**Interpretation**: Price adjustment costs are a deadweight loss.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Here's a concise explanation of how the firm section extends a simple RBC model, integrating monopolistic competition and Rotemberg price rigidity.
 
 ## From RBC to New Keynesian Framework
