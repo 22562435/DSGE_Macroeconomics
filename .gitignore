@@ -2,8 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
-.out
-.log
-.aux
-.spl
-.m
+*.out
+*.log
+*.aux
+*.spl
+*.m
