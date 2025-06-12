@@ -68,8 +68,11 @@ linestretch: 1.2                # Set distance between lines.
 link-citations: TRUE            # This creates dynamic links to the papers in reference list.
 
 ### Adding additional latex packages:
-# header-includes:
-#    - \usepackage{colortbl} # Add additional packages here.
+header-includes:
+  - \usepackage{sectsty}
+  - \sectionfont{\bfseries\large}  # Makes section (heading #) bold and large
+  - \subsectionfont{\bfseries\normalsize}  # Makes subsection (##) bold and normal size
+
 
 output:
   pdf_document:
@@ -117,6 +120,8 @@ Above could note be a heading on itself. Just a paragraph that it is a core rbc 
 
 Note that capital letters denote nominal amounts and lowercase denote real values.
 
+
+## Household Problem 
 
 \begin{equation}
 C_t \;=\; P_t \, c_t,
@@ -226,6 +231,233 @@ Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportun
 \end{equation}
 
 Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
+
+## Firm Problem 
+
+Here's a concise explanation of how the firm section extends a simple RBC model, integrating monopolistic competition and Rotemberg price rigidity.
+
+## From RBC to New Keynesian Framework
+
+In a basic RBC model, you have a single representative firm with perfect competition and flexible prices. We extend this in two key ways:
+
+1. **Monopolistic Competition**  
+   Instead of one firm, we now have:
+   
+   - A *final goods producer* that aggregates differentiated intermediate goods (from firms \( j \in [0,1] \)) into final output \( Y_t \) using a CES technology. This creates downward-sloping demand curves for each firm \( j \):
+   \[
+   Y_t(j) = \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} Y_t
+   \]
+   where \( \epsilon > 1 \) governs market power (higher \( \epsilon \) = more competition).
+
+2. **Intermediate Firms with Sticky Prices**  
+   Each firm \( j \) produces with Cobb-Douglas technology:
+   \[
+   Y_t(j) = A_t K_t(j)^\alpha h_t(j)^{1-\alpha}
+   \]
+   but faces two new frictions:
+   - **Market Power**: They set \( P_t(j) > \text{MC}_t \), where
+     \[
+     \text{MC}_t = \frac{1}{A_t} \left(\frac{R_t^k}{\alpha}\right)^\alpha \left(\frac{W_t}{1-\alpha}\right)^{1-\alpha}
+     \]
+   - **Rotemberg Price Rigidity**: Changing prices incurs a quadratic cost:
+     \[
+     \text{AdjCost}_t = \frac{\psi}{2} \left(\frac{P_t(j)}{P_{t-1}(j)} - 1\right)^2 Y_t
+     \]
+     This penalizes large price changes (\( \psi \) controls stickiness).
+
+## Price Setting Dynamics
+
+Firms maximize **discounted real profits**:
+\[
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^\infty \beta^s \frac{\lambda_{t+s}}{\lambda_t} \left[ 
+\frac{P_t(j)}{P_{t+s}} Y_{t+s}(j) - \text{MC}_{t+s} Y_{t+s}(j) - \text{AdjCost}_{t+s} 
+\right]
+\]
+
+- \( \beta^s \frac{\lambda_{t+s}}{\lambda_t} \): Household's stochastic discount factor (from your Euler equation).
+
+- In symmetric equilibrium (\( P_t(j) = P_t \), \( Y_t(j) = Y_t \)), this yields the **New Keynesian Phillips Curve**:
+\[
+\psi (\Pi_t - 1) \Pi_t = \epsilon \left(1 - \frac{\text{MC}_t}{\mu} \right) + \beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
+\]
+where \( \Pi_t \equiv \frac{P_t}{P_{t-1}} \) is inflation, and \( \mu \equiv \frac{\epsilon}{\epsilon - 1} \) is the markup.
+
+This equation links inflation to marginal costs (real side) and expected inflation (forward-looking term).
+
+## Key Implications for RBC Foundations
+
+- **Real Variables**: Production still uses \( K_{t-1} \) and \( h_t \) (as in RBC), but now inputs are rented from households at competitive rates \( R_t^k \) and \( W_t \).
+
+- **New Nominal Rigidity**: The adjustment cost \( \psi (\Pi_t - 1)^2 Y_t \) appears in the resource constraint, acting like a "friction tax" on output.
+
+- **Monetary Policy Transmission**: Interest rates (from your bond Euler equation) now affect real activity via inflation dynamics.
+
+This structure preserves RBC foundations while adding nominal rigidities and imperfect competition — essential for analyzing monetary policy. The only new state variable is \( P_{t-1} \) (for inflation dynamics), maintaining tractability.
+
+
+
+\newpage
+
+*Final Good Producer*
+The final good $Y_t$ is produced by combining intermediate goods $Y_t(j)$:
+
+\begin{equation}
+Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}} dj \right)^{\frac{\epsilon}{\epsilon-1}}
+\label{final_good_production}
+\end{equation}
+
+Profit maximization yields demand for each intermediate good:
+\begin{equation}
+Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t
+\label{demand_intermediate}
+\end{equation}
+
+and the aggregate price index:
+\begin{equation}
+P_t = \left( \int_0^1 P_t(j)^{1-\epsilon} dj \right)^{\frac{1}{1-\epsilon}}
+\label{price_index}
+\end{equation}
+
+
+
+*Intermediate Goods Producers*
+Each firm $j$ produces with Cobb-Douglas technology:
+\begin{equation}
+Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
+\label{intermediate_production}
+\end{equation}
+
+Minimizing costs yields nominal marginal cost (common to all firms):
+\begin{equation}
+\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
+\label{marginal_cost}
+\end{equation}
+
+Firms face Rotemberg (1982) price adjustment costs. The real profit function is:
+\begin{equation}
+\Pi_t(j) = \underbrace{\frac{P_t(j)}{P_t} Y_t(j)}_{\text{real revenue}} - \underbrace{\text{MC}_t \cdot Y_t(j)}_{\text{real cost}} - \underbrace{\frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t}_{\text{adjustment cost}}
+\label{firm_profit}
+\end{equation}
+
+
+
+*Price Setting*
+Firms maximize discounted future profits:
+\begin{equation}
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^{\infty} \beta^s \frac{\lambda_{t+s}}{\lambda_t} \Pi_{t+s}(j)
+\label{firm_objective}
+\end{equation}
+
+subject to demand (\ref{demand_intermediate}). In symmetric equilibrium ($P_t(j) = P_t$, $Y_t(j) = Y_t$), we obtain the Rotemberg Phillips Curve:
+\begin{equation}
+\psi (\Pi_t - 1) \Pi_t = \epsilon \left(1 - \frac{\text{MC}_t}{\mu}\right) + \beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
+\label{phillips_curve}
+\end{equation}
+where $\Pi_t \equiv P_t/P_{t-1}$ and $\mu \equiv \epsilon/(\epsilon-1)$.
+
+
+
+
+
+*Market Clearing*
+Aggregate production:
+\begin{equation}
+Y_t = A_t K_{t-1}^{\alpha} h_t^{1-\alpha}
+\label{aggregate_production}
+\end{equation}
+
+Resource constraint (adjustment costs reduce output):
+\begin{equation}
+Y_t = C_t + I_t + \underbrace{\frac{\psi}{2} (\Pi_t - 1)^2 Y_t}_{\text{price adjustment cost}}
+\label{resource_constraint}
+\end{equation}
+
+Factor markets clear:
+\begin{align}
+\int_0^1 h_t(j) dj &= h_t \\
+\int_0^1 K_t(j) dj &= K_{t-1}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\newpage
+
 
 # Appendix  
 
@@ -568,7 +800,7 @@ Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals
 
 
 
-hhhh
+
 
 
 
