@@ -455,7 +455,42 @@ derived from \ref{ces_production} in Appendix
 \subsubsection{Intermediate Goods
 Producers}\label{intermediate-goods-producers}
 
-\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))}
+\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))} Each
+firm \(j\) produces with Cobb-Douglas technology: \begin{equation}
+Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
+\label{intermediate_production}
+\end{equation}
+
+\begin{itemize}
+\tightlist
+\item
+  Identical technology \(A_t\) (common TFP shock)
+\item
+  Firms rent capital \(K_t(j)\) and labor \(h_t(j)\) from households
+\item
+  Competitive factor markets: prices \(R_t^k\), \(W_t\)
+\end{itemize}
+
+Minimizing costs yields nominal marginal cost (common to all firms -
+derived in Appendix \ref{intermediate_good_producer_appendix}):
+
+\begin{equation}
+\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
+\label{marginal_cost}
+\end{equation}
+
+Firms face Rotemberg (1982) price adjustment costs.
+
+\[
+\text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
+\]
+
+The real profit function is: \begin{equation}
+\Pi_t(j) = \underbrace{\frac{P_t(j)}{P_t} Y_t(j)}_{\text{real revenue}} - \underbrace{\frac{MC_t}{P_t}\,\cdot Y_t(j)}_{\text{real cost}} - \underbrace{\frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t}_{\text{adjustment cost}}
+\label{firm_profit}
+\end{equation}
+
+\ref{intermediate_good_producer_appendix}
 
 \subsubsection{Technology and Factor
 Inputs}\label{technology-and-factor-inputs}
@@ -1033,6 +1068,38 @@ Index}
   P_t = \left( \int_0^1 P_t(j)^{1-\epsilon}  dj \right)^{\frac{1}{1-\epsilon}}  
   \end{gathered}  
 }  
+\end{equation}
+
+\subsubsection{\texorpdfstring{Intermediate Goods Producers
+\label{intermediate_good_producer_appendix}}{Intermediate Goods Producers }}\label{intermediate-goods-producers-1}
+
+\begin{align*}
+& \text{Cost minimization for intermediate firm } j: \\
+& \min_{K_t(j), h_t(j)} \left\{ R_t^k K_t(j) + W_t h_t(j) \right\} \\
+& \text{subject to } Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha} \\
+& \\
+& \text{Lagrangian:} \\
+& \mathcal{L} = R_t^k K_t(j) + W_t h_t(j) + \lambda_t \left[ A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha} - Y_t(j) \right] \\
+& \\
+& \text{First-order conditions:} \\
+& \frac{\partial \mathcal{L}}{\partial K_t(j)} = 0: \quad R_t^k = \lambda_t \alpha A_t K_t(j)^{\alpha-1} h_t(j)^{1-\alpha} \\
+& \frac{\partial \mathcal{L}}{\partial h_t(j)} = 0: \quad W_t = \lambda_t (1-\alpha) A_t K_t(j)^{\alpha} h_t(j)^{-\alpha} \\
+& \\
+& \text{Rearrange FOCs:} \\
+& \lambda_t = \frac{R_t^k}{\alpha} \left( \frac{K_t(j)}{h_t(j)} \right)^{1-\alpha} \frac{1}{A_t}, \quad 
+\lambda_t = \frac{W_t}{1-\alpha} \left( \frac{K_t(j)}{h_t(j)} \right)^{\alpha} \frac{1}{A_t} \\
+& \\
+& \text{Equate expressions:} \\
+& \frac{R_t^k}{\alpha} \left( \frac{K_t(j)}{h_t(j)} \right)^{-\alpha} = \frac{W_t}{1-\alpha} \left( \frac{K_t(j)}{h_t(j)} \right)^{1-\alpha} \\
+& \Rightarrow \frac{K_t(j)}{h_t(j)} = \frac{\alpha}{1-\alpha} \frac{W_t}{R_t^k} \\
+& \\
+& \text{Substitute into capital FOC:} \\
+& \lambda_t = \frac{R_t^k}{\alpha A_t} \left( \frac{\alpha}{1-\alpha} \frac{W_t}{R_t^k} \right)^{\alpha-1} \\
+& = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
+\end{align*}
+
+\begin{equation}\label{marginal_cost}
+\boxed{MC_t = \dfrac{1}{A_t} \left( \dfrac{R_t^k}{\alpha} \right)^{\alpha} \left( \dfrac{W_t}{1-\alpha} \right)^{1-\alpha}}
 \end{equation}
 
 \newpage

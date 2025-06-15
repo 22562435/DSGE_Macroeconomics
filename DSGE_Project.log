@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  14 JUN 2025 22:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  15 JUN 2025 23:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,6 +542,18 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (./DSGE_Project.aux
 
+LaTeX Warning: Label `intermediate_production' multiply defined.
+
+
+LaTeX Warning: Label `marginal_cost' multiply defined.
+
+
+LaTeX Warning: Label `firm_profit' multiply defined.
+
+
+LaTeX Warning: Label `marginal_cost' multiply defined.
+
+
 LaTeX Warning: Label `production' multiply defined.
 
 
@@ -686,18 +698,18 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [4{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 559--561
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 566--568
-
- []
-
-
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 594--596
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--603
+
+ []
+
+
 
 [7]
 
@@ -706,13 +718,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 566--568
 [9]
 
 [10]
-Overfull \hbox (150.35068pt too wide) detected at line 758
+
+[11]
+Overfull \hbox (150.35068pt too wide) detected at line 793
 []
  []
 
 
-
-[11]
 
 [12]
 
@@ -728,29 +740,33 @@ Overfull \hbox (150.35068pt too wide) detected at line 758
 
 [18]
 
-LaTeX Warning: Reference `household_utility_fun' on page 19 undefined on input line 1070.
-
-
-
 [19]
 
 [20]
 
-[21]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=377, 354.6048pt x 275.3487pt>
-File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
-<use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 1225.
-(pdftex.def)             Requested size: 354.60391pt x 275.348pt.
+LaTeX Warning: Reference `household_utility_fun' on page 21 undefined on input line 1137.
 
+
+
+[21]
 
 [22]
 
-[23 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
+[23]
+<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=395, 354.6048pt x 275.3487pt>
+File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
+<use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
+Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 1292.
+(pdftex.def)             Requested size: 354.60391pt x 275.348pt.
+
+
+[24]
+
+[25 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
 No file DSGE_Project.bbl.
 
 
-[24] (./DSGE_Project.aux)
+[26] (./DSGE_Project.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -762,21 +778,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: 0BFF7BCE05CA94E34BBA8D80E0BEB90C;6635.
+(rerunfilecheck)             Checksum: FA2833582BDE45EE0198A9545C31C54D;6857.
  ) 
 Here is how much of TeX's memory you used:
- 17090 strings out of 469866
- 321160 string characters out of 5482728
- 708012 words of memory out of 5000000
- 45018 multiletter control sequences out of 15000+600000
+ 17100 strings out of 469866
+ 321335 string characters out of 5482728
+ 708362 words of memory out of 5000000
+ 45021 multiletter control sequences out of 15000+600000
  692369 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,20n,79p,549b,1200s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,20n,79p,549b,1185s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (24 pages, 481277 bytes).
+Output written on DSGE_Project.pdf (26 pages, 485355 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
- 408 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
- 318 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 539 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 326 words of extra memory for PDF output out of 10000 (max. 10000000)
 
