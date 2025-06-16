@@ -261,21 +261,23 @@ Almost an abstract
 
 
 
-Start writing about what you are planning to do, note that this is an
-assignment and what it is (introduction vibes)
-
-Please give credit: I haved used an R package from Mati
-(\citeproc{ref-Mati2019}{2019})
+I have used an R package from Mati (\citeproc{ref-Mati2019}{2019}) and
+should give credit. This allowed me to code everything in R while still
+using Dynare.
 
 \section{Model Specification}\label{model-specification}
-
-\#\# Core RBC Foundations
 
 Above could note be a heading on itself. Just a paragraph that it is a
 core rbc foundations and what that means.
 
 Note that capital letters denote nominal amounts and lowercase denote
 real values.
+
+Mainly adding capital to Sims
+(\citeproc{ref-sims2024newkeynesian}{2024a}), while also introducing
+adjustment costs from Sims (\citeproc{ref-sims2024rbc}{2024b}) .
+Rotemberg prices was used while gleeming insights from European Central
+Bank (\citeproc{ref-ecbwp770}{2022}) .
 
 \subsection{Households}\label{households}
 
@@ -320,8 +322,6 @@ K_t
 \label{capital_accumulation_nominal}
 \end{equation}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 From which we can derive the following equations, found in full form in
 Appendix \ref{household_FOC}
 
@@ -333,10 +333,21 @@ Appendix \ref{household_FOC}
   \Bigr]
 \end{equation}
 
-Interpretation: Marginal rate of substitution between current and future
-consumption equals the expected real bond return. Habit persistence
-(\(\eta\)) links today's utility to past and future consumption, and
-inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
+Equation \ref{consEuler} describes the household's optimal consumption
+decision over time. On the left-hand side, we have the marginal utility
+of consumption today, which takes into account \emph{habit formation}
+--- meaning that current satisfaction from consuming \(c_t\) is reduced
+if past consumption \(c_{t-1}\) was high. The right-hand side reflects
+the expected marginal benefit of postponing consumption to the next
+period: it combines the expected \emph{real return} on bonds,
+\(R_t^B \cdot \frac{P_t}{P_{t+1}}\), with the marginal utility of
+tomorrow's (habit-adjusted) consumption, \(c_{t+1} - \eta\,c_t\).
+
+Put simply, households balance the gain from consuming now against the
+expected value of saving and consuming later. Habit persistence,
+captured by \(\eta\), introduces a kind of ``inertia'' in consumption
+preferences, while inflation, through the price ratio
+\(\frac{P_t}{P_{t+1}}\), adjusts the real value of future returns.
 
 \begin{equation}\label{labourSupply}
   \frac{W_t}{P_t}
@@ -347,10 +358,14 @@ inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
         \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
 \end{equation}
 
-Interpretation: Habit formation reduces effective marginal utility of
-consumption, so stronger habits (\(\eta\uparrow\)) or more elastic
-labour supply (\(\gamma\uparrow\)) require a higher real wage to induce
-the same hours.
+Equation \ref{labourSupply} links the real wage \(\frac{W_t}{P_t}\) to
+the household's labour supply decision. The right-hand side captures the
+trade-off between working more hours, \(h_t\), and the (habit-adjusted)
+marginal utility of consumption. Stronger habit formation (\(\eta\))
+lowers the perceived benefit of consumption, so households require a
+higher real wage to be willing to work the same amount --- especially
+when the disutility of labour rises more steeply with hours (\(\gamma\)
+large).
 
 \begin{equation}\label{money_demand}
   M_t
@@ -366,10 +381,14 @@ the same hours.
        \Bigr]}
 \end{equation}
 
-Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the
-opportunity cost of money, while habits and inflation expectations shape
-the curvature of demand. The denominator captures the liquidity premium
-adjusted for consumption dynamics.
+Equation \ref{money_demand} characterises money demand as inversely
+related to the expected return on bonds - the higher the nominal rate
+\((R_t^B - 1)\), the greater the opportunity cost of holding money. The
+expression in the denominator reflects the \emph{liquidity premium},
+adjusted for how habits (\(\eta\)) and expected future consumption
+affect the marginal utility of spending. Inflation expectations, via
+\(P_{t+1}\), also influence how attractive money is relative to
+interest-bearing assets.
 
 \begin{equation}\label{capital_euler}
   \begin{gathered}
@@ -390,11 +409,16 @@ adjusted for consumption dynamics.
   \end{gathered}
 \end{equation}
 
-Interpretation: The bond-return-scaled discount factor divided by
-\(q_t\) equals expected return on capital plus adjustment-cost terms. If
-\(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion;
-disinvestment flips the sign. Adjustment costs (\(\phi\)) create
-investment frictions.
+Equation \ref{capital_euler} defines Tobin's \(q_t\) - the value of an
+additional unit of capital - and describes how firms decide whether to
+invest. When the ratio of investment to existing capital
+\(\frac{I_t}{K_{t-1}}\) exceeds depreciation \(\delta\), \(q_t > 1\),
+signalling that it's profitable to expand the capital stock. The
+equation balances the bond-return-adjusted cost of investing (left-hand
+side) with the expected return on capital, including future capital
+gains and adjustment costs (right-hand side). The parameter \(\phi\)
+governs these adjustment costs, meaning that rapid changes in investment
+are costly and create frictions.
 
 \subsection{Production}\label{production}
 
@@ -688,7 +712,7 @@ Combines consumption--habit dynamics with bond returns (from
 & \lambda_t = \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} \quad \text{(from Equation \ref{foc_C} rearranged)} \\
 & \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \quad \text{(time-shifted)} \\
 & \\
-& text{Combine results} \\
+& \text{Combine results} \\
 & \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} = \beta\,\mathbb{E}_t\!\left[ R_t^B \cdot \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \right] \\
 & \\
 & \text{Clear denominator} \\
@@ -704,11 +728,6 @@ Combines consumption--habit dynamics with bond returns (from
   \Bigr]
 }
 \end{equation}
-
-Interpretation: Marginal rate of substitution between current and future
-consumption equals the expected real bond return. Habit persistence
-(\(\eta\)) links today's utility to past and future consumption, and
-inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
 
 \textbf{Labour Supply}
 
@@ -739,11 +758,6 @@ consumption (from \eqref{foc_C} and \eqref{foc_h}) :
         \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
 }
 \end{equation}
-
-Interpretation: Habit formation reduces effective marginal utility of
-consumption, so stronger habits (\(\eta\uparrow\)) or more elastic
-labour supply (\(\gamma\uparrow\)) require a higher real wage to induce
-the same hours.
 
 \textbf{Money Demand}\\
 Opportunity cost of holding money vs.~bonds (from \eqref{foc_M},
@@ -779,10 +793,7 @@ Opportunity cost of holding money vs.~bonds (from \eqref{foc_M},
               {P_{t+1}}
        \Bigr]}
 }
-\end{equation} Interpretation: Higher expected nominal rates
-\((R_t^B - 1)\) raise the opportunity cost of money, while habits and
-inflation expectations shape the curvature of demand. The denominator
-captures the liquidity premium adjusted for consumption dynamics.
+\end{equation}
 
 \textbf{Capital Euler Equation } Defines Tobin's \(q\) and links
 required returns on capital to bond returns (from \eqref{foc_I},
@@ -826,12 +837,6 @@ required returns on capital to bond returns (from \eqref{foc_I},
   \end{gathered}
 }
 \end{equation}
-
-Interpretation: The bond-return-scaled discount factor divided by
-\(q_t\) equals expected return on capital plus adjustment-cost terms. If
-\(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion;
-disinvestment flips the sign. Adjustment costs (\(\phi\)) create
-investment frictions.
 
 \subsection{Production}\label{production-1}
 
@@ -1003,10 +1008,25 @@ Net transfers: \(-P_t \tau_t\)
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{1}
+\bibitem[\citeproctext]{ref-ecbwp770}
+European Central Bank. 2022. \emph{Economic and monetary developments
+no. 770}. (ECB Working Paper 770). European Central Bank. {[}Online{]},
+Available: \url{https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp770.pdf}.
+
 \bibitem[\citeproctext]{ref-Mati2019}
 Mati, S. 2019. DynareR: Bringing the power of {Dynare} to {R}, {R
 Markdown}, and {Quarto}. \emph{CRAN}. {[}Online{]}, Available:
 \url{https://CRAN.R-project.org/package=DynareR}.
+
+\bibitem[\citeproctext]{ref-sims2024newkeynesian}
+Sims, E. 2024a. \emph{Graduate macro theory II: The basic new keynesian
+model}. (Working Paper / Lecture Notes). University of Notre Dame.
+
+\bibitem[\citeproctext]{ref-sims2024rbc}
+Sims, E. 2024b. \emph{Graduate macro theory II: Extensions of basic RBC
+framework}. (Course notes ECON\,60202 -- Spring\,2024). University of
+Notre Dame. {[}Online{]}, Available:
+\url{https://sites.nd.edu/esims/files/2024/02/notes_rbc_extensions_2024.pdf}.
 
 \end{CSLReferences}
 

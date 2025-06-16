@@ -110,111 +110,64 @@ library(DynareR)
 
 #Please note that this is not the correct mod file, but here for example purposes based on what i have currently 
 dynareCodes_NKM <- '
-/* === New‑Keynesian DSGE (.mod) === */
+/* ==== Partial New‑Keynesian DSGE ====*/
 
-/* 1) declare endogenous and exogenous variables */
-var c C i I m M b B k K h Rb Rk W P Pi tau q y Y Yj Yp;
+var c C i I M B K h Rb Rk W P Pi tau q Y Yj Pj MC A Kj hj;
 varexo eps_a eps_m;
 
-/* 2) declare parameters (filling in real calibration values later) */
-parameters beta eta theta chi gamma psi delta phi kappa epsilon alpha rho_a rho_m sigma_a sigma_m;
-
-/* example calibrations:
-beta  = 0.99;
-eta   = 0.7;
-theta = 2;
-chi   = 1;
-gamma = 1;
-psi   = 0.5;
-delta = 0.025;
-phi   = 10;
-kappa = 0.1;
-epsilon = 6;
-alpha = 0.36;
-rho_a = 0.9;
-rho_m = 0.5;
-sigma_a = 0.01;
-sigma_m = 0.01;
-*/
+parameters beta eta theta chi gamma psi delta phi epsilon alpha;
 
 model;
-/* --- nominal definitions --- */
-  C = P * c;
-  I = P * i;
+  # nominal definitions
+  C = P*c;
+  I = P*i;
 
-/* --- flow constraint --- */
-  C + I + B + M
-    = Rb(-1)*B(-1) + M(-1) + W*h + Rk(-1)*K(-1) + Pi - P*tau;
+  # budget constraint
+  C + I + B + M = Rb(-1)*B(-1) + M(-1) + W*h + Rk(-1)*K(-1) + Pi - P*tau;
 
-/* --- capital accumulation --- */
-  K = (1 - delta)*K(-1) + I
-        - (phi/2)*((I/K(-1) - delta)^2)*K(-1);
+  # capital accumulation
+  K = (1-delta)*K(-1) + I - (phi/2)*((I/K(-1)-delta)^2)*K(-1);
 
-/* --- consumption Euler --- */
-  (c - eta*c(-1))^(-theta)
-    = beta*E((Rb*(P/P(+1)))*(c(+1) - eta*c)^(-theta));
+  # consumption Euler
+  (c-eta*c(-1))^(-theta) = beta*E(Rb*(P/P(+1))*(c(+1)-eta*c)^(-theta));
 
-/* --- labour supply --- */
-  W/P
-    = (chi*h^gamma)
-      /((c - eta*c(-1))^(-theta)
-        - beta*eta*E((c(+1) - eta*c)^(-theta)));
+  # labour supply
+  W/P = chi*h^gamma / ((c-eta*c(-1))^(-theta) - beta*eta*E((c(+1)-eta*c)^(-theta)));
 
-/* --- money demand --- */
-  M
-    = psi
-      / (beta*E((Rb - 1)
-           *(( (c(+1) - eta*c)^(-theta)
-              - beta*eta*E((c(+2) - eta*c(+1))^(-theta))
-             )/P(+1))));
+  # money demand
+  M = psi / (beta*E((Rb-1)*((c(+1)-eta*c)^(-theta) - beta*eta*E((c(+2)-eta*c(+1))^(-theta)))/P(+1)));
 
-/* --- Tobin’s q and capital Euler --- */
-  q = 1 - phi*(I/K(-1) - delta);
-  beta*E((lambda(+1)*Rb))/q
-    = beta*E(lambda(+1)*(
-        Rk(+1)
-        + (1/q(+1))*(1 - delta + (phi/2)*(((I(+1)/K)^2) - delta^2))
-      ));
-
-/* --- final goods CES aggregator --- */
-  Y = (integrate(Yj^( (epsilon-1)/epsilon ), j,0,1))^(epsilon/(epsilon-1));
+  # production: final goods
+  Y  = (integral(Yj^((epsilon-1)/epsilon), j, 0, 1))^(epsilon/(epsilon-1));
   Yj = (Pj/P)^(-epsilon)*Y;
-  P = (integrate(Pj^(1-epsilon), j,0,1))^(1/(1-epsilon));
+  P  = (integral(Pj^(1-epsilon), j, 0, 1))^(1/(1-epsilon));
 
-/* --- intermediate output and marginal cost --- */
+  # production: intermediate goods & marginal cost
   Yj = A*(Kj^alpha)*(hj^(1-alpha));
   MC = (1/A)*((Rk/alpha)^alpha)*((W/(1-alpha))^(1-alpha));
 
-/* --- Rotemberg price adjustment cost profit --- */
-  Pi_j = (Pj/P)*Yj - (MC/P)*Yj
-         - (psi/2)*((Pj/Pj(-1) - 1)^2)*Y;
-
-/* aggregate profits */
-  Pi = integrate(Pi_j, j,0,1);
 end;
 
 shocks;
-  var eps_a; stderr sigma_a;
-  var eps_m; stderr sigma_m;
+  var eps_a; stderr 0.01;
+  var eps_m; stderr 0.01;
 end;
-
 '
 ```
 
 
-Start writing about what you are planning to do, note that this is an assignment and what it is (introduction vibes)
 
-
-Please give credit: I haved used an R package from @{Mati2019}
+I have used an R package from @{Mati2019} and should give credit. This allowed me to code everything in R while still using Dynare. 
 
 
 # Model Specification
 
- ## Core RBC Foundations
 
 Above could note be a heading on itself. Just a paragraph that it is a core rbc foundations and what that means. 
 
 Note that capital letters denote nominal amounts and lowercase denote real values.
+
+Mainly adding capital to  @sims2024newkeynesian, while also introducing adjustment costs from @sims2024rbc . Rotemberg prices was used while gleeming insights from @ecbwp770 .
 
 
 ## Households 
@@ -264,8 +217,6 @@ K_t
 \end{equation}
 
 
----
-
 From which we can derive the following equations, found in full form in Appendix \ref{household_FOC}
 
 \begin{equation}\label{consEuler}
@@ -277,7 +228,9 @@ From which we can derive the following equations, found in full form in Appendix
 \end{equation}
 
 
-Interpretation: Marginal rate of substitution between current and future consumption equals the expected real bond return. Habit persistence (\(\eta\)) links today's utility to past and future consumption, and inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
+Equation \ref{consEuler} describes the household’s optimal consumption decision over time. On the left-hand side, we have the marginal utility of consumption today, which takes into account *habit formation* — meaning that current satisfaction from consuming $c_t$ is reduced if past consumption $c_{t-1}$ was high. The right-hand side reflects the expected marginal benefit of postponing consumption to the next period: it combines the expected *real return* on bonds, $R_t^B \cdot \frac{P_t}{P_{t+1}}$, with the marginal utility of tomorrow’s (habit-adjusted) consumption, $c_{t+1} - \eta\,c_t$.
+
+Put simply, households balance the gain from consuming now against the expected value of saving and consuming later. Habit persistence, captured by $\eta$, introduces a kind of “inertia” in consumption preferences, while inflation, through the price ratio $\frac{P_t}{P_{t+1}}$, adjusts the real value of future returns.
 
 
 \begin{equation}\label{labourSupply}
@@ -289,7 +242,8 @@ Interpretation: Marginal rate of substitution between current and future consump
         \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
 \end{equation}
 
-Interpretation: Habit formation reduces effective marginal utility of consumption, so stronger habits (\(\eta\uparrow\)) or more elastic labour supply (\(\gamma\uparrow\)) require a higher real wage to induce the same hours.
+Equation \ref{labourSupply} links the real wage $\frac{W_t}{P_t}$ to the household’s labour supply decision. The right-hand side captures the trade-off between working more hours, $h_t$, and the (habit-adjusted) marginal utility of consumption. Stronger habit formation ($\eta$) lowers the perceived benefit of consumption, so households require a higher real wage to be willing to work the same amount — especially when the disutility of labour rises more steeply with hours ($\gamma$ large).
+
 
 \begin{equation}\label{money_demand}
   M_t
@@ -305,7 +259,8 @@ Interpretation: Habit formation reduces effective marginal utility of consumptio
        \Bigr]}
 \end{equation}
 
-Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportunity cost of money, while habits and inflation expectations shape the curvature of demand. The denominator captures the liquidity premium adjusted for consumption dynamics.
+Equation \ref{money_demand} characterises money demand as inversely related to the expected return on bonds - the higher the nominal rate $(R_t^B - 1)$, the greater the opportunity cost of holding money. The expression in the denominator reflects the *liquidity premium*, adjusted for how habits ($\eta$) and expected future consumption affect the marginal utility of spending. Inflation expectations, via $P_{t+1}$, also influence how attractive money is relative to interest-bearing assets.
+
 
 \begin{equation}\label{capital_euler}
   \begin{gathered}
@@ -326,7 +281,7 @@ Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportun
   \end{gathered}
 \end{equation}
 
-Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
+Equation \ref{capital_euler} defines Tobin’s $q_t$ - the value of an additional unit of capital - and describes how firms decide whether to invest. When the ratio of investment to existing capital $\frac{I_t}{K_{t-1}}$ exceeds depreciation $\delta$, $q_t > 1$, signalling that it's profitable to expand the capital stock. The equation balances the bond-return-adjusted cost of investing (left-hand side) with the expected return on capital, including future capital gains and adjustment costs (right-hand side). The parameter $\phi$ governs these adjustment costs, meaning that rapid changes in investment are costly and create frictions.
 
 
 
@@ -747,7 +702,7 @@ Combines consumption--habit dynamics with bond returns (from \eqref{foc_B} and \
 & \lambda_t = \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} \quad \text{(from Equation \ref{foc_C} rearranged)} \\
 & \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \quad \text{(time-shifted)} \\
 & \\
-& text{Combine results} \\
+& \text{Combine results} \\
 & \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} = \beta\,\mathbb{E}_t\!\left[ R_t^B \cdot \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \right] \\
 & \\
 & \text{Clear denominator} \\
@@ -764,8 +719,6 @@ Combines consumption--habit dynamics with bond returns (from \eqref{foc_B} and \
   \Bigr]
 }
 \end{equation}
-
-Interpretation: Marginal rate of substitution between current and future consumption equals the expected real bond return. Habit persistence (\(\eta\)) links today's utility to past and future consumption, and inflation (\(P_t/P_{t+1}\)) scales the real payoff on bonds.
 
 
 **Labour Supply**  
@@ -797,7 +750,6 @@ Real wage equals the marginal rate of substitution between leisure and consumpti
 }
 \end{equation}
 
-Interpretation: Habit formation reduces effective marginal utility of consumption, so stronger habits (\(\eta\uparrow\)) or more elastic labour supply (\(\gamma\uparrow\)) require a higher real wage to induce the same hours.
 
 
 **Money Demand**  
@@ -834,7 +786,7 @@ Opportunity cost of holding money vs. bonds (from \eqref{foc_M}, \eqref{foc_B} a
        \Bigr]}
 }
 \end{equation}
-Interpretation: Higher expected nominal rates \((R_t^B - 1)\) raise the opportunity cost of money, while habits and inflation expectations shape the curvature of demand. The denominator captures the liquidity premium adjusted for consumption dynamics.
+
 
 
 **Capital Euler Equation **
@@ -879,7 +831,7 @@ Defines Tobin’s \(q\) and links required returns on capital to bond returns (f
 }
 \end{equation}
 
-Interpretation: The bond-return-scaled discount factor divided by \(q_t\) equals expected return on capital plus adjustment-cost terms. If \(I_t/K_{t-1}>\delta\), then \(q_t>1\) signals profitable expansion; disinvestment flips the sign. Adjustment costs (\(\phi\)) create investment frictions.
+
 
 
 
