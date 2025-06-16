@@ -548,14 +548,67 @@ prices)
 
 \subsection{Government Sector}\label{government-sector}
 
-Fiscal rule: \(T_t = \tau Y_t\) (lump-sum taxes)
+To ensure internal consistency, I introduce a simple government sector.
+The government issues one-period nominal bonds purchased by households,
+uses tax revenues to finance an exogenous stream of government spending,
+and services its debt obligations. The government budget constraint
+equates the sum of nominal spending and interest payments to the sum of
+new debt issuance and tax revenues. We assume lump-sum taxation and do
+not model Ricardian equivalence effects explicitly. Bonds held by
+households are thus assumed to be government-issued, closing the
+financial side of the model.
 
-Monetary authority ideas (not set in stone because unsure): - Taylor
-Rule:
-\(R_t = \rho R_{t-1} + (1-\rho)[\phi_\pi \pi_t + \phi_y \hat{Y}_t] + \varepsilon_t^r\)
+Gov budget constraint (nominal) \begin{equation}
+P_t G_t + R^B_{t-1} B_{t-1} = B_t + P_t \tau_t \label{Gov_Budget}
+\end{equation}
 
--Money Growth Rule:
-\(\ln \mu_t = \rho_\mu \ln \mu_{t-1} + \varepsilon_t^m\)
+The following is not decided upon, and probably will go in section
+\ref{PEA}. tax rule: \begin{equation}
+\tau_t = \tau_{ss} + \phi_b (b_{t-1} - b_{ss}) \quad \phi_b > 0 \label{Tax_Rule}
+\end{equation}
+
+bond market clearing: \begin{align*}
+B_t = B^g_t 
+\end{align*}
+
+Government spending process \begin{equation}
+\log(G_t) = (1-\rho_g)\log(G_{ss}) + \rho_g \log(G_{t-1}) + \varepsilon^g_t \label{Gov_Spending}
+\end{equation}
+
+\section{\texorpdfstring{Policy, Equilibrium, and Aggregation
+\label{PEA}}{Policy, Equilibrium, and Aggregation }}\label{policy-equilibrium-and-aggregation}
+
+\textbf{Bond‐market clearing}
+
+\[
+     B_t \;=\; B^g_t
+     \tag{Bond market clear}
+   \]
+
+Bonds held by households are exactly the bonds issued by government.
+
+\textbf{Fiscal rules (exogenous processes)} You need laws of motion for
+\(G_t\) and/or \(\tau_t\). Two common examples are
+
+\begin{itemize}
+\item
+  \textbf{Autoregressive spending}
+
+  \[
+    G_t \;=\;\rho_g\,G_{t-1} \;+\; \varepsilon^g_t
+    \tag{Exog.\ spending}
+  \]
+\item
+  \textbf{Autoregressive lump--sum tax}
+
+  \[
+    \tau_t \;=\;\rho_\tau\,\tau_{t-1} \;+\; \varepsilon^\tau_t
+    \tag{Exog.\ tax}
+  \]
+\end{itemize}
+
+or, if you prefer a balanced‐budget rule each period, simply set
+\(G_t = \tau_t\).
 
 \subsection{Exogenous Processes}\label{exogenous-processes}
 
@@ -595,6 +648,10 @@ Factor markets clear: \begin{align}
 \int_0^1 h_t(j) dj &= h_t \\
 \int_0^1 K_t(j) dj &= K_{t-1}
 \end{align}
+
+\subsection{Full Set of Conditions}\label{full-set-of-conditions}
+
+Note that all equations will go here.
 
 \section{Steady State}\label{steady-state}
 
