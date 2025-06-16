@@ -222,13 +222,7 @@ Africa}
 
 \begin{abstract}
 \small{
-Abstract to be written here. The abstract should not be too long and
-should provide the reader with a good understanding what you are writing
-about. Academic papers are not like novels where you keep the reader in
-suspense. To be effective in getting others to read your paper, be as
-open and concise about your findings here as possible. Ideally, upon
-reading your abstract, the reader should feel he / she must read your
-paper in entirety.
+Almost an abstract
 }
 \end{abstract}
 
@@ -490,273 +484,78 @@ The real profit function is: \begin{equation}
 \label{firm_profit}
 \end{equation}
 
+\[
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^{\infty} \beta^s \Lambda_{t,t+s} \left[
+\frac{P_{t+s}(j)}{P_{t+s}} Y_{t+s}(j) - mc_{t+s} Y_{t+s}(j) - \frac{\psi}{2} \left( \frac{P_{t+s}(j)}{P_{t+s-1}(j)} - 1 \right)^2 Y_{t+s}
+\right]
+\]
+
+where: - \(\Lambda_{t,t+s} = \beta^s \frac{\lambda_{t+s}}{\lambda_t}\) =
+Stochastic discount factor (from households) -
+\(mc_t = \frac{\text{MC}_t}{P_t}\) = Real marginal cost (eq
+\ref{marginal_cost}) -
+\(Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t\) (demand
+curve from eq \ref{demand_curve_final})
+
+\textbf{Optimal Price Setting}\\
+Each intermediate firm \(j\) maximizes discounted real profits,
+accounting for future adjustment costs. In symmetric equilibrium
+(\(P_t(j) = P_t\), \(\pi_t = P_t/P_{t-1}\)), this yields the
+\textbf{Rotemberg Phillips Curve}:
+
+\begin{equation}
+(\pi_t - 1)\pi_t = \frac{\epsilon}{\psi} \left( mc_t - \frac{\epsilon-1}{\epsilon} \right) + \beta \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} \frac{Y_{t+1}}{Y_t} (\pi_{t+1} - 1)\pi_{t+1} \right]
+\label{nkpc}
+\end{equation}
+
+where \(mc_t = \text{MC}_t / P_t\) (real marginal cost) and
+\(\lambda_t\) is the household's marginal utility of consumption. This
+links inflation to:\\
+1. Deviations of real marginal cost from its flexible-price level
+\(\frac{\epsilon-1}{\epsilon}\)\\
+2. Expected future inflation (weighted by discounting and output
+growth)\\
+3. Adjustment cost parameter \(\psi\) (higher \(\psi\) = stickier
+prices)
+
 \ref{intermediate_good_producer_appendix}
-
-\subsubsection{Technology and Factor
-Inputs}\label{technology-and-factor-inputs}
-
-\textbf{Production Function} (same as RBC): \[
-Y_t(j) = A_t K_t(j)^\alpha h_t(j)^{1-\alpha}
-\]
-
-\textbf{Assumptions:}
-
-\begin{itemize}
-\tightlist
-\item
-  Identical technology \(A_t\) (common TFP shock)
-\item
-  Firms rent capital \(K_t(j)\) and labor \(h_t(j)\) from households
-\item
-  Competitive factor markets: prices \(R_t^k\), \(W_t\)
-\end{itemize}
-
-\subsubsection{Price-Setting Friction}\label{price-setting-friction}
-
-\textbf{Rotemberg Price Adjustment Cost}: \[
-\text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
-\]
-
-\textbf{Intuition:}
-
-\begin{itemize}
-\tightlist
-\item
-  Convex cost for price changes (relative to past price)
-\item
-  \(\psi\): Adjustment cost parameter (higher → more stickiness)
-\item
-  Scaling by \(Y_t\) ensures cost grows with output
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Firm Optimization and
-Equilibrium}\label{firm-optimization-and-equilibrium}
-
-\subsubsection{Profit Maximization
-Problem}\label{profit-maximization-problem}
-
-\textbf{Objective}: Choose \(P_t(j)\) to maximize discounted real
-profits: \[
-\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^\infty \beta^s \frac{\lambda_{t+s}}{\lambda_t} \left[
-\underbrace{\frac{P_t(j)}{P_{t+s}} Y_{t+s}(j)}_{\text{Revenue}} - 
-\underbrace{\text{MC}_{t+s} Y_{t+s}(j)}_{\text{Cost}} - 
-\underbrace{\text{AdjCost}_{t+s}(j)}_{\text{Price adjustment cost}}
-\right]
-\]
-
-\textbf{Where:}
-
-\begin{itemize}
-\tightlist
-\item
-  \(\beta^s \frac{\lambda_{t+s}}{\lambda_t}\): Household stochastic
-  discount factor
-\item
-  \(\text{MC}_t\): Real marginal cost (defined next)
-\end{itemize}
-
-\subsubsection{Key Equilibrium Concepts}\label{key-equilibrium-concepts}
-
-\textbf{Marginal Cost}: \[
-\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^\alpha \left( \frac{W_t}{1 - \alpha} \right)^{1 - \alpha}
-\]
-
-\textbf{Intuition}: Inverse of TFP times Cobb-Douglas cost
-
-\textbf{Symmetric Equilibrium}: \textgreater{} All firms face identical
-conditions, so \(P_t(j) = P_t\), \(Y_t(j) = Y_t\).
-
-\subsubsection{New Keynesian Phillips Curve
-(NKPC)}\label{new-keynesian-phillips-curve-nkpc}
-
-\textbf{Core NKPC Equation}: \[
-\psi (\Pi_t - 1) \Pi_t = \epsilon \left( 1 - \frac{\text{MC}_t}{\mu} \right) + 
-\beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
-\]
-
-\textbf{Definitions:}
-
-\begin{itemize}
-\tightlist
-\item
-  \(\Pi_t \equiv \frac{P_t}{P_{t-1}}\): Gross inflation
-\item
-  \(\mu \equiv \frac{\epsilon}{\epsilon - 1}\): Desired markup
-\end{itemize}
-
-\textbf{Interpretation:}
-
-\begin{itemize}
-\tightlist
-\item
-  LHS: Current inflation cost\\
-\item
-  RHS:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \(\epsilon (1 - \text{MC}_t / \mu)\): Markup gap\\
-  \item
-    Expectation term: Forward-looking inflation pressure
-  \end{itemize}
-\end{itemize}
-
-\subsection{Resource Constraint}\label{resource-constraint}
-
-\textbf{Final Output Allocation}: \[
-Y_t = C_t + I_t + \frac{\psi}{2} (\Pi_t - 1)^2 Y_t
-\]
-
-\textbf{Interpretation}: Price adjustment costs are a deadweight loss.
-
-Here's a concise explanation of how the firm section extends a simple
-RBC model, integrating monopolistic competition and Rotemberg price
-rigidity.
-
-\subsection{From RBC to New Keynesian
-Framework}\label{from-rbc-to-new-keynesian-framework}
-
-In a basic RBC model, you have a single representative firm with perfect
-competition and flexible prices. We extend this in two key ways:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Monopolistic Competition}\\
-  Instead of one firm, we now have:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    A \emph{final goods producer} that aggregates differentiated
-    intermediate goods (from firms \(j \in [0,1]\)) into final output
-    \(Y_t\) using a CES technology. This creates downward-sloping demand
-    curves for each firm \(j\): \[
-    Y_t(j) = \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} Y_t
-    \] where \(\epsilon > 1\) governs market power (higher \(\epsilon\)
-    = more competition).
-  \end{itemize}
-\item
-  \textbf{Intermediate Firms with Sticky Prices}\\
-  Each firm \(j\) produces with Cobb-Douglas technology: \[
-  Y_t(j) = A_t K_t(j)^\alpha h_t(j)^{1-\alpha}
-  \] but faces two new frictions:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Market Power}: They set \(P_t(j) > \text{MC}_t\), where \[
-    \text{MC}_t = \frac{1}{A_t} \left(\frac{R_t^k}{\alpha}\right)^\alpha \left(\frac{W_t}{1-\alpha}\right)^{1-\alpha}
-    \]
-  \item
-    \textbf{Rotemberg Price Rigidity}: Changing prices incurs a
-    quadratic cost: \[
-    \text{AdjCost}_t = \frac{\psi}{2} \left(\frac{P_t(j)}{P_{t-1}(j)} - 1\right)^2 Y_t
-    \] This penalizes large price changes (\(\psi\) controls
-    stickiness).
-  \end{itemize}
-\end{enumerate}
-
-\subsection{Price Setting Dynamics}\label{price-setting-dynamics}
-
-Firms maximize \textbf{discounted real profits}: \[
-\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^\infty \beta^s \frac{\lambda_{t+s}}{\lambda_t} \left[ 
-\frac{P_t(j)}{P_{t+s}} Y_{t+s}(j) - \text{MC}_{t+s} Y_{t+s}(j) - \text{AdjCost}_{t+s} 
-\right]
-\]
-
-\begin{itemize}
-\item
-  \(\beta^s \frac{\lambda_{t+s}}{\lambda_t}\): Household's stochastic
-  discount factor (from your Euler equation).
-\item
-  In symmetric equilibrium (\(P_t(j) = P_t\), \(Y_t(j) = Y_t\)), this
-  yields the \textbf{New Keynesian Phillips Curve}: \[
-  \psi (\Pi_t - 1) \Pi_t = \epsilon \left(1 - \frac{\text{MC}_t}{\mu} \right) + \beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
-  \] where \(\Pi_t \equiv \frac{P_t}{P_{t-1}}\) is inflation, and
-  \(\mu \equiv \frac{\epsilon}{\epsilon - 1}\) is the markup.
-\end{itemize}
-
-This equation links inflation to marginal costs (real side) and expected
-inflation (forward-looking term).
-
-\subsection{Key Implications for RBC
-Foundations}\label{key-implications-for-rbc-foundations}
-
-\begin{itemize}
-\item
-  \textbf{Real Variables}: Production still uses \(K_{t-1}\) and \(h_t\)
-  (as in RBC), but now inputs are rented from households at competitive
-  rates \(R_t^k\) and \(W_t\).
-\item
-  \textbf{New Nominal Rigidity}: The adjustment cost
-  \(\psi (\Pi_t - 1)^2 Y_t\) appears in the resource constraint, acting
-  like a ``friction tax'' on output.
-\item
-  \textbf{Monetary Policy Transmission}: Interest rates (from your bond
-  Euler equation) now affect real activity via inflation dynamics.
-\end{itemize}
-
-This structure preserves RBC foundations while adding nominal rigidities
-and imperfect competition --- essential for analyzing monetary policy.
-The only new state variable is \(P_{t-1}\) (for inflation dynamics),
-maintaining tractability.
 
 \newpage
 
-\emph{Final Good Producer} The final good \(Y_t\) is produced by
-combining intermediate goods \(Y_t(j)\):
+\subsection{Government Sector}\label{government-sector}
 
-\begin{equation}
-Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}} dj \right)^{\frac{\epsilon}{\epsilon-1}}
-\label{final_good_production}
-\end{equation}
+Fiscal rule: \(T_t = \tau Y_t\) (lump-sum taxes)
 
-Profit maximization yields demand for each intermediate good:
-\begin{equation}
-Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t
-\label{demand_intermediate}
-\end{equation}
+Monetary authority ideas (not set in stone because unsure): - Taylor
+Rule:
+\(R_t = \rho R_{t-1} + (1-\rho)[\phi_\pi \pi_t + \phi_y \hat{Y}_t] + \varepsilon_t^r\)
 
-and the aggregate price index: \begin{equation}
-P_t = \left( \int_0^1 P_t(j)^{1-\epsilon} dj \right)^{\frac{1}{1-\epsilon}}
-\label{price_index}
-\end{equation}
+-Money Growth Rule:
+\(\ln \mu_t = \rho_\mu \ln \mu_{t-1} + \varepsilon_t^m\)
 
-\emph{Intermediate Goods Producers} Each firm \(j\) produces with
-Cobb-Douglas technology: \begin{equation}
-Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
-\label{intermediate_production}
-\end{equation}
+\subsection{Exogenous Processes}\label{exogenous-processes}
 
-Minimizing costs yields nominal marginal cost (common to all firms):
-\begin{equation}
-\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
-\label{marginal_cost}
-\end{equation}
+Unsure on the following before i look up if it at all breaks my model -
+TFP shock:
+\(\ln A_t = (1-\rho_A)\ln A_{ss} + \rho_A \ln A_{t-1} + \varepsilon_t^A\)
 
-Firms face Rotemberg (1982) price adjustment costs. The real profit
-function is: \begin{equation}
-\Pi_t(j) = \underbrace{\frac{P_t(j)}{P_t} Y_t(j)}_{\text{real revenue}} - \underbrace{\text{MC}_t \cdot Y_t(j)}_{\text{real cost}} - \underbrace{\frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t}_{\text{adjustment cost}}
-\label{firm_profit}
-\end{equation}
+\begin{itemize}
+\tightlist
+\item
+  Monetary policy shocks (\(\varepsilon_t^r, \varepsilon_t^m\)
+\end{itemize}
 
-\emph{Price Setting} Firms maximize discounted future profits:
-\begin{equation}
-\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^{\infty} \beta^s \frac{\lambda_{t+s}}{\lambda_t} \Pi_{t+s}(j)
-\label{firm_objective}
-\end{equation}
+\subsection{Equilibrium and Model
+Closure}\label{equilibrium-and-model-closure}
 
-subject to demand (\ref{demand_intermediate}). In symmetric equilibrium
-(\(P_t(j) = P_t\), \(Y_t(j) = Y_t\)), we obtain the Rotemberg Phillips
-Curve: \begin{equation}
-\psi (\Pi_t - 1) \Pi_t = \epsilon \left(1 - \frac{\text{MC}_t}{\mu}\right) + \beta \psi \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} (\Pi_{t+1} - 1) \Pi_{t+1} \frac{Y_{t+1}}{Y_t} \right]
-\label{phillips_curve}
-\end{equation} where \(\Pi_t \equiv P_t/P_{t-1}\) and
-\(\mu \equiv \epsilon/(\epsilon-1)\).
+\begin{itemize}
+\item
+  Output Gap: \(\hat{Y}_t = Y_t - Y_t^n\) (natural rate output)
+\item
+  Market clearing conditions
+\item
+  Determinacy Requirements: Blanchard-Kahn conditions for policy rules
+\end{itemize}
 
 \emph{Market Clearing} Aggregate production: \begin{equation}
 Y_t = A_t K_{t-1}^{\alpha} h_t^{1-\alpha}
@@ -772,6 +571,14 @@ Factor markets clear: \begin{align}
 \int_0^1 h_t(j) dj &= h_t \\
 \int_0^1 K_t(j) dj &= K_{t-1}
 \end{align}
+
+\section{Steady State}\label{steady-state}
+
+\begin{figure}
+\centering
+\includegraphics{code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png}
+\caption{image}
+\end{figure}
 
 \newpage
 \newpage
@@ -1102,6 +909,61 @@ Index}
 \boxed{MC_t = \dfrac{1}{A_t} \left( \dfrac{R_t^k}{\alpha} \right)^{\alpha} \left( \dfrac{W_t}{1-\alpha} \right)^{1-\alpha}}
 \end{equation}
 
+\begin{align*}
+& \text{Intermediate‐goods producer’s problem:} \\
+& \max_{P_t(j)} \;\mathbb{E}_t \sum_{s=0}^{\infty} \Lambda_{t,t+s}
+  \Bigl[
+    \bigl(\tfrac{P_{t+s}(j)}{P_{t+s}}\bigr)^{1-\epsilon} Y_{t+s}
+    - mc_{t+s}\,\bigl(\tfrac{P_{t+s}(j)}{P_{t+s}}\bigr)^{-\epsilon} Y_{t+s}
+    - \tfrac{\psi}{2}\bigl(\tfrac{P_{t+s}(j)}{P_{t+s-1}(j)} - 1\bigr)^2 Y_{t+s}
+  \Bigr] \\
+& \text{subject to} \quad Y_t(j) = \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} Y_t
+\\[1.5ex]
+& \text{First‐Order Condition w.r.t. }P_t(j): \\
+& \mathbb{E}_t\Bigl[
+    \frac{\partial \Pi_t(j)}{\partial P_t(j)}
+    + \beta\,\Lambda_{t,t+1}
+      \frac{\partial \Pi_{t+1}(j)}{\partial P_t(j)}
+  \Bigr] = 0
+\\[1ex]
+& \frac{\partial \Pi_t}{\partial P_t(j)}
+  = (1-\epsilon)\bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon}\tfrac{Y_t}{P_t}
+    + \epsilon\,mc_t\bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon-1}\tfrac{Y_t}{P_t}
+    - \psi\bigl(\tfrac{P_t(j)}{P_{t-1}(j)}-1\bigr)\tfrac{Y_t}{P_{t-1}(j)}
+\\[1ex]
+& \frac{\partial \Pi_{t+1}}{\partial P_t(j)}
+  = \psi\bigl(\tfrac{P_{t+1}(j)}{P_t(j)}-1\bigr)\,\tfrac{P_{t+1}(j)}{P_t(j)^2}\,Y_{t+1}
+\\[2ex]
+& \text{Impose symmetry: }P_t(j)=P_t,\;Y_t(j)=Y_t,\;\pi_t=\tfrac{P_t}{P_{t-1}}.\\
+& (1-\epsilon)+\epsilon\,mc_t = \epsilon\bigl(mc_t-\tfrac{\epsilon-1}{\epsilon}\bigr),\quad
+  \tfrac{P_t(j)}{P_{t-1}(j)}=\pi_t,\;\tfrac{P_{t+1}(j)}{P_t(j)}=\pi_{t+1}
+\\[1ex]
+& 0 = \epsilon\bigl(mc_t-\tfrac{\epsilon-1}{\epsilon}\bigr)
+      - \psi\,(\pi_t-1)\,\pi_t
+      + \beta\,\mathbb{E}_t\Bigl[
+          \Lambda_{t,t+1}\,\psi\,(\pi_{t+1}-1)\,\pi_{t+1}
+          \,\tfrac{Y_{t+1}P_t}{Y_tP_{t+1}}
+        \Bigr]
+\\[1ex]
+\end{align*}
+
+Noting \(\Lambda_{t,t+1}=\beta\,\tfrac{\lambda_{t+1}}{\lambda_t}\) and
+\(P_{t+1}/P_t=\pi_{t+1}\), the bracket simplifies to
+\(\beta\,\tfrac{\lambda_{t+1}}{\lambda_t}\,\tfrac{Y_{t+1}}{Y_t}\).
+
+\begin{equation}\label{rotemberg_FOC}
+\boxed{
+  0 = \epsilon\Bigl(mc_t - \tfrac{\epsilon-1}{\epsilon}\Bigr)
+      - \psi\,(\pi_t - 1)\,\pi_t
+      + \beta\,\mathbb{E}_t\!
+        \Bigl[
+          \tfrac{\lambda_{t+1}}{\lambda_t}\,
+          \psi\,(\pi_{t+1}-1)\,\pi_{t+1}\,
+          \tfrac{Y_{t+1}}{Y_t}
+        \Bigr]
+}
+\end{equation}
+
 \newpage
 
 \newpage
@@ -1133,177 +995,6 @@ Capital returns: \(R_t^k K_{t-1}\) (Key addition missing in Sims)
 Firm profits: \(\Pi_t\)
 
 Net transfers: \(-P_t \tau_t\)
-
-The utility function above (\ref{household_utility_fun}) must be
-maximised subject to some sort of flow constraint. Note that the flow
-budget is undefined as of now because i am unsure if captial shows up
-there (which it should), bonds must too, hours worked and consumption
-(taxes too surely?)
-
-\begin{equation}
-K_t = (1 - \delta) K_{t-1} + i_t - \frac{\phi}{2} \left( \frac{i_t}{K_{t-1}} - \delta \right)^2 K_{t-1}
-\end{equation}
-
-Key Improvements over Sims Capital integration:
-
-Explicit rental rate \(R_t^k\) for capital services
-
-Physical capital stock \(K_t\) in accumulation process
-
-Convex adjustment costs (\(\phi > 0\))
-
-Real money balances:
-
-Maintains money-in-utility (MIU) specification
-
-Consistent with Walsh (2010) framework
-
-Habit persistence:
-
-\(c_t - \eta c_{t-1}\) with \(\eta \in (0,1)\)
-
-Generates consumption inertia matching SA data
-
-\subsection{Firm Sector with Nominal
-Rigidities}\label{firm-sector-with-nominal-rigidities}
-
-Production function with capital:
-
-\begin{equation}
-Y_t(i) = A_t K_t(i)^{\alpha} H_t(i)^{1-\alpha}, \quad \alpha \in (0,1)
-\label{production}
-\end{equation}
-
-Cost minisations:
-
-\begin{equation}
-\min_{K_t(i), H_t(i)} R_t^k K_t(i) + W_t H_t(i) \quad \text{s.t.} \quad Y_t(i) = A_t K_t(i)^{\alpha} H_t(i)^{1-\alpha}
-\end{equation}
-
-\subsubsection{Perfect competion final goods
-firl}\label{perfect-competion-final-goods-firl}
-
-CES aggreagation:
-
-\begin{equation}
-Y_t = \left( \int_0^1 Y_t(i)^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1
-\label{ces_aggregator}
-\end{equation}
-
-demand function:
-
-\begin{equation}
-Y_t(i) = \left( \frac{P_t(i)}{P_t} \right)^{-\epsilon} Y_t
-\label{demand_curve}
-\end{equation}
-
-\subsubsection{Pricing setting (calvo)}\label{pricing-setting-calvo}
-
-\begin{equation}
-P_t^* = \frac{\epsilon}{\epsilon-1} \frac{
-\mathbb{E}_t \sum_{k=0}^{\infty} (\beta\theta)^k \lambda_{t+k} MC_{t+k} P_{t+k}^{\epsilon} Y_{t+k}
-}{
-\mathbb{E}_t \sum_{k=0}^{\infty} (\beta\theta)^k \lambda_{t+k} P_{t+k}^{\epsilon-1} Y_{t+k}
-}
-\label{optimal_price}
-\end{equation}
-
-Price index dynamics:
-
-\begin{equation}
-P_t^{1-\epsilon} = \theta P_{t-1}^{1-\epsilon} + (1-\theta)(P_t^*)^{1-\epsilon}
-\label{price_index}
-\end{equation}
-
-devidenet distribution:
-
-\begin{equation}
-\Pi_t = \int_0^1 \left[ P_t(i)Y_t(i) - W_t H_t(i) - R_t^k K_t(i) \right] di
-\label{dividends}
-\end{equation}
-
-Aggregate equivalent:
-
-\begin{equation}
-\Pi_t = P_t Y_t - W_t H_t - R_t^k K_t
-\label{agg_dividends}
-\end{equation}
-
-\(Y_t = A_t K_t^\alpha H_t^{1-\alpha}\) Cobb-Douglas
-
-Capital accumulation:
-\(K_{t+1} = (1-\delta)K_t + I_t - \frac{\phi}{2}\left(\frac{I_t}{K_t} - \delta\right)^2 K_t\)
-
-\subsubsection{Nominal Rigidities}\label{nominal-rigidities}
-
-Probability \(\theta=0.75\) of price non-adjustment
-
-Phillips Curve derivation: \(\pi_t = \beta E_t\pi_{t+1} + \kappa mc_t\)
-
-Dividend specification: \(\Pi_t = Y_t - w_t h_t - r_t^k k_t\)
-
-\subsection{Government Sector}\label{government-sector}
-
-Fiscal rule: \(T_t = \tau Y_t\) (lump-sum taxes)
-
-Monetary authority: - Taylor Rule:
-\(R_t = \rho R_{t-1} + (1-\rho)[\phi_\pi \pi_t + \phi_y \hat{Y}_t] + \varepsilon_t^r\)
-
--Money Growth Rule:
-\(\ln \mu_t = \rho_\mu \ln \mu_{t-1} + \varepsilon_t^m\)
-
-\subsection{Exogenous Processes}\label{exogenous-processes}
-
-\begin{itemize}
-\item
-  TFP shock:
-  \(\ln A_t = (1-\rho_A)\ln A_{ss} + \rho_A \ln A_{t-1} + \varepsilon_t^A\)
-\item
-  Monetary policy shocks (\(\varepsilon_t^r, \varepsilon_t^m\)
-\end{itemize}
-
-\subsection{Equilibrium and Model
-Closure}\label{equilibrium-and-model-closure}
-
-\begin{itemize}
-\item
-  Output Gap: \(\hat{Y}_t = Y_t - Y_t^n\) (natural rate output)
-\item
-  Market clearing conditions
-\item
-  Determinacy Requirements: Blanchard-Kahn conditions for policy rules
-\end{itemize}
-
-\section{Solution Strategy}\label{solution-strategy}
-
-\subsection{Steady State Derivation}\label{steady-state-derivation}
-
-\subsection{Log-Linearization
-Techniques}\label{log-linearization-techniques}
-
-\subsection{Determinacy Analysis}\label{determinacy-analysis}
-
-\section{The Steady State}\label{the-steady-state}
-
-Taylor principle verification (\(\phi_\pi > 1\))
-
-\begin{figure}
-\centering
-\includegraphics{code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png}
-\caption{image}
-\end{figure}
-
-\section{Parameterization}\label{parameterization}
-
-\subsection{Calibration Table}\label{calibration-table}
-
-\subsection{Data Alignment}\label{data-alignment}
-
-\section{Quantitative Analysis}\label{quantitative-analysis}
-
-\begin{verbatim}
-## [1] "works"
-\end{verbatim}
 
 \newpage
 

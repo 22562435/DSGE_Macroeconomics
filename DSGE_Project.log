@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  15 JUN 2025 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  16 JUN 2025 13:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,22 +542,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (./DSGE_Project.aux
 
-LaTeX Warning: Label `intermediate_production' multiply defined.
-
-
 LaTeX Warning: Label `marginal_cost' multiply defined.
-
-
-LaTeX Warning: Label `firm_profit' multiply defined.
-
-
-LaTeX Warning: Label `marginal_cost' multiply defined.
-
-
-LaTeX Warning: Label `production' multiply defined.
-
-
-LaTeX Warning: Label `price_index' multiply defined.
 
 )
 \openout1 = `DSGE_Project.aux'.
@@ -627,52 +612,57 @@ Package hyperref Info: Link coloring ON on input line 199.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 243.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 243.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 243.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 243.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 243.
+(Font)              <9> on input line 237.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 243.
+(Font)              <6> on input line 237.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 243.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 243.
+(Font)              <5> on input line 237.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 243.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 243.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 237.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 243.
+(Font)              <10.95> on input line 237.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 243.
+(Font)              <8> on input line 237.
 
 
 [1
 
 
-{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-[2{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
@@ -682,36 +672,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--428
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
-
- []
-
-
-
-[3]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 448.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 442.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[4{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+[3{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[4]
 
 [5]
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 594--596
+<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=153, 354.6048pt x 275.3487pt>
+File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
+<use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
+Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 579.
+(pdftex.def)             Requested size: 354.60391pt x 275.348pt.
 
+
+[7 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
+Overfull \hbox (150.35068pt too wide) detected at line 600
+[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--603
-
- []
-
-
-
-[7]
 
 [8]
 
@@ -720,11 +705,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 601--603
 [10]
 
 [11]
-Overfull \hbox (150.35068pt too wide) detected at line 793
-[]
- []
-
-
 
 [12]
 
@@ -739,60 +719,33 @@ Overfull \hbox (150.35068pt too wide) detected at line 793
 [17]
 
 [18]
-
-[19]
-
-[20]
-
-LaTeX Warning: Reference `household_utility_fun' on page 21 undefined on input line 1137.
-
-
-
-[21]
-
-[22]
-
-[23]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=395, 354.6048pt x 275.3487pt>
-File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
-<use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 1292.
-(pdftex.def)             Requested size: 354.60391pt x 275.348pt.
-
-
-[24]
-
-[25 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
 No file DSGE_Project.bbl.
 
 
-[26] (./DSGE_Project.aux)
+[19] (./DSGE_Project.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: FA2833582BDE45EE0198A9545C31C54D;6857.
+(rerunfilecheck)             Checksum: 004255AC8E5CEB828323E5186504403A;2635.
  ) 
 Here is how much of TeX's memory you used:
- 17100 strings out of 469866
- 321335 string characters out of 5482728
- 708362 words of memory out of 5000000
- 45021 multiletter control sequences out of 15000+600000
- 692369 words of font info for 84 fonts, out of 8000000 for 9000
+ 16992 strings out of 469866
+ 319438 string characters out of 5482728
+ 713606 words of memory out of 5000000
+ 44960 multiletter control sequences out of 15000+600000
+ 692050 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,20n,79p,549b,1185s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (26 pages, 485355 bytes).
+ 75i,20n,79p,549b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on DSGE_Project.pdf (19 pages, 438185 bytes).
 PDF statistics:
- 539 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 120 named destinations out of 1000 (max. 500000)
- 326 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 289 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
