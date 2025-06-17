@@ -192,6 +192,13 @@ shocks;
   var eps_m; stderr sigma_m;
 end;
 '
+
+# will set eval to true when happy with MOD file
+write_mod(
+  code  = dynareCodes_NKM,
+  model = "code/nkm_model"
+)
+
 ```
 
 
@@ -329,56 +336,60 @@ Equation \ref{capital_euler} defines Tobin’s $q_t$ - the value of an additiona
 ## Production 
 
 
-While the RBC model features a single representative firm under perfect competition, we now introduce two layers of firms to capture monopolistic competition and nominal rigidities:  
-**1. Final goods producer** (perfectly competitive aggregator)  
-**2. Intermediate goods producers** (monopolistically competitive with sticky prices)
+This model departs from standard RBC frameworks by introducing monopolistic competition and nominal rigidities. This is achieved through two layers of firms:  
+
+1. **Perfectly competitive final goods producers** who aggregate intermediate goods  
+2. **Monopolistically competitive intermediate goods producers** with price-setting power  
+
+This structure allows us to capture key New Keynesian features while maintaining tractability.  
+
 
 
 ### Final Goods Producer
 
-**(Perfectly competitive, zero profits)**  
-**Role**: Aggregates differentiated inputs into final output.
+*(Perfectly competitive aggregator)*  
 
-**Key equations:**
+The final goods firm combines differentiated inputs \(Y_t(j)\) into final output \(Y_t\) using a CES technology:  
 
-**CES Production Function**:  
 \begin{equation}  
 Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}}  dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1  
 \label{ces_production}  
 \end{equation}  
 
-**Demand for Good \( j \)**:  
+Where \(\epsilon\) aptures the elasticity of substitution between varieties: the higher it is, the more easily final goods producers can substitute across inputs. Conversely, a lower \(\epsilon\) implies that intermediate producers face less competition and enjoy greater market power.
+
+Given the CES aggregator in Equation \eqref{ces_production}, the final goods producer chooses input varieties to minimize the cost of delivering one unit of output. The resulting demand and pricing relationships, derived in Appendix \ref{final_good_producer_appendix}, are:
+
+  
 \begin{equation}  
 Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t  
 \label{demand_curve_final}  
 \end{equation}  
 
-**Aggregate Price Index**:  
+  
 \begin{equation}  
 P_t = \left( \int_0^1 P_t(j)^{1-\epsilon}  dj \right)^{\frac{1}{1-\epsilon}}  
 \label{aggregate_price_index}  
 \end{equation}
   
   
-Equations \ref{demand_curve_final} and \ref{aggregate_price_index} are derived from \ref{ces_production}  in Appendix \ref{final_good_producer_appendix}.
+Equation \ref{demand_curve_final} shows that more expensive varieties are purchased in smaller quantities, while Equation \ref{aggregate_price_index} reflects the minimum cost of assembling one unit of final output given prevailing input prices.
 
-**Economic Intuition:**
-
-- \( \epsilon \): Elasticity of substitution (lower \( \epsilon \) implies more market power)
-- Demand for \( j \) decreases with its relative price \( \frac{P_t(j)}{P_t} \)
 
 
 ### Intermediate Goods Producers
 
-**(Monopolistic competitors, indexed by \( j \in [0,1] \))** Each firm $j$ produces with Cobb-Douglas technology:
+**(Monopolistic competitors, indexed by \( j \in [0,1] \))** 
+
+
+Each firm \(j\) produces with identical Cobb-Douglas technology:  
 \begin{equation}
 Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \label{intermediate_production}
 \end{equation}
 
-- Identical technology \( A_t \) (common TFP shock)
-- Firms rent capital \( K_t(j) \) and labor \( h_t(j) \) from households
-- Competitive factor markets: prices \( R_t^k \), \( W_t \)
+- Rent capital \(K_t(j)\) and labor \(h_t(j)\) at competitive rates \(R_t^k\), \(W_t\)  
+- Face common TFP shocks \(A_t\)  
 
 
 Minimizing costs yields nominal marginal cost (common to all firms - derived in Appendix \ref{intermediate_good_producer_appendix}):
@@ -588,11 +599,6 @@ Note that all equations will go here.
 
 
 ```{r running-dynare, eval=FALSE}
-# will set eval to true when happy with MOD file
-write_mod(
-  code  = dynareCodes_NKM,
-  model = "code/nkm_model"
-)
 
 
 nkm_results <- run_dynare(

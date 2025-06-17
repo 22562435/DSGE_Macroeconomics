@@ -422,59 +422,70 @@ are costly and create frictions.
 
 \subsection{Production}\label{production}
 
-While the RBC model features a single representative firm under perfect
-competition, we now introduce two layers of firms to capture
-monopolistic competition and nominal rigidities:\\
-\textbf{1. Final goods producer} (perfectly competitive aggregator)\\
-\textbf{2. Intermediate goods producers} (monopolistically competitive
-with sticky prices)
+This model departs from standard RBC frameworks by introducing
+monopolistic competition and nominal rigidities. This is achieved
+through two layers of firms:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Perfectly competitive final goods producers} who aggregate
+  intermediate goods\\
+\item
+  \textbf{Monopolistically competitive intermediate goods producers}
+  with price-setting power
+\end{enumerate}
+
+This structure allows us to capture key New Keynesian features while
+maintaining tractability.
 
 \subsubsection{Final Goods Producer}\label{final-goods-producer}
 
-\textbf{(Perfectly competitive, zero profits)}\\
-\textbf{Role}: Aggregates differentiated inputs into final output.
+\emph{(Perfectly competitive aggregator)}
 
-\textbf{Key equations:}
+The final goods firm combines differentiated inputs \(Y_t(j)\) into
+final output \(Y_t\) using a CES technology:
 
-\textbf{CES Production Function}:\\
 \begin{equation}  
 Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}}  dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1  
 \label{ces_production}  
 \end{equation}
 
-\textbf{Demand for Good \(j\)}:\\
+Where \(\epsilon\) aptures the elasticity of substitution between
+varieties: the higher it is, the more easily final goods producers can
+substitute across inputs. Conversely, a lower \(\epsilon\) implies that
+intermediate producers face less competition and enjoy greater market
+power.
+
+Given the CES aggregator in Equation \eqref{ces_production}, the final
+goods producer chooses input varieties to minimize the cost of
+delivering one unit of output. The resulting demand and pricing
+relationships, derived in Appendix \ref{final_good_producer_appendix},
+are:
+
 \begin{equation}  
 Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t  
 \label{demand_curve_final}  
 \end{equation}
 
-\textbf{Aggregate Price Index}:\\
 \begin{equation}  
 P_t = \left( \int_0^1 P_t(j)^{1-\epsilon}  dj \right)^{\frac{1}{1-\epsilon}}  
 \label{aggregate_price_index}  
 \end{equation}
 
-Equations \ref{demand_curve_final} and \ref{aggregate_price_index} are
-derived from \ref{ces_production} in Appendix
-\ref{final_good_producer_appendix}.
-
-\textbf{Economic Intuition:}
-
-\begin{itemize}
-\tightlist
-\item
-  \(\epsilon\): Elasticity of substitution (lower \(\epsilon\) implies
-  more market power)
-\item
-  Demand for \(j\) decreases with its relative price
-  \(\frac{P_t(j)}{P_t}\)
-\end{itemize}
+Equation \ref{demand_curve_final} shows that more expensive varieties
+are purchased in smaller quantities, while Equation
+\ref{aggregate_price_index} reflects the minimum cost of assembling one
+unit of final output given prevailing input prices.
 
 \subsubsection{Intermediate Goods
 Producers}\label{intermediate-goods-producers}
 
-\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))} Each
-firm \(j\) produces with Cobb-Douglas technology: \begin{equation}
+\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))}
+
+Each firm \(j\) produces with identical Cobb-Douglas technology:\\
+\begin{equation}
 Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \label{intermediate_production}
 \end{equation}
@@ -482,11 +493,10 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \begin{itemize}
 \tightlist
 \item
-  Identical technology \(A_t\) (common TFP shock)
+  Rent capital \(K_t(j)\) and labor \(h_t(j)\) at competitive rates
+  \(R_t^k\), \(W_t\)\\
 \item
-  Firms rent capital \(K_t(j)\) and labor \(h_t(j)\) from households
-\item
-  Competitive factor markets: prices \(R_t^k\), \(W_t\)
+  Face common TFP shocks \(A_t\)
 \end{itemize}
 
 Minimizing costs yields nominal marginal cost (common to all firms -
