@@ -274,7 +274,7 @@ From which we can derive the following equations, found in full form in Appendix
 \end{equation}
 
 
-Equation \ref{consEuler} describes the household’s optimal consumption decision over time. On the left-hand side, we have the marginal utility of consumption today, which takes into account *habit formation* — meaning that current satisfaction from consuming $c_t$ is reduced if past consumption $c_{t-1}$ was high. The right-hand side reflects the expected marginal benefit of postponing consumption to the next period: it combines the expected *real return* on bonds, $R_t^B \cdot \frac{P_t}{P_{t+1}}$, with the marginal utility of tomorrow’s (habit-adjusted) consumption, $c_{t+1} - \eta\,c_t$.
+Equation \ref{consEuler} describes the household’s optimal consumption decision over time. On the left-hand side, we have the marginal utility of consumption today, which takes into account *habit formation* - meaning that current satisfaction from consuming $c_t$ is reduced if past consumption $c_{t-1}$ was high. The right-hand side reflects the expected marginal benefit of postponing consumption to the next period: it combines the expected *real return* on bonds, $R_t^B \cdot \frac{P_t}{P_{t+1}}$, with the marginal utility of tomorrow’s (habit-adjusted) consumption, $c_{t+1} - \eta\,c_t$.
 
 Put simply, households balance the gain from consuming now against the expected value of saving and consuming later. Habit persistence, captured by $\eta$, introduces a kind of “inertia” in consumption preferences, while inflation, through the price ratio $\frac{P_t}{P_{t+1}}$, adjusts the real value of future returns.
 
@@ -288,7 +288,7 @@ Put simply, households balance the gain from consuming now against the expected 
         \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
 \end{equation}
 
-Equation \ref{labourSupply} links the real wage $\frac{W_t}{P_t}$ to the household’s labour supply decision. The right-hand side captures the trade-off between working more hours, $h_t$, and the (habit-adjusted) marginal utility of consumption. Stronger habit formation ($\eta$) lowers the perceived benefit of consumption, so households require a higher real wage to be willing to work the same amount — especially when the disutility of labour rises more steeply with hours ($\gamma$ large).
+Equation \ref{labourSupply} links the real wage $\frac{W_t}{P_t}$ to the household’s labour supply decision. The right-hand side captures the trade-off between working more hours, $h_t$, and the (habit-adjusted) marginal utility of consumption. Stronger habit formation ($\eta$) lowers the perceived benefit of consumption, so households require a higher real wage to be willing to work the same amount - especially when the disutility of labour rises more steeply with hours ($\gamma$ large).
 
 
 \begin{equation}\label{money_demand}
@@ -524,12 +524,12 @@ Government spending process
 $$
      B_t \;=\; B^g_t
      \tag{Bond market clear}
-   $$
+$$
 
    Bonds held by households are exactly the bonds issued by government.
 
 **Fiscal rules (exogenous processes)**
-   You need laws of motion for $G_t$ and/or $\tau_t$.  Two common examples are
+need laws of motion for $G_t$ and/or $\tau_t$.  Two  examples 
 
    * **Autoregressive spending**
 
@@ -544,7 +544,6 @@ $$
        \tag{Exog.\ tax}
      $$
 
-   or, if you prefer a balanced‐budget rule each period, simply set $G_t = \tau_t$.
    
 
 
