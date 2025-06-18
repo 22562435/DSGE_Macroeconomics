@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  17 JUN 2025 13:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  18 JUN 2025 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -165,7 +165,7 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/05/18 v2.17x AMS math features
+Package: amsmath 2025/06/16 v2.17y AMS math features
 \@mathmargin=\skip55
 For additional information on amsmath, use the `?' option.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -544,6 +544,9 @@ Package color Info: Driver file: pdftex.def on input line 149.
 
 LaTeX Warning: Label `marginal_cost' multiply defined.
 
+
+LaTeX Warning: Label `rotemberg_FOC' multiply defined.
+
 )
 \openout1 = `DSGE_Project.aux'.
 
@@ -665,44 +668,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 433--436
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 487--488
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 496.
-(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 496--499
+Underfull \hbox (badness 10000) in paragraph at lines 488--490
 
  []
 
 
 
-[4{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+[4]
 
 [5]
 
 [6]
 
 [7]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=188, 354.6048pt x 275.3487pt>
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 669.
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+[8{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.777 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.777 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.777 \end{equation}
+                    ]
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.785 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.785 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.785 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.785 \begin{equation}
+                      
+<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=216, 354.6048pt x 275.3487pt>
 File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
 <use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 667.
+Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 794.
 (pdftex.def)             Requested size: 354.60391pt x 275.348pt.
 
 
-[8 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
-Overfull \hbox (150.35068pt too wide) detected at line 688
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.798 \newpage
+               <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
+Overfull \hbox (150.35068pt too wide) detected at line 815
 []
  []
 
 
-
-[9]
-
-[10]
 
 [11]
 
@@ -721,10 +785,14 @@ Overfull \hbox (150.35068pt too wide) detected at line 688
 [18]
 
 [19]
+
+[20]
+
+[21]
 No file DSGE_Project.bbl.
 
 
-[20] (./DSGE_Project.aux)
+[22] (./DSGE_Project.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -733,21 +801,21 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: 72D388BD6EE6480DC8DE1B54D10C932B;3053.
+(rerunfilecheck)             Checksum: 63150C318B8CF7386729FD237B4354A0;2901.
  ) 
 Here is how much of TeX's memory you used:
- 17027 strings out of 469866
- 320033 string characters out of 5482728
- 714078 words of memory out of 5000000
- 44981 multiletter control sequences out of 15000+600000
+ 17043 strings out of 469866
+ 320209 string characters out of 5482728
+ 714102 words of memory out of 5000000
+ 44985 multiletter control sequences out of 15000+600000
  692050 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,20n,79p,549b,1115s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,20n,79p,549b,1105s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (20 pages, 448121 bytes).
+Output written on DSGE_Project.pdf (22 pages, 455279 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 464 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 100 named destinations out of 1000 (max. 500000)
  166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

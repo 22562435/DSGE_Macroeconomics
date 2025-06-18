@@ -437,15 +437,16 @@ through two layers of firms:
   with price-setting power
 \end{enumerate}
 
-This structure allows us to capture key New Keynesian features while
-maintaining tractability.
+This two-tiered structure captures core New Keynesian dynamics, such as
+price stickiness and strategic pricing, while retaining analytical
+tractability.
 
 \subsubsection{Final Goods Producer}\label{final-goods-producer}
 
 \emph{(Perfectly competitive aggregator)}
 
 The final goods firm combines differentiated inputs \(Y_t(j)\) into
-final output \(Y_t\) using a CES technology:
+final output \(Y_t\) using a CES aggregator:
 
 \begin{equation}  
 Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}}  dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1  
@@ -482,32 +483,56 @@ unit of final output given prevailing input prices.
 \subsubsection{Intermediate Goods
 Producers}\label{intermediate-goods-producers}
 
-\textbf{(Monopolistic competitors, indexed by \(j \in [0,1]\))}
+\textbf{(Monopolistically competitive firms, with nominal rigidities)}
 
-Each firm \(j\) produces with identical Cobb-Douglas technology:\\
+Each intermediate firm \(j\) produces with identical Cobb-Douglas
+technology:\\
 \begin{equation}
 Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \label{intermediate_production}
 \end{equation}
 
-\begin{itemize}
-\tightlist
-\item
-  Rent capital \(K_t(j)\) and labor \(h_t(j)\) at competitive rates
-  \(R_t^k\), \(W_t\)\\
-\item
-  Face common TFP shocks \(A_t\)
-\end{itemize}
-
-Minimizing costs yields nominal marginal cost (common to all firms -
-derived in Appendix \ref{intermediate_good_producer_appendix}):
+Cost minimization yields the real marginal cost:
 
 \begin{equation}
 \text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
 \label{marginal_cost}
 \end{equation}
 
-Firms face Rotemberg (1982) price adjustment costs.
+Equation \eqref{marginal_cost}, which is derived in Appendix
+\ref{intermediate_good_producer_appendix}), captures the firm's cost of
+producing one unit of output, given factor prices and technology. A rise
+in wages or rental rates increases marginal cost, while higher
+productivity \(A_t\) reduces it.
+
+Intermediate firms set prices subject to Rotemberg-style adjustment
+costs. The firm chooses a price path to maximize the expected discounted
+sum of profits, which includes a quadratic penalty for deviating from
+past prices. Imposing symmetry and using first-order conditions, we
+obtain the pricing equation:
+
+Newer
+
+\begin{equation}\label{rotemberg_FOC}
+\boxed{
+0 = \epsilon\left(mc_t - \tfrac{\epsilon-1}{\epsilon}\right)
+- \psi(\pi_t - 1)\pi_t
++ \beta\mathbb{E}_t
+\Bigl[
+\tfrac{\lambda_{t+1}}{\lambda_t}
+\psi(\pi_{t+1}-1)\pi_{t+1}
+\tfrac{Y_{t+1}}{Y_t}
+\Bigr]
+}
+\end{equation}
+
+Equation \eqref{rotemberg_FOC} is a New Keynesian Phillips Curve under
+Rotemberg pricing. It links inflation dynamics \(\pi_t\) to real
+marginal costs \(mc_t\) and expected future inflation. The parameter
+\(\psi\) governs price rigidity: higher values imply stronger penalties
+for price changes and thus more persistent inflation dynamics.
+
+OLDER
 
 \[
 \text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
@@ -527,9 +552,9 @@ The real profit function is: \begin{equation}
 where: - \(\Lambda_{t,t+s} = \beta^s \frac{\lambda_{t+s}}{\lambda_t}\) =
 Stochastic discount factor (from households) -
 \(mc_t = \frac{\text{MC}_t}{P_t}\) = Real marginal cost (eq
-\ref{marginal_cost}) -
+\eqref{marginal_cost}) -
 \(Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t\) (demand
-curve from eq \ref{demand_curve_final})
+curve from eq \eqref{demand_curve_final})
 
 \textbf{Optimal Price Setting}\\
 Each intermediate firm \(j\) maximizes discounted real profits,
@@ -558,6 +583,16 @@ prices)
 
 \subsection{Government Sector}\label{government-sector}
 
+Government sector is from Sims (\citeproc{ref-sims2024fiscal}{2024c})'s
+notes. Government chooses spending, (term), exogenously. It finances
+spending with lump-sum taxes and issues new debt.
+
+Gov budget constraint (nominal) \begin{equation}
+G_t + R^B_{t-1} D_{t-1} \leq D_t + P_t \tau_t \label{Gov_Budget}
+\end{equation}
+
+With \(R^Bt\) being the interest rate on bonds for period \(t\).
+
 To ensure internal consistency, I introduce a simple government sector.
 The government issues one-period nominal bonds purchased by households,
 uses tax revenues to finance an exogenous stream of government spending,
@@ -568,71 +603,90 @@ not model Ricardian equivalence effects explicitly. Bonds held by
 households are thus assumed to be government-issued, closing the
 financial side of the model.
 
-Gov budget constraint (nominal) \begin{equation}
-P_t G_t + R^B_{t-1} B_{t-1} = B_t + P_t \tau_t \label{Gov_Budget}
-\end{equation}
-
-The following is not decided upon, and probably will go in section
-\ref{PEA}. tax rule: \begin{equation}
-\tau_t = \tau_{ss} + \phi_b (b_{t-1} - b_{ss}) \quad \phi_b > 0 \label{Tax_Rule}
-\end{equation}
-
-bond market clearing: \begin{align*}
-B_t = B^g_t 
-\end{align*}
-
-Government spending process \begin{equation}
-\log(G_t) = (1-\rho_g)\log(G_{ss}) + \rho_g \log(G_{t-1}) + \varepsilon^g_t \label{Gov_Spending}
-\end{equation}
-
 \section{\texorpdfstring{Policy, Equilibrium, and Aggregation
 \label{PEA}}{Policy, Equilibrium, and Aggregation }}\label{policy-equilibrium-and-aggregation}
 
-\textbf{Bond‐market clearing}
+A competitive equilibrium is a set of prices () and allocations () such
+that (i) household and rm optimality conditions all hold, (ii) the rm
+hires all the labour and capital supplied by the household, (iii) the
+household and rm budget constraints hold with equality, and (iv)
+household bond-holdings equal government debt issuance in all periods
+(i.e.~Bt+1 = Dt+1, and we require that Bt = Dt initially), given values
+and stochastic processes of Gt and At, as well as initial values of
+government debt and household bond-holdings, which must be equal
+(e.g.~Bt =Dt).
 
 \[
-     B_t \;=\; B^g_t
+     B_t \;=\; D_t
      \tag{Bond market clear}
 \]
 
-Bonds held by households are exactly the bonds issued by government.
+\subsection{Exogenous Processes}\label{exogenous-processes}
 
-\textbf{Fiscal rules (exogenous processes)} need laws of motion for
-\(G_t\) and/or \(\tau_t\). Two examples
+Government spending, taxes, and technology evolve according to exogenous
+AR(1) processes.
+
+Real taxes follow Equation \eqref{real_taxes}, \begin{equation}
+\tau_t = (1-\rho_\tau)\bar{\tau} + \rho_\tau \tau_{t-1} + \varepsilon_t^\tau 
+\label{real_taxes}
+\end{equation} where \(\bar{\tau}\) is the steady-state level,
+\(\rho_\tau\) controls persistence, and \(\varepsilon_t^\tau\) is a
+fiscal shock.
+
+Government spending is governed by Equation \eqref{gov_spending},
+\begin{equation}
+g_t = (1-\rho_g)\bar{g} + \rho_g g_{t-1} + \varepsilon_t^g 
+\label{gov_spending}
+\end{equation} with similar dynamics: mean reversion around \(\bar{g}\)
+and shocks \(\varepsilon_t^g\).
+
+Technology evolves log-linearly as in Equation
+\eqref{technology_process}, \begin{equation}
+\ln A_t = \rho_a \ln A_{t-1} + \varepsilon_t^a 
+\label{technology_process}
+\end{equation} ensuring a unit steady-state level and allowing for
+persistent TFP shocks.
+
+\section{old}\label{old}
+
+\begin{equation}
+T_t
+\;=\;
+(1 - \rho_T)\,\bar T
+\;+\;
+\rho_T\,T_{t-1}
+\;+\;
+\varepsilon_t^T,
+\qquad
+0 \le \rho_T <1,
+\end{equation}
+
+where
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Autoregressive spending}
-
-  \[
-    G_t \;=\;\rho_g\,G_{t-1} \;+\; \varepsilon^g_t
-    \tag{Exog.\ spending}
-  \]
+  \(\bar T\) is the (constant) long‐run level of nominal taxes,
 \item
-  \textbf{Autoregressive lump--sum tax}
-
-  \[
-    \tau_t \;=\;\rho_\tau\,\tau_{t-1} \;+\; \varepsilon^\tau_t
-    \tag{Exog.\ tax}
-  \]
+  \(\rho_T\) governs the persistence of tax shocks, and
+\item
+  \(\varepsilon_t^T\) is an i.i.d. fiscal‐shock process.
 \end{itemize}
 
-\subsection{Exogenous Processes}\label{exogenous-processes}
+Because \(\tau_t = T_t/P_t\), this fully pins down the lump‐sum tax rate
+each period (once you know the price level \(P_t\)). In your code you
+would simply treat \(T_t\) as an exogenous state whose only ``choice''
+is driven by the AR(1) shock \(\varepsilon_t^T\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 Unsure on the following before i look up if it at all breaks my model -
 TFP shock:
 \(\ln A_t = (1-\rho_A)\ln A_{ss} + \rho_A \ln A_{t-1} + \varepsilon_t^A\)
 
 \begin{itemize}
-\tightlist
 \item
   Monetary policy shocks (\(\varepsilon_t^r, \varepsilon_t^m\)
-\end{itemize}
-
-\subsection{Equilibrium and Model
-Closure}\label{equilibrium-and-model-closure}
-
-\begin{itemize}
 \item
   Output Gap: \(\hat{Y}_t = Y_t - Y_t^n\) (natural rate output)
 \item
@@ -658,7 +712,80 @@ Factor markets clear: \begin{align}
 
 \subsection{Full Set of Conditions}\label{full-set-of-conditions}
 
-Note that all equations will go here.
+\begin{equation}
+K_t
+\;=\;
+(1 - \delta)\,K_{t-1}
+\;+\; I_t
+\;-\;\frac{\phi}{2}
+\left(\frac{I_t}{K_{t-1}} - \delta\right)^{2}
+\,K_{t-1}
+\tag{\ref{capital_accumulation_nominal}}
+\end{equation}
+
+\begin{equation}
+  (c_t - \eta\,c_{t-1})^{-\theta}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
+  \Bigr]
+  \tag{\ref{consEuler}}
+\end{equation}
+
+\begin{equation}
+  \frac{W_t}{P_t}
+  \;=\;
+  \frac{\chi\,h_t^{\gamma}}
+       {(c_t - \eta\,c_{t-1})^{-\theta}
+        \;-\;
+        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
+        \tag{\ref{labourSupply}}
+\end{equation}
+
+\begin{equation}
+  M_t
+  \;=\;
+  \frac{\psi}
+       {\beta\,\mathbb{E}_t\!\Bigl[
+         (R_t^B - 1)
+         \;\cdot\;
+         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
+               \;-\;
+               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
+              {P_{t+1}}
+       \Bigr]}
+       \tag{\ref{money_demand}}
+\end{equation}
+
+\begin{equation}\tag{\ref{capital_euler}}
+  \begin{gathered}
+  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
+  \\
+  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    \lambda_{t+1}\Bigl(
+      R_{t+1}^k
+      + \frac{1}{q_{t+1}}
+        \Bigl(
+          1 - \delta
+          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+        \Bigr)
+    \Bigr)
+  \Bigr]
+  \end{gathered}
+\end{equation}
+
+Each firm \(j\) produces with identical Cobb-Douglas technology:\\
+\begin{equation}
+Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
+\tag{\ref{intermediate_production}}
+\end{equation}
+
+\begin{equation}
+(\pi_t - 1)\pi_t = \frac{\epsilon}{\psi} \left( mc_t - \frac{\epsilon-1}{\epsilon} \right) + \beta \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} \frac{Y_{t+1}}{Y_t} (\pi_{t+1} - 1)\pi_{t+1} \right]
+\tag{\ref{nkpc}}
+\end{equation}
 
 \section{Steady State}\label{steady-state}
 
@@ -1084,13 +1211,21 @@ Markdown}, and {Quarto}. \emph{CRAN}. {[}Online{]}, Available:
 
 \bibitem[\citeproctext]{ref-sims2024newkeynesian}
 Sims, E. 2024a. \emph{Graduate macro theory II: The basic new keynesian
-model}. (Working Paper / Lecture Notes). University of Notre Dame.
+model}. (Lecture Notes ECON 60202 -- Spring 2024). Notre Dame, IN:
+University of Notre Dame. {[}Online{]}, Available:
+\url{https://sites.nd.edu/esims/files/2024/03/notes_new_keynesian_2024-1.pdf}.
 
 \bibitem[\citeproctext]{ref-sims2024rbc}
 Sims, E. 2024b. \emph{Graduate macro theory II: Extensions of basic RBC
-framework}. (Course notes ECON\,60202 -- Spring\,2024). University of
-Notre Dame. {[}Online{]}, Available:
+framework}. (Lecture Notes ECON 60202 -- Spring 2024). Notre Dame, IN:
+University of Notre Dame. {[}Online{]}, Available:
 \url{https://sites.nd.edu/esims/files/2024/02/notes_rbc_extensions_2024.pdf}.
+
+\bibitem[\citeproctext]{ref-sims2024fiscal}
+Sims, E. 2024c. \emph{Fiscal policy in the RBC model}. (Lecture Notes
+ECON 60202 -- Spring 2024). Notre Dame, IN: University of Notre Dame.
+{[}Online{]}, Available:
+\url{https://sites.nd.edu/esims/files/2024/02/notes_fiscal_policy_2024.pdf}.
 
 \end{CSLReferences}
 

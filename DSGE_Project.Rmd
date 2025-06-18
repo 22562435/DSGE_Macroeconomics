@@ -341,15 +341,14 @@ This model departs from standard RBC frameworks by introducing monopolistic comp
 1. **Perfectly competitive final goods producers** who aggregate intermediate goods  
 2. **Monopolistically competitive intermediate goods producers** with price-setting power  
 
-This structure allows us to capture key New Keynesian features while maintaining tractability.  
-
+This two-tiered structure captures core New Keynesian dynamics, such as price stickiness and strategic pricing, while retaining analytical tractability.
 
 
 ### Final Goods Producer
 
 *(Perfectly competitive aggregator)*  
 
-The final goods firm combines differentiated inputs \(Y_t(j)\) into final output \(Y_t\) using a CES technology:  
+The final goods firm combines differentiated inputs \(Y_t(j)\) into final output \(Y_t\) using a CES aggregator:  
 
 \begin{equation}  
 Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}}  dj \right)^{\frac{\epsilon}{\epsilon-1}}, \quad \epsilon > 1  
@@ -379,27 +378,60 @@ Equation \ref{demand_curve_final} shows that more expensive varieties are purcha
 
 ### Intermediate Goods Producers
 
-**(Monopolistic competitors, indexed by \( j \in [0,1] \))** 
+**(Monopolistically competitive firms,  with nominal rigidities)**
 
 
-Each firm \(j\) produces with identical Cobb-Douglas technology:  
+Each intermediate firm \(j\) produces with identical Cobb-Douglas technology:  
 \begin{equation}
 Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \label{intermediate_production}
 \end{equation}
 
-- Rent capital \(K_t(j)\) and labor \(h_t(j)\) at competitive rates \(R_t^k\), \(W_t\)  
-- Face common TFP shocks \(A_t\)  
-
-
-Minimizing costs yields nominal marginal cost (common to all firms - derived in Appendix \ref{intermediate_good_producer_appendix}):
+Cost minimization yields the real marginal cost:
 
 \begin{equation}
 \text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
 \label{marginal_cost}
 \end{equation}
 
-Firms face Rotemberg (1982) price adjustment costs. 
+
+Equation \eqref{marginal_cost}, which is derived in Appendix \ref{intermediate_good_producer_appendix}), captures the firm's cost of producing one unit of output, given factor prices and technology. A rise in wages or rental rates increases marginal cost, while higher productivity $A_t$ reduces it.
+
+
+Intermediate firms set prices subject to Rotemberg-style adjustment costs. The firm chooses a price path to maximize the expected discounted sum of profits, which includes a quadratic penalty for deviating from past prices. Imposing symmetry and using first-order conditions, we obtain the pricing equation:
+
+
+
+
+Newer
+
+\begin{equation}\label{rotemberg_FOC}
+\boxed{
+0 = \epsilon\left(mc_t - \tfrac{\epsilon-1}{\epsilon}\right)
+- \psi(\pi_t - 1)\pi_t
++ \beta\mathbb{E}_t
+\Bigl[
+\tfrac{\lambda_{t+1}}{\lambda_t}
+\psi(\pi_{t+1}-1)\pi_{t+1}
+\tfrac{Y_{t+1}}{Y_t}
+\Bigr]
+}
+\end{equation}
+
+Equation \eqref{rotemberg_FOC} is a New Keynesian Phillips Curve under Rotemberg pricing. It links inflation dynamics $\pi_t$ to real marginal costs $mc_t$ and expected future inflation. The parameter $\psi$ governs price rigidity: higher values imply stronger penalties for price changes and thus more persistent inflation dynamics.
+
+
+
+
+
+
+
+
+
+
+
+
+OLDER
 
 \[
 \text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
@@ -421,8 +453,8 @@ The real profit function is:
 
 where:
 - \(\Lambda_{t,t+s} = \beta^s \frac{\lambda_{t+s}}{\lambda_t}\) = Stochastic discount factor (from households)
-- \(mc_t = \frac{\text{MC}_t}{P_t}\) = Real marginal cost (eq \ref{marginal_cost})
-- \(Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t\) (demand curve from eq \ref{demand_curve_final})
+- \(mc_t = \frac{\text{MC}_t}{P_t}\) = Real marginal cost (eq \eqref{marginal_cost})
+- \(Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t\) (demand curve from eq \eqref{demand_curve_final})
 
 
 
@@ -450,7 +482,21 @@ where \(mc_t = \text{MC}_t / P_t\) (real marginal cost) and \(\lambda_t\) is the
 
 
 
+## ignore
 
+### Price Setting and Inflation Dynamics
+
+Intermediate goods producers face costs when adjusting their prices, following the Rotemberg (1982) framework. These adjustment costs are quadratic in the inflation rate, meaning firms pay increasingly higher costs for larger price changes. The functional form captures the economic intuition that rapid price adjustments are more disruptive and costly than gradual ones.
+
+When setting prices, each firm balances three key considerations. First, higher prices generate more revenue per unit sold. Second, production becomes more expensive as output increases due to rising marginal costs. Third, changing prices itself carries direct costs. The firm's optimization problem involves choosing a price path that maximizes the present discounted value of profits while accounting for these competing factors.
+
+In symmetric equilibrium where all firms behave identically, this price-setting behavior aggregates to yield the Rotemberg Phillips Curve. This fundamental equation relates current inflation to real marginal costs and expected future inflation. The specific form emerges from the first-order conditions of the firm's optimization problem, with the quadratic adjustment costs creating a nonlinear relationship.
+
+The Phillips Curve reveals several important economic insights. Current inflation responds positively to deviations of real marginal costs from their flexible-price equilibrium level, which in this model equals (ε-1)/ε where ε represents the elasticity of substitution between goods. Inflation also depends on expected future inflation, with the strength of this forward-looking component determined by the household discount factor β. The sensitivity of inflation to these factors is inversely related to the price adjustment cost parameter ψ - when price changes are more costly (higher ψ), inflation becomes less responsive to economic conditions.
+
+The equation captures essential New Keynesian characteristics of inflation dynamics. It embodies the forward-looking nature of price setting while maintaining the principle that inflation ultimately reflects real economic conditions through the marginal cost channel. The specific functional form arises directly from the Rotemberg adjustment cost specification, providing microeconomic foundations for the inflation process that are consistent with the rest of the model's optimization-based structure.
+
+## ignore 
 
 
 
@@ -466,37 +512,29 @@ where \(mc_t = \text{MC}_t / P_t\) (real marginal cost) and \(\lambda_t\) is the
 
 ## Government Sector 
 
-To ensure internal consistency, I introduce a simple government sector. The government issues one-period nominal bonds purchased by households, uses tax revenues to finance an exogenous stream of government spending, and services its debt obligations. The government budget constraint equates the sum of nominal spending and interest payments to the sum of new debt issuance and tax revenues. We assume lump-sum taxation and do not model Ricardian equivalence effects explicitly. Bonds held by households are thus assumed to be government-issued, closing the financial side of the model.
+Government sector is from @sims2024fiscal's notes. Government chooses spending, (term), exogenously. It finances spending with lump-sum taxes and issues new debt. 
 
 
 
 Gov budget constraint (nominal)
 \begin{equation}
-P_t G_t + R^B_{t-1} B_{t-1} = B_t + P_t \tau_t \label{Gov_Budget}
+G_t + R^B_{t-1} D_{t-1} \leq D_t + P_t \tau_t \label{Gov_Budget}
 \end{equation}
 
 
+With $R^Bt$ being the interest rate on bonds for period $t$.
 
 
 
 
 
-The following is not decided upon, and probably will go in section \ref{PEA}. 
-tax rule:
-\begin{equation}
-\tau_t = \tau_{ss} + \phi_b (b_{t-1} - b_{ss}) \quad \phi_b > 0 \label{Tax_Rule}
-\end{equation}
-
-bond market clearing:
-\begin{align*}
-B_t = B^g_t 
-\end{align*}
 
 
-Government spending process
-\begin{equation}
-\log(G_t) = (1-\rho_g)\log(G_{ss}) + \rho_g \log(G_{t-1}) + \varepsilon^g_t \label{Gov_Spending}
-\end{equation}
+
+To ensure internal consistency, I introduce a simple government sector. The government issues one-period nominal bonds purchased by households, uses tax revenues to finance an exogenous stream of government spending, and services its debt obligations. The government budget constraint equates the sum of nominal spending and interest payments to the sum of new debt issuance and tax revenues. We assume lump-sum taxation and do not model Ricardian equivalence effects explicitly. Bonds held by households are thus assumed to be government-issued, closing the financial side of the model.
+
+
+
 
 
 
@@ -515,39 +553,95 @@ Government spending process
 
 # Policy, Equilibrium, and Aggregation \label{PEA}
 
+A competitive equilibrium is a set of prices () and allocations () such that (i) household and rm optimality conditions all hold, (ii) the rm hires all the labour and capital supplied by the household, (iii) the household and rm budget constraints hold with equality, and (iv) household bond-holdings equal government debt issuance in all periods (i.e. Bt+1 = Dt+1, and we require that Bt = Dt initially), given values and stochastic processes of Gt and At, as well as initial values of government debt and household bond-holdings, which must be equal (e.g. Bt =Dt).
 
 
 
 
- **Bond‐market clearing**
 
 $$
-     B_t \;=\; B^g_t
+     B_t \;=\; D_t
      \tag{Bond market clear}
 $$
-
-   Bonds held by households are exactly the bonds issued by government.
-
-**Fiscal rules (exogenous processes)**
-need laws of motion for $G_t$ and/or $\tau_t$.  Two  examples 
-
-   * **Autoregressive spending**
-
-     $$
-       G_t \;=\;\rho_g\,G_{t-1} \;+\; \varepsilon^g_t
-       \tag{Exog.\ spending}
-     $$
-   * **Autoregressive lump–sum tax**
-
-     $$
-       \tau_t \;=\;\rho_\tau\,\tau_{t-1} \;+\; \varepsilon^\tau_t
-       \tag{Exog.\ tax}
-     $$
 
    
 
 
 ## Exogenous Processes
+
+Government spending, taxes, and technology evolve according to exogenous AR(1) processes.
+
+Real taxes follow Equation \eqref{real_taxes},
+\begin{equation}
+\tau_t = (1-\rho_\tau)\bar{\tau} + \rho_\tau \tau_{t-1} + \varepsilon_t^\tau 
+\label{real_taxes}
+\end{equation}
+where $\bar{\tau}$ is the steady-state level, $\rho_\tau$ controls persistence, and $\varepsilon_t^\tau$ is a fiscal shock.
+
+Government spending is governed by Equation \eqref{gov_spending},
+\begin{equation}
+g_t = (1-\rho_g)\bar{g} + \rho_g g_{t-1} + \varepsilon_t^g 
+\label{gov_spending}
+\end{equation}
+with similar dynamics: mean reversion around $\bar{g}$ and shocks $\varepsilon_t^g$.
+
+Technology evolves log-linearly as in Equation \eqref{technology_process},
+\begin{equation}
+\ln A_t = \rho_a \ln A_{t-1} + \varepsilon_t^a 
+\label{technology_process}
+\end{equation}
+ensuring a unit steady-state level and allowing for persistent TFP shocks.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# old 
+ 
+\begin{equation}
+T_t
+\;=\;
+(1 - \rho_T)\,\bar T
+\;+\;
+\rho_T\,T_{t-1}
+\;+\;
+\varepsilon_t^T,
+\qquad
+0 \le \rho_T <1,
+\end{equation}
+
+where
+
+* $\bar T$ is the (constant) long‐run level of nominal taxes,
+* $\rho_T$ governs the persistence of tax shocks, and
+* $\varepsilon_t^T$ is an i.i.d. fiscal‐shock process.
+
+
+Because $\tau_t = T_t/P_t$, this fully pins down the lump‐sum tax rate each period (once you know the price level $P_t$).  In your code you would simply treat $T_t$ as an exogenous state whose only “choice” is driven by the AR(1) shock $\varepsilon_t^T$.
+
+---
+
 
 
 Unsure on the following before i look up if it at all breaks my model
@@ -555,7 +649,12 @@ Unsure on the following before i look up if it at all breaks my model
 
 - Monetary policy shocks ($\varepsilon_t^r, \varepsilon_t^m$
 
-## Equilibrium and Model Closure
+
+
+
+
+
+
 
 - Output Gap: $\hat{Y}_t = Y_t - Y_t^n$ (natural rate output)
 
@@ -589,7 +688,86 @@ Factor markets clear:
 
 ## Full Set of Conditions
 
-Note that all equations will go here. 
+\begin{equation}
+K_t
+\;=\;
+(1 - \delta)\,K_{t-1}
+\;+\; I_t
+\;-\;\frac{\phi}{2}
+\left(\frac{I_t}{K_{t-1}} - \delta\right)^{2}
+\,K_{t-1}
+\tag{\ref{capital_accumulation_nominal}}
+\end{equation}
+
+\begin{equation}
+  (c_t - \eta\,c_{t-1})^{-\theta}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
+  \Bigr]
+  \tag{\ref{consEuler}}
+\end{equation}
+
+\begin{equation}
+  \frac{W_t}{P_t}
+  \;=\;
+  \frac{\chi\,h_t^{\gamma}}
+       {(c_t - \eta\,c_{t-1})^{-\theta}
+        \;-\;
+        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
+        \tag{\ref{labourSupply}}
+\end{equation}
+
+\begin{equation}
+  M_t
+  \;=\;
+  \frac{\psi}
+       {\beta\,\mathbb{E}_t\!\Bigl[
+         (R_t^B - 1)
+         \;\cdot\;
+         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
+               \;-\;
+               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
+              {P_{t+1}}
+       \Bigr]}
+       \tag{\ref{money_demand}}
+\end{equation}
+
+\begin{equation}\tag{\ref{capital_euler}}
+  \begin{gathered}
+  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
+  \\
+  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
+  \;=\;
+  \beta\,\mathbb{E}_t\!\Bigl[
+    \lambda_{t+1}\Bigl(
+      R_{t+1}^k
+      + \frac{1}{q_{t+1}}
+        \Bigl(
+          1 - \delta
+          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+        \Bigr)
+    \Bigr)
+  \Bigr]
+  \end{gathered}
+\end{equation}
+
+
+Each firm \(j\) produces with identical Cobb-Douglas technology:  
+\begin{equation}
+Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
+\tag{\ref{intermediate_production}}
+\end{equation}
+
+\begin{equation}
+(\pi_t - 1)\pi_t = \frac{\epsilon}{\psi} \left( mc_t - \frac{\epsilon-1}{\epsilon} \right) + \beta \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} \frac{Y_{t+1}}{Y_t} (\pi_{t+1} - 1)\pi_{t+1} \right]
+\tag{\ref{nkpc}}
+\end{equation}
+
+
+
+
+
 
 # Steady State
 
