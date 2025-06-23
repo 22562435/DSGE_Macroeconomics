@@ -267,6 +267,19 @@ using Dynare.
 
 \section{Model Specification}\label{model-specification}
 
+\begin{equation}
+\pi_t = \frac{P_t}{P_{t-1}}
+\label{inflation}
+\end{equation}
+
+\begin{equation}
+c_t = \frac{C_t}{P_t}, 
+\quad i_t = \frac{I_t}{P_t}, 
+\quad g_t = \frac{G_t}{P_t},
+\quad b_t = \frac{B_t}{P_t}
+\label{real_conversions}
+\end{equation}
+
 Above could note be a heading on itself. Just a paragraph that it is a
 core rbc foundations and what that means.
 
@@ -281,12 +294,7 @@ Bank (\citeproc{ref-ecbwp770}{2022}) .
 
 \subsection{Households}\label{households}
 
-\begin{equation}
-C_t \;=\; P_t \, c_t,
-\qquad
-I_t \;=\; P_t \, i_t
-\label{nominal_definitions}
-\end{equation}
+Maybe I should a table for \eqref{nominal_definitions}
 
 \begin{equation}
 \max_{\{C_t,\,h_t,\,M_t,\,B_t,\,K_t,\,I_t\}}
@@ -315,135 +323,81 @@ R^B_{\,t-1}\,B_{t-1}
 K_t
 \;=\;
 (1 - \delta)\,K_{t-1}
-\;+\; I_t
+\;+\; i_t
 \;-\;\frac{\phi}{2}
-\left(\frac{I_t}{K_{t-1}} - \delta\right)^{2}
+\left(\frac{i_t}{K_{t-1}} - \delta\right)^{2}
 \,K_{t-1}
-\label{capital_accumulation_nominal}
+\label{capital_accumulation_real}
 \end{equation}
 
-From which we can derive the following equations, found in full form in
-Appendix \ref{household_FOC}
+Households maximize expected lifetime utility over consumption and
+labour supply, taking all after-tax income---wages, rental income, bond
+returns, and dividends---as given. In particular, we treat firm profits
+\(\Pi_t\) as a lump‐sum transfer from firms that enters the budget
+constraint passively; households do not choose or time their utility
+over dividends, nor do they form expectations about future payout
+ratios.
 
-\begin{equation}\label{consEuler}
-  (c_t - \eta\,c_{t-1})^{-\theta}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
-  \Bigr]
+From which we can derive the following first order conditions, found in
+full form in Appendix \ref{household_FOC}:
+
+\begin{equation}\label{foc_C}
+{
+  \lambda_t P_t = (c_t-\eta c_{t-1})^{-\theta} - \beta\eta\,\mathbb{E}_t\bigl[(c_{t+1}-\eta c_t)^{-\theta}\bigr]
+}
 \end{equation}
 
-Equation \ref{consEuler} describes the household's optimal consumption
-decision over time. On the left-hand side, we have the marginal utility
-of consumption today, which takes into account \emph{habit formation} -
-meaning that current satisfaction from consuming \(c_t\) is reduced if
-past consumption \(c_{t-1}\) was high. The right-hand side reflects the
-expected marginal benefit of postponing consumption to the next period:
-it combines the expected \emph{real return} on bonds,
-\(R_t^B \cdot \frac{P_t}{P_{t+1}}\), with the marginal utility of
-tomorrow's (habit-adjusted) consumption, \(c_{t+1} - \eta\,c_t\).
-
-Put simply, households balance the gain from consuming now against the
-expected value of saving and consuming later. Habit persistence,
-captured by \(\eta\), introduces a kind of ``inertia'' in consumption
-preferences, while inflation, through the price ratio
-\(\frac{P_t}{P_{t+1}}\), adjusts the real value of future returns.
-
-\begin{equation}\label{labourSupply}
-  \frac{W_t}{P_t}
-  \;=\;
-  \frac{\chi\,h_t^{\gamma}}
-       {(c_t - \eta\,c_{t-1})^{-\theta}
-        \;-\;
-        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
+\begin{equation}\label{foc_h}
+{\lambda_t W_t = \chi h_t^{\gamma}}
 \end{equation}
 
-Equation \ref{labourSupply} links the real wage \(\frac{W_t}{P_t}\) to
-the household's labour supply decision. The right-hand side captures the
-trade-off between working more hours, \(h_t\), and the (habit-adjusted)
-marginal utility of consumption. Stronger habit formation (\(\eta\))
-lowers the perceived benefit of consumption, so households require a
-higher real wage to be willing to work the same amount - especially when
-the disutility of labour rises more steeply with hours (\(\gamma\)
-large).
-
-\begin{equation}\label{money_demand}
-  M_t
-  \;=\;
-  \frac{\psi}
-       {\beta\,\mathbb{E}_t\!\Bigl[
-         (R_t^B - 1)
-         \;\cdot\;
-         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
-               \;-\;
-               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
-              {P_{t+1}}
-       \Bigr]}
+\begin{equation}\label{foc_M}
+{\frac{\psi}{M_t} = \lambda_t - \beta\,\mathbb{E}_t[\lambda_{t+1}]}
 \end{equation}
 
-Equation \ref{money_demand} characterises money demand as inversely
-related to the expected return on bonds - the higher the nominal rate
-\((R_t^B - 1)\), the greater the opportunity cost of holding money. The
-expression in the denominator reflects the \emph{liquidity premium},
-adjusted for how habits (\(\eta\)) and expected future consumption
-affect the marginal utility of spending. Inflation expectations, via
-\(P_{t+1}\), also influence how attractive money is relative to
-interest-bearing assets.
+\begin{equation}\label{foc_B}
+{\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R^B_t]}
+\end{equation}
 
-\begin{equation}\label{capital_euler}
-  \begin{gathered}
-  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
-  \\
-  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    \lambda_{t+1}\Bigl(
-      R_{t+1}^k
-      + \frac{1}{q_{t+1}}
-        \Bigl(
-          1 - \delta
-          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+\begin{equation}\label{foc_I}
+{\lambda_t P_t = \mu_t 
+  \Bigl[ 1 - \phi \bigl( \tfrac{I_t}{P_t K_{t-1}} - \delta \bigr) \Bigr]}
+\end{equation}
+
+\begin{equation}\label{foc_K}
+{\mu_t = \beta\,\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          (1-\delta)
+        + \tfrac{\phi}{2}\Bigl(
+            \bigl(\tfrac{I_{t+1}}{P_{t+1}K_t}\bigr)^2
+          - \delta^2
+          \Bigr)
         \Bigr)
-    \Bigr)
-  \Bigr]
-  \end{gathered}
+      \Bigr]}  
 \end{equation}
 
-Equation \ref{capital_euler} defines Tobin's \(q_t\) - the value of an
-additional unit of capital - and describes how firms decide whether to
-invest. When the ratio of investment to existing capital
-\(\frac{I_t}{K_{t-1}}\) exceeds depreciation \(\delta\), \(q_t > 1\),
-signalling that it's profitable to expand the capital stock. The
-equation balances the bond-return-adjusted cost of investing (left-hand
-side) with the expected return on capital, including future capital
-gains and adjustment costs (right-hand side). The parameter \(\phi\)
-governs these adjustment costs, meaning that rapid changes in investment
-are costly and create frictions.
+\newpage
 
 \subsection{Production}\label{production}
 
 This model departs from standard RBC frameworks by introducing
 monopolistic competition and nominal rigidities. This is achieved
-through two layers of firms:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Perfectly competitive final goods producers} who aggregate
-  intermediate goods\\
-\item
-  \textbf{Monopolistically competitive intermediate goods producers}
-  with price-setting power
-\end{enumerate}
-
-This two-tiered structure captures core New Keynesian dynamics, such as
-price stickiness and strategic pricing, while retaining analytical
-tractability.
+through two layers of firms. The first being a perfectly competitive
+final goods producers, who aggregate intermediate goods, and the second
+being a monopolistically competitive intermediate goods producers with
+price-setting power. This two-tiered structure captures core New
+Keynesian dynamics, such as price stickiness and strategic pricing,
+while retaining analytical tractability.
 
 \subsubsection{Final Goods Producer}\label{final-goods-producer}
 
-\emph{(Perfectly competitive aggregator)}
+Households own final good producer and gets all the profit
+
+\begin{equation}
+\Pi_t = P_t Y_t - R^k_t K_{t-1} - W_t h_t - \frac{\psi}{2} (\pi_t - 1)^2 P_t Y_t
+\label{final_firm_profit}
+\end{equation}
 
 The final goods firm combines differentiated inputs \(Y_t(j)\) into
 final output \(Y_t\) using a CES aggregator:
@@ -453,7 +407,7 @@ Y_t = \left( \int_0^1 Y_t(j)^{\frac{\epsilon-1}{\epsilon}}  dj \right)^{\frac{\e
 \label{ces_production}  
 \end{equation}
 
-Where \(\epsilon\) aptures the elasticity of substitution between
+Where \(\epsilon\) captures the elasticity of substitution between
 varieties: the higher it is, the more easily final goods producers can
 substitute across inputs. Conversely, a lower \(\epsilon\) implies that
 intermediate producers face less competition and enjoy greater market
@@ -475,15 +429,13 @@ P_t = \left( \int_0^1 P_t(j)^{1-\epsilon}  dj \right)^{\frac{1}{1-\epsilon}}
 \label{aggregate_price_index}  
 \end{equation}
 
-Equation \ref{demand_curve_final} shows that more expensive varieties
+Equation \eqref{demand_curve_final} shows that more expensive varieties
 are purchased in smaller quantities, while Equation
-\ref{aggregate_price_index} reflects the minimum cost of assembling one
-unit of final output given prevailing input prices.
+\eqref{aggregate_price_index} reflects the minimum cost of assembling
+one unit of final output given prevailing input prices.
 
 \subsubsection{Intermediate Goods
 Producers}\label{intermediate-goods-producers}
-
-\textbf{(Monopolistically competitive firms, with nominal rigidities)}
 
 Each intermediate firm \(j\) produces with identical Cobb-Douglas
 technology:\\
@@ -492,7 +444,18 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \label{intermediate_production}
 \end{equation}
 
-Cost minimization yields the real marginal cost:
+Cost minimization yields capital and labour demand conditions as well as
+the marginal cost:
+
+\begin{equation}
+R_t^k = MC_t \alpha A_t K_t(j)^{\alpha-1} h_t(j)^{1-\alpha}
+\label{Capital_Demand_Condition}
+\end{equation}
+
+\begin{equation}
+W_t = MC_t (1-\alpha) A_t K_t(j)^{\alpha} h_t(j)^{-\alpha}
+\label{Labour_Demand_Condition}
+\end{equation}
 
 \begin{equation}
 \text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
@@ -500,7 +463,7 @@ Cost minimization yields the real marginal cost:
 \end{equation}
 
 Equation \eqref{marginal_cost}, which is derived in Appendix
-\ref{intermediate_good_producer_appendix}), captures the firm's cost of
+\ref{intermediate_good_producer_appendix}, captures the firm's cost of
 producing one unit of output, given factor prices and technology. A rise
 in wages or rental rates increases marginal cost, while higher
 productivity \(A_t\) reduces it.
@@ -508,78 +471,61 @@ productivity \(A_t\) reduces it.
 Intermediate firms set prices subject to Rotemberg-style adjustment
 costs. The firm chooses a price path to maximize the expected discounted
 sum of profits, which includes a quadratic penalty for deviating from
-past prices. Imposing symmetry and using first-order conditions, we
-obtain the pricing equation:
+past prices.
 
-Newer
-
-\begin{equation}\label{rotemberg_FOC}
-\boxed{
-0 = \epsilon\left(mc_t - \tfrac{\epsilon-1}{\epsilon}\right)
-- \psi(\pi_t - 1)\pi_t
-+ \beta\mathbb{E}_t
-\Bigl[
-\tfrac{\lambda_{t+1}}{\lambda_t}
-\psi(\pi_{t+1}-1)\pi_{t+1}
-\tfrac{Y_{t+1}}{Y_t}
-\Bigr]
-}
-\end{equation}
-
-Equation \eqref{rotemberg_FOC} is a New Keynesian Phillips Curve under
-Rotemberg pricing. It links inflation dynamics \(\pi_t\) to real
-marginal costs \(mc_t\) and expected future inflation. The parameter
-\(\psi\) governs price rigidity: higher values imply stronger penalties
-for price changes and thus more persistent inflation dynamics.
-
-OLDER
-
-\[
-\text{AdjCost}_t(j) = \frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t
-\]
-
-The real profit function is: \begin{equation}
-\Pi_t(j) = \underbrace{\frac{P_t(j)}{P_t} Y_t(j)}_{\text{real revenue}} - \underbrace{\frac{MC_t}{P_t}\,\cdot Y_t(j)}_{\text{real cost}} - \underbrace{\frac{\psi}{2} \left( \frac{P_t(j)}{P_{t-1}(j)} - 1 \right)^2 Y_t}_{\text{adjustment cost}}
-\label{firm_profit}
-\end{equation}
-
-\[
+\begin{equation}
 \max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^{\infty} \beta^s \Lambda_{t,t+s} \left[
-\frac{P_{t+s}(j)}{P_{t+s}} Y_{t+s}(j) - mc_{t+s} Y_{t+s}(j) - \frac{\psi}{2} \left( \frac{P_{t+s}(j)}{P_{t+s-1}(j)} - 1 \right)^2 Y_{t+s}
+\underbrace{\frac{P_{t+s}(j)}{P_{t+s}} Y_{t+s}(j)}_{\text{real revenue}} 
+- \underbrace{\frac{\text{MC}_{t+s}}{P_{t+s}} \cdot Y_{t+s}(j)}_{\text{real cost}} 
+- \underbrace{\frac{\psi}{2} \left( \frac{P_{t+s}(j)}{P_{t+s-1}(j)} - 1 \right)^2 Y_{t+s}}_{\text{price adjustment cost}}
 \right]
-\]
+\label{intermediate_objective}
+\end{equation}
 
-where: - \(\Lambda_{t,t+s} = \beta^s \frac{\lambda_{t+s}}{\lambda_t}\) =
-Stochastic discount factor (from households) -
-\(mc_t = \frac{\text{MC}_t}{P_t}\) = Real marginal cost (eq
-\eqref{marginal_cost}) -
-\(Y_t(j) = \left( \frac{P_t(j)}{P_t} \right)^{-\epsilon} Y_t\) (demand
-curve from eq \eqref{demand_curve_final})
+In equation \eqref{intermediate_objective},
+\(\Lambda_{t,t+s} = \beta^s \frac{\lambda_{t+s}}{\lambda_t}\) is the
+stochastic discount factor, capturing how households value future
+profits relative to today, where \(\lambda_t\) is the marginal utility
+of consumption. The parameter \(\psi > 0\) is the magnitude of price
+adjustment costs - a higher \(\psi\) implies greater penalties for
+changing prices rapidly. Finally, \(Y_{t+s}(j)\) is the firm-specific
+demand, which depends on the relative price
+\(\frac{P_{t+s}(j)}{P_{t+s}}\) and aggregate output \(Y_{t+s}\), as
+derived from the CES demand curve in Equation
+\eqref{demand_curve_final}.
 
-\textbf{Optimal Price Setting}\\
-Each intermediate firm \(j\) maximizes discounted real profits,
-accounting for future adjustment costs. In symmetric equilibrium
-(\(P_t(j) = P_t\), \(\pi_t = P_t/P_{t-1}\)), this yields the
-\textbf{Rotemberg Phillips Curve}:
+Each intermediate firm \(j\) chooses its price path to maximize the
+expected discounted sum of real profits, taking into account
+Rotemberg‐style quadratic adjustment costs. In symmetric
+equilibrium---where \(P_t(j)=P_t\) for all \(j\) and
+\(\pi_t \equiv P_t/P_{t-1}\)---the first‐order condition collapses into
+the familiar Rotemberg Phillips Curve (see
+Appendix\,\ref{intermediate_good_producer_appendix} for the full
+derivation):
 
 \begin{equation}
 (\pi_t - 1)\pi_t = \frac{\epsilon}{\psi} \left( mc_t - \frac{\epsilon-1}{\epsilon} \right) + \beta \mathbb{E}_t \left[ \frac{\lambda_{t+1}}{\lambda_t} \frac{Y_{t+1}}{Y_t} (\pi_{t+1} - 1)\pi_{t+1} \right]
 \label{nkpc}
 \end{equation}
 
-where \(mc_t = \text{MC}_t / P_t\) (real marginal cost) and
-\(\lambda_t\) is the household's marginal utility of consumption. This
-links inflation to:\\
-1. Deviations of real marginal cost from its flexible-price level
-\(\frac{\epsilon-1}{\epsilon}\)\\
-2. Expected future inflation (weighted by discounting and output
-growth)\\
-3. Adjustment cost parameter \(\psi\) (higher \(\psi\) = stickier
-prices)
+\begin{equation}
+mc_t = \frac{\text{MC}_t}{P_t}
+\label{real_mc}
+\end{equation}
 
-\ref{intermediate_good_producer_appendix}
-
-\newpage
+In this expression, \(mc_t = \tfrac{\mathrm{MC}_t}{P_t}\) denotes the
+real marginal cost, and \(\tfrac{\epsilon-1}{\epsilon}\) is its
+flexible‐price benchmark. The left‐hand side captures current
+inflation's departure from unity, while the first term on the right
+relates that departure to real marginal cost gaps scaled by the
+adjustment‐cost parameter \(\psi\). A larger \(\psi\) makes prices
+stickier, damping the response of inflation to cost pressures. The
+second term brings in expected future inflation, discounted by
+\(\beta\), adjusted for households' intertemporal marginal‐utility ratio
+\(\lambda_{t+1}/\lambda_t\) and relative output growth \(Y_{t+1}/Y_t\).
+Together, these components link today's inflation dynamics to both
+real‐economic conditions and expectations of tomorrow's price
+adjustments.
 
 \subsection{Government Sector}\label{government-sector}
 
@@ -603,8 +549,37 @@ not model Ricardian equivalence effects explicitly. Bonds held by
 households are thus assumed to be government-issued, closing the
 financial side of the model.
 
-\section{\texorpdfstring{Policy, Equilibrium, and Aggregation
-\label{PEA}}{Policy, Equilibrium, and Aggregation }}\label{policy-equilibrium-and-aggregation}
+\subsection{Monetary Authority}\label{monetary-authority}
+
+The central bank sets the nominal interest rate \(R_t\) according to:\\
+\begin{equation}
+R_t = \rho_R R_{t-1} + (1 - \rho_R) \left[ R_* + \phi_\pi (\pi_t - \pi_*) + \phi_y \left( \frac{Y_t - Y_*}{Y_*} \right) \right] + \varepsilon_t^R
+\label{taylor_rule}
+\end{equation}
+
+The policy rate \((R_t)\) sets the nominal return on government bonds
+\((R_t^B)\) implying with no risk premium.
+
+\section{Market Clearing and
+Equilibrium}\label{market-clearing-and-equilibrium}
+
+\subsection{Resource Constraint}\label{resource-constraint}
+
+(Goods Market Clearing)
+
+\begin{equation}
+   Y_t = c_t + i_t + g_t + \frac{\phi}{2} \left( \frac{i_t}{K_{t-1}} - \delta \right)^2 K_{t-1} + \frac{\psi}{2} (\pi_t - 1)^2 Y_t
+   \label{clearing_resource_constraint}
+\end{equation}
+
+\begin{equation}
+R_t^B = R_t 
+\label{interest_parity}
+\end{equation}
+
+\subsection{Factor Market Clearing}\label{factor-market-clearing}
+
+\subsection{Definition of Equilibrium}\label{definition-of-equilibrium}
 
 A competitive equilibrium is a set of prices () and allocations () such
 that (i) household and rm optimality conditions all hold, (ii) the rm
@@ -616,12 +591,42 @@ and stochastic processes of Gt and At, as well as initial values of
 government debt and household bond-holdings, which must be equal
 (e.g.~Bt =Dt).
 
-\[
-     B_t \;=\; D_t
-     \tag{Bond market clear}
-\]
+\begin{equation}
+B_t = D_t
+\label{Bond_market_clear}
+\end{equation}
 
-\subsection{Exogenous Processes}\label{exogenous-processes}
+\subsubsection{Natural (flexible‐price)
+equilibrium}\label{natural-flexibleprice-equilibrium}
+
+The equilibrium when prices are fully flexible. Therefore set \(\psi\)
+to 0 and solve. This should set prices opitimally each period without
+adjustment costs. Inflation dynamics vanish, simplifying the philips
+curve. Output and the natrual real rate are purely determined by real
+economic forces (technology, preferences, and capital accumulation)
+
+Natural (Flexible-Price) Equilibrium Set \(\psi = 0\) in all equations.
+The equation firms are simplifies to:
+
+\begin{equation}
+\max_{P_t(j)} \mathbb{E}_t \sum_{s=0}^{\infty} \beta^s \Lambda_{t,t+s} \left[
+\underbrace{\frac{P_{t+s}(j)}{P_{t+s}} Y_{t+s}(j)}_{\text{real revenue}} 
+- \underbrace{\frac{\text{MC}_{t+s}}{P_{t+s}} \cdot Y_{t+s}(j)}_{\text{real cost}} 
+\right]
+\label{intermediate_objective_frictionless}
+\end{equation}
+
+Thus we get \begin{equation}
+mc_t = \frac{\epsilon - 1}{\epsilon}
+\end{equation}
+
+Real marginal cost \(mc_t\) is constant at
+\(\frac{\epsilon - 1}{\epsilon}\) (inverse markup). The natural level of
+output \(Y_t^*\) is the output level consistent with this \(mc_t\) in
+the flexible-price equilibrium. Using the production structure and
+resource constraints from the provided equations. Derived in Appendix.
+
+\section{Exogenous Processes}\label{exogenous-processes}
 
 Government spending, taxes, and technology evolve according to exogenous
 AR(1) processes.
@@ -647,139 +652,115 @@ Technology evolves log-linearly as in Equation
 \end{equation} ensuring a unit steady-state level and allowing for
 persistent TFP shocks.
 
-\section{old}\label{old}
+\newpage
+
+\section{Full Set of Conditions}\label{full-set-of-conditions}
 
 \begin{equation}
-T_t
-\;=\;
-(1 - \rho_T)\,\bar T
-\;+\;
-\rho_T\,T_{t-1}
-\;+\;
-\varepsilon_t^T,
-\qquad
-0 \le \rho_T <1,
+\pi_t = \frac{P_t}{P_{t-1}}
+\tag{\ref{inflation}}
 \end{equation}
 
-where
-
-\begin{itemize}
-\tightlist
-\item
-  \(\bar T\) is the (constant) long‐run level of nominal taxes,
-\item
-  \(\rho_T\) governs the persistence of tax shocks, and
-\item
-  \(\varepsilon_t^T\) is an i.i.d. fiscal‐shock process.
-\end{itemize}
-
-Because \(\tau_t = T_t/P_t\), this fully pins down the lump‐sum tax rate
-each period (once you know the price level \(P_t\)). In your code you
-would simply treat \(T_t\) as an exogenous state whose only ``choice''
-is driven by the AR(1) shock \(\varepsilon_t^T\).
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-Unsure on the following before i look up if it at all breaks my model -
-TFP shock:
-\(\ln A_t = (1-\rho_A)\ln A_{ss} + \rho_A \ln A_{t-1} + \varepsilon_t^A\)
-
-\begin{itemize}
-\item
-  Monetary policy shocks (\(\varepsilon_t^r, \varepsilon_t^m\)
-\item
-  Output Gap: \(\hat{Y}_t = Y_t - Y_t^n\) (natural rate output)
-\item
-  Market clearing conditions
-\item
-  Determinacy Requirements: Blanchard-Kahn conditions for policy rules
-\end{itemize}
-
-\emph{Market Clearing} Aggregate production: \begin{equation}
-Y_t = A_t K_{t-1}^{\alpha} h_t^{1-\alpha}
-\label{aggregate_production}
+\begin{equation}
+c_t = \frac{C_t}{P_t}, 
+\quad i_t = \frac{I_t}{P_t}, 
+\quad g_t = \frac{G_t}{P_t},
+\quad b_t = \frac{B_t}{P_t}
+\tag{\ref{real_conversions}}
 \end{equation}
 
-Resource constraint (adjustment costs reduce output): \begin{equation}
-Y_t = C_t + I_t + \underbrace{\frac{\psi}{2} (\Pi_t - 1)^2 Y_t}_{\text{price adjustment cost}}
-\label{resource_constraint}
+\begin{equation}
+C_t \;+\; I_t \;+\; B_t \;+\; M_t
+\;\le\;
+R^B_{\,t-1}\,B_{t-1}
+\;+\; M_{t-1}
+\;+\; W_t\,h_t
+\;+\; R^k_t\,K_{t-1}
+\;+\; \Pi_t
+\;-\; P_t\,\tau_t
+\tag{\ref{flow_constraint_nominal}}
 \end{equation}
-
-Factor markets clear: \begin{align}
-\int_0^1 h_t(j) dj &= h_t \\
-\int_0^1 K_t(j) dj &= K_{t-1}
-\end{align}
-
-\subsection{Full Set of Conditions}\label{full-set-of-conditions}
 
 \begin{equation}
 K_t
 \;=\;
 (1 - \delta)\,K_{t-1}
-\;+\; I_t
+\;+\; i_t
 \;-\;\frac{\phi}{2}
-\left(\frac{I_t}{K_{t-1}} - \delta\right)^{2}
+\left(\frac{i_t}{K_{t-1}} - \delta\right)^{2}
 \,K_{t-1}
-\tag{\ref{capital_accumulation_nominal}}
+\tag{\ref{capital_accumulation_real}}
 \end{equation}
 
-\begin{equation}
-  (c_t - \eta\,c_{t-1})^{-\theta}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
-  \Bigr]
-  \tag{\ref{consEuler}}
+\begin{equation}\tag{\ref{foc_C}}
+{
+  \lambda_t P_t = (c_t-\eta c_{t-1})^{-\theta} - \beta\eta\,\mathbb{E}_t\bigl[(c_{t+1}-\eta c_t)^{-\theta}\bigr]
+}
 \end{equation}
 
-\begin{equation}
-  \frac{W_t}{P_t}
-  \;=\;
-  \frac{\chi\,h_t^{\gamma}}
-       {(c_t - \eta\,c_{t-1})^{-\theta}
-        \;-\;
-        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
-        \tag{\ref{labourSupply}}
+\begin{equation}\tag{\ref{foc_h}}
+{\lambda_t W_t = \chi h_t^{\gamma}}
 \end{equation}
 
-\begin{equation}
-  M_t
-  \;=\;
-  \frac{\psi}
-       {\beta\,\mathbb{E}_t\!\Bigl[
-         (R_t^B - 1)
-         \;\cdot\;
-         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
-               \;-\;
-               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
-              {P_{t+1}}
-       \Bigr]}
-       \tag{\ref{money_demand}}
+\begin{equation}\tag{\ref{foc_M}}
+{\frac{\psi}{M_t} = \lambda_t - \beta\,\mathbb{E}_t[\lambda_{t+1}]}
 \end{equation}
 
-\begin{equation}\tag{\ref{capital_euler}}
-  \begin{gathered}
-  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
-  \\
-  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    \lambda_{t+1}\Bigl(
-      R_{t+1}^k
-      + \frac{1}{q_{t+1}}
-        \Bigl(
-          1 - \delta
-          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+\begin{equation}\tag{\ref{foc_B}}
+{\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R^B_t]}
+\end{equation}
+
+\begin{equation}\tag{\ref{foc_I}}
+{\lambda_t P_t = \mu_t 
+  \Bigl[ 1 - \phi \bigl( \tfrac{I_t}{P_t K_{t-1}} - \delta \bigr) \Bigr]}
+\end{equation}
+
+\begin{equation}\tag{\ref{foc_K}}
+{\mu_t = \beta\,\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          (1-\delta)
+        + \tfrac{\phi}{2}\Bigl(
+            \bigl(\tfrac{I_{t+1}}{P_{t+1}K_t}\bigr)^2
+          - \delta^2
+          \Bigr)
         \Bigr)
-    \Bigr)
-  \Bigr]
-  \end{gathered}
+      \Bigr]}  
 \end{equation}
 
-Each firm \(j\) produces with identical Cobb-Douglas technology:\\
 \begin{equation}
 Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \tag{\ref{intermediate_production}}
+\end{equation}
+
+\begin{equation}
+Y_t = A_t K_{t-1}^\alpha h_t^{1-\alpha}
+\tag{\ref{aggregate_production_ss}}
+\end{equation}
+
+\begin{equation}
+\Pi_t = P_t Y_t - R^k_t K_{t-1} - W_t h_t - \frac{\psi}{2} (\pi_t - 1)^2 P_t Y_t
+\tag{\ref{final_firm_profit}}
+\end{equation}
+
+\begin{equation}
+R_t^k = MC_t \alpha A_t K_t(j)^{\alpha-1} h_t(j)^{1-\alpha}
+\tag{\ref{Capital_Demand_Condition}}
+\end{equation}
+
+\begin{equation}
+W_t = MC_t (1-\alpha) A_t K_t(j)^{\alpha} h_t(j)^{-\alpha}
+\tag{\ref{Labour_Demand_Condition}}
+\end{equation}
+
+\begin{equation}
+\text{MC}_t = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
+\tag{\ref{marginal_cost}}
+\end{equation}
+
+\begin{equation}
+mc_t = \frac{\text{MC}_t}{P_t}
+\tag{\ref{real_mc}}
 \end{equation}
 
 \begin{equation}
@@ -787,7 +768,77 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
 \tag{\ref{nkpc}}
 \end{equation}
 
+\begin{equation}
+G_t + R^B_{t-1} D_{t-1} \leq D_t + P_t \tau_t 
+\tag{\ref{Gov_Budget}}
+\end{equation}
+
+\begin{equation}
+B_t = D_t
+\tag{\ref{Bond_market_clear}}
+\end{equation}
+
+\begin{equation}
+R_t^B = R_t
+\tag{\ref{interest_parity}}
+\end{equation}
+
+\begin{equation}
+R_t = \rho_R R_{t-1} + (1 - \rho_R) \left[ R_* + \phi_\pi (\pi_t - \pi_*) + \phi_y \left( \frac{Y_t - Y_*}{Y_*} \right) \right] + \varepsilon_t^R
+\tag{\ref{taylor_rule}}
+\end{equation}
+
+\begin{equation}
+   Y_t = c_t + i_t + g_t + \frac{\phi}{2} \left( \frac{i_t}{K_{t-1}} - \delta \right)^2 K_{t-1} + \frac{\psi}{2} (\pi_t - 1)^2 Y_t
+\tag{\ref{clearing_resource_constraint}}
+\end{equation}
+
+\begin{equation}
+\tau_t = (1-\rho_\tau)\bar{\tau} + \rho_\tau \tau_{t-1} + \varepsilon_t^\tau 
+\tag{\ref{real_taxes}}
+\end{equation}
+
+\begin{equation}
+g_t = (1-\rho_g)\bar{g} + \rho_g g_{t-1} + \varepsilon_t^g 
+\tag{\ref{gov_spending}}
+\end{equation}
+
+\begin{equation}
+\ln A_t = \rho_a \ln A_{t-1} + \varepsilon_t^a 
+\tag{\ref{technology_process}}
+\end{equation}
+
+\begin{equation} 
+\tag{\ref{steady_interest}}
+R_* = \frac{\pi_*}{\beta}
+\end{equation}
+
+\begin{equation}
+\tag{\ref{steady_capital_return_real}}
+r^k_* = \frac{1}{\beta} - (1-\delta)
+\end{equation}
+
 \section{Steady State}\label{steady-state}
+
+Equations \eqref{steady_interest} and \eqref{steady_capital_return_real}
+are derived in the appendix under \ref{steady_state_app}
+
+\begin{equation} \label{steady_interest}
+R_* = \frac{\pi_*}{\beta}
+\end{equation}
+
+\begin{equation}
+\label{steady_capital_return_real}
+r^k_* = \frac{1}{\beta} - (1-\delta)
+\end{equation}
+
+\begin{equation}
+Y_t = A_t K_{t-1}^\alpha h_t^{1-\alpha}
+\label{aggregate_production_ss}
+\end{equation}
+
+Equation \eqref{aggregate_production_ss} is added because I know dynare
+drops the j subscript.
 
 \begin{figure}
 \centering
@@ -810,7 +861,7 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
     + \underbrace{\psi\ln\bigl(\tfrac{M_t}{P_t}\bigr)}_{\text{Money utility}} \\
   & \quad\qquad
     + \underbrace{\lambda_t\bigl[R^B_{t-1}B_{t-1}+M_{t-1}+W_th_t+R^k_tK_{t-1}+\Pi_t-P_t\tau_t-C_t-I_t-B_t-M_t\bigr]}_{\text{Nominal flow constraint}}
-    + \underbrace{\mu_t\bigl[(1-\delta)K_{t-1}+I_t-\tfrac{\phi}{2}(\tfrac{I_t}{K_{t-1}}-\delta)^2K_{t-1}-K_t\bigr]}_{\text{Capital accumulation}}
+    + \underbrace{\mu_t\bigl[(1-\delta)K_{t-1}+\tfrac{I_t}{P_t}-\tfrac{\phi}{2}(\tfrac{I_t/P_t}{K_{t-1}}-\delta)^2K_{t-1}-K_t\bigr]}_{\text{Capital accumulation}}
   \Bigr\}
 \end{align*}
 
@@ -827,7 +878,7 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
   & \quad (c_t-\eta c_{t-1})^{-\theta} - \beta\eta\,\mathbb{E}_t[(c_{t+1}-\eta c_t)^{-\theta}] - \lambda_t P_t = 0
 \end{align*}
 
-\begin{equation}\label{foc_C}
+\begin{equation}\label{foc_C_app}
 \boxed{
   \lambda_t P_t = (c_t-\eta c_{t-1})^{-\theta} - \beta\eta\,\mathbb{E}_t\bigl[(c_{t+1}-\eta c_t)^{-\theta}\bigr]
 }
@@ -840,7 +891,7 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
   & \quad \lambda_t W_t = \chi h_t^{\gamma}
 \end{align*}
 
-\begin{equation}\label{foc_h}
+\begin{equation}\label{foc_h_app}
 \boxed{\lambda_t W_t = \chi h_t^{\gamma}}
 \end{equation}
 
@@ -851,182 +902,77 @@ Y_t(j) = A_t K_t(j)^{\alpha} h_t(j)^{1-\alpha}
   & \quad \psi/M_t - \lambda_t + \beta\,\mathbb{E}_t[\lambda_{t+1}] = 0
 \end{align*}
 
-\begin{equation}\label{foc_M}
+\begin{equation}\label{foc_M_app}
 \boxed{\frac{\psi}{M_t} = \lambda_t - \beta\,\mathbb{E}_t[\lambda_{t+1}]}
 \end{equation}
 
-\textbf{FOC w.r.t. Bonds} \eqref{foc_B}): \begin{align*}
+\textbf{FOC w.r.t. Bonds} : \begin{align*}
   & \frac{\partial \mathcal{L}}{\partial B_t} = 0 \\
   & \quad -\beta^{t-1}\lambda_t + \beta^t\mathbb{E}_t[\lambda_{t+1}R^B_t] = 0 \\[6pt]
   & \text{Divide by }\beta^{t-1}\text{ and simplify} \\
   & \quad -\lambda_t + \beta\,\mathbb{E}_t[\lambda_{t+1}R^B_t] = 0
 \end{align*}
 
-\begin{equation}\label{foc_B}
+\begin{equation}\label{foc_B_app}
 \boxed{\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R^B_t]}
 \end{equation}
 
-\textbf{FOC w.r.t. Capital} : \begin{align*}
-  & \frac{\partial \mathcal{L}}{\partial K_t} = 0 \\
-  & \quad -\beta^{t-1}\mu_t + \beta^t\mathbb{E}_t\bigl[\lambda_{t+1}R^k_{t+1} + \mu_{t+1}(1-\delta + \tfrac{\phi}{2}((I_{t+1}/K_t)^2 - \delta^2))\bigr] = 0 \\[6pt]
-  & \text{Divide by }\beta^{t-1}\text{ and solve} \\
-  & \quad \mu_t = \beta\,\mathbb{E}_t\bigl[\lambda_{t+1}R^k_{t+1} + \mu_{t+1}(1-\delta + \tfrac{\phi}{2}((I_{t+1}/K_t)^2 - \delta^2))\bigr]
-\end{align*}
-
-\begin{equation}\label{foc_K}
-\boxed{\mu_t = \beta\,\mathbb{E}_t\bigl[\lambda_{t+1}R^k_{t+1} + \mu_{t+1}(1-\delta + \tfrac{\phi}{2}((I_{t+1}/K_t)^2 - \delta^2))\bigr]}
-\end{equation}
-
-\textbf{FOC w.r.t. Investment} : \begin{align*}
+\textbf{FOC w.r.t. Investment}: \begin{align*}
   & \frac{\partial \mathcal{L}}{\partial I_t} = 0 \\
-  & \quad \beta^{t-1}\bigl[-\lambda_t + \mu_t(1 - \phi(\tfrac{I_t}{K_{t-1}} - \delta))\bigr] = 0 \\[6pt]
-  & \text{Divide by }\beta^{t-1}\text{ and isolate} \\
-  & \quad \lambda_t = \mu_t\bigl(1 - \phi(\tfrac{I_t}{K_{t-1}} - \delta)\bigr)
+  & \quad \beta^{t-1}\Bigl[ -\lambda_t 
+      + \mu_t \cdot \frac{1}{P_t} 
+        \Bigl( 1 - \phi \bigl( \tfrac{I_t/P_t}{K_{t-1}} - \delta \bigr) \Bigr)
+    \Bigr] = 0 \\[6pt]
+  & \text{Divide by }\beta^{t-1}\text{ and rearrange} \\
+  & \quad \lambda_t = \frac{\mu_t}{P_t} 
+        \Bigl[ 1 - \phi \bigl( \tfrac{I_t}{P_t K_{t-1}} - \delta \bigr) \Bigr] \\[6pt]
+  & \text{Multiply both sides by }P_t \\
+  & \quad \lambda_t P_t = \mu_t 
+        \Bigl[ 1 - \phi \bigl( \tfrac{I_t}{P_t K_{t-1}} - \delta \bigr) \Bigr]
 \end{align*}
 
-\begin{equation}\label{foc_I}
-\boxed{\lambda_t = \mu_t\bigl(1 - \phi(\tfrac{I_t}{K_{t-1}} - \delta)\bigr)}
+\begin{equation}\label{foc_I_app}
+\boxed{\lambda_t P_t = \mu_t 
+  \Bigl[ 1 - \phi \bigl( \tfrac{I_t}{P_t K_{t-1}} - \delta \bigr) \Bigr]}
 \end{equation}
 
-\subsubsection{Household Final
-Equations}\label{household-final-equations}
-
-\textbf{Consumption Euler Equation}\\
-Combines consumption--habit dynamics with bond returns (from
-\eqref{foc_B} and \eqref{foc_C}) :
-
-\begin{align*}
-& \text{Start with FOC for Bonds} \\
-& \lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] \quad \text{(Equation \ref{foc_B})} \\
-& \\
-& \text{Substitute } \lambda_t \text{ and } \lambda_{t+1} \text{ from FOC for Consumption} \\
-& \lambda_t = \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} \quad \text{(from Equation \ref{foc_C} rearranged)} \\
-& \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \quad \text{(time-shifted)} \\
-& \\
-& \text{Combine results} \\
-& \frac{(c_t - \eta\,c_{t-1})^{-\theta}}{P_t} = \beta\,\mathbb{E}_t\!\left[ R_t^B \cdot \frac{(c_{t+1} - \eta\,c_t)^{-\theta}}{P_{t+1}} \right] \\
-& \\
-& \text{Clear denominator} \\
-& (c_t - \eta\,c_{t-1})^{-\theta} = \beta\,\mathbb{E}_t\!\left[ R_t^B \cdot \frac{P_t}{P_{t+1}} \cdot (c_{t+1} - \eta\,c_t)^{-\theta} \right]
-\end{align*}
-
-\begin{equation}\label{consEuler_app}
-\boxed{%
-  (c_t - \eta\,c_{t-1})^{-\theta}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    R_t^B \;\frac{P_t}{P_{t+1}}\;(c_{t+1} - \eta\,c_t)^{-\theta}
-  \Bigr]
-}
-\end{equation}
-
-\textbf{Labour Supply}
-
-Real wage equals the marginal rate of substitution between leisure and
-consumption (from \eqref{foc_C} and \eqref{foc_h}) :
-
-\begin{align*}
-& \text{Start with FOC for Hours Worked} \\
-& \lambda_t W_t = \chi\,h_t^{\gamma} \quad \text{(Equation \ref{foc_h})} \\
-& \\
-& \text{Solve for } \lambda_t \\
-& \lambda_t = \frac{\chi\,h_t^{\gamma}}{W_t} \\
-& \\
-& \text{Equate to FOC of Consumption expression} \\
-& \frac{\chi\,h_t^{\gamma}}{W_t} = \frac{(c_t - \eta\,c_{t-1})^{-\theta} - \beta\,\eta\,\mathbb{E}_t[(c_{t+1} - \eta\,c_t)^{-\theta}]}{P_t} \\
-& \\
-& \text{Solve for real wage } (W_t/P_t) \\
-& \frac{W_t}{P_t} = \frac{\chi\,h_t^{\gamma}}{(c_t - \eta\,c_{t-1})^{-\theta} - \beta\,\eta\,\mathbb{E}_t[(c_{t+1} - \eta\,c_t)^{-\theta}]}
-\end{align*}
-
-\begin{equation}\label{labourSupply_app}
-\boxed{
-  \frac{W_t}{P_t}
-  \;=\;
-  \frac{\chi\,h_t^{\gamma}}
-       {(c_t - \eta\,c_{t-1})^{-\theta}
-        \;-\;
-        \beta\,\eta\,\mathbb{E}_t\!\bigl[(c_{t+1} - \eta\,c_t)^{-\theta}\bigr]}
-}
-\end{equation}
-
-\textbf{Money Demand}\\
-Opportunity cost of holding money vs.~bonds (from \eqref{foc_M},
-\eqref{foc_B} and \eqref{foc_C}) :
-
-\begin{align*}
-& \text{Combine FOC for Money and Bonds} \\
-& \frac{\psi}{M_t} = \lambda_t - \beta\,\mathbb{E}_t[\lambda_{t+1}] \quad \text{(Equation \ref{foc_M})} \\
-& \lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] \quad \text{(Equation \ref{foc_B})} \\
-& \\
-& \text{Substitute } \lambda_t \text{ into FOC of money} \\
-& \frac{\psi}{M_t} = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B] - \beta\,\mathbb{E}_t[\lambda_{t+1}] \\
-& \frac{\psi}{M_t} = \beta\,\mathbb{E}_t\left[\lambda_{t+1}(R_t^B - 1)\right] \\
-& \\
-& \text{Substitute } \lambda_{t+1} \text{ from FOC of Consumption} \\
-& \lambda_{t+1} = \frac{(c_{t+1} - \eta\,c_t)^{-\theta} - \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}{P_{t+1}} \\
-& \\
-& \text{Solve for } M_t \\
-& M_t = \frac{\psi}{\beta\,\mathbb{E}_t\!\left[ (R_t^B - 1) \cdot \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta} - \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}{P_{t+1}} \right]}
-\end{align*}
-
-\begin{equation}\label{money_demand_app}
-\boxed{
-  M_t
-  \;=\;
-  \frac{\psi}
-       {\beta\,\mathbb{E}_t\!\Bigl[
-         (R_t^B - 1)
-         \;\cdot\;
-         \dfrac{(c_{t+1} - \eta\,c_t)^{-\theta}
-               \;-\;
-               \beta\,\eta\,\mathbb{E}_{t+1}[(c_{t+2} - \eta\,c_{t+1})^{-\theta}]}
-              {P_{t+1}}
-       \Bigr]}
-}
-\end{equation}
-
-\textbf{Capital Euler Equation } Defines Tobin's \(q\) and links
-required returns on capital to bond returns (from \eqref{foc_I},
-\eqref{foc_K} and \eqref{foc_B}) :
-
-\begin{align*}
-& \text{Define Tobin's } q \text{ from FOC for Investment} \\
-& \lambda_t = \mu_t q_t \quad \text{where} \quad q_t \equiv 1 - \phi\left(\tfrac{I_t}{K_{t-1}} - \delta\right) \\
-& \\
-& \text{Rearrange FOC for Capital} \\
-& \mu_t = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1}R_{t+1}^k + \mu_{t+1}\!\left(1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]\right) \right] \\
-& \\
-& \text{Substitute } \mu_t = \lambda_t / q_t \text{ and } \mu_{t+1} = \lambda_{t+1} / q_{t+1} \\
-& \frac{\lambda_t}{q_t} = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1}R_{t+1}^k + \frac{\lambda_{t+1}}{q_{t+1}}\left(1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]\right) \right] \\
-& \\
-& \text{Factor } \lambda_{t+1} \\
-& \frac{\lambda_t}{q_t} = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1} \left( R_{t+1}^k + \frac{1}{q_{t+1}}\left(1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]\right) \right) \right] \\
-& \\
-& \text{Substitute FOC for Bonds } (\lambda_t = \beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B]) \\
-& \frac{\beta\,\mathbb{E}_t[\lambda_{t+1}R_t^B]}{q_t} = \beta\,\mathbb{E}_t\!\left[ \lambda_{t+1} \left( R_{t+1}^k + \frac{1}{q_{t+1}}\Gamma_{t+1} \right) \right] \\
-& \text{where } \Gamma_{t+1} \equiv 1-\delta + \tfrac{\phi}{2}\left[(I_{t+1}/K_t)^2 - \delta^2\right]
-\end{align*}
-
-\begin{equation}\label{capital_euler_app}
-\boxed{
-  \begin{gathered}
-  q_t \;\equiv\; 1 - \phi\,\Bigl(\tfrac{I_t}{K_{t-1}} - \delta\Bigr) \\
-  \\
-  \frac{\beta\,\mathbb{E}_t\!\bigl[\lambda_{t+1}\,R_t^B\bigr]}{q_t}
-  \;=\;
-  \beta\,\mathbb{E}_t\!\Bigl[
-    \lambda_{t+1}\Bigl(
-      R_{t+1}^k
-      + \frac{1}{q_{t+1}}
-        \Bigl(
-          1 - \delta
-          + \tfrac{\phi}{2}\bigl[(I_{t+1}/K_t)^2 - \delta^2\bigr]
+\textbf{FOC w.r.t. Capital}: \begin{align*}
+  & \frac{\partial \mathcal{L}}{\partial K_t} = 0 \\
+  & \quad -\beta^{t-1}\mu_t 
+    + \beta^t\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          (1-\delta) 
+        + \tfrac{\phi}{2}\Bigl(
+            \bigl(\tfrac{I_{t+1}}{P_{t+1}K_t}\bigr)^2 
+          - \delta^2
+          \Bigr)
         \Bigr)
-    \Bigr)
-  \Bigr]
-  \end{gathered}
-}
+      \Bigr] = 0 \\[6pt]
+  & \text{Divide by }\beta^{t-1}\text{ and solve} \\
+  & \quad \mu_t = \beta\,\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          (1-\delta)
+        + \tfrac{\phi}{2}\Bigl(
+            \bigl(\tfrac{I_{t+1}}{P_{t+1}K_t}\bigr)^2
+          - \delta^2
+          \Bigr)
+        \Bigr)
+      \Bigr]  
+\end{align*}
+
+\begin{equation}\label{foc_K_app}
+\boxed{\mu_t = \beta\,\mathbb{E}_t\Bigl[
+        \lambda_{t+1}R^k_{t+1}
+      + \mu_{t+1}\Bigl(
+          (1-\delta)
+        + \tfrac{\phi}{2}\Bigl(
+            \bigl(\tfrac{I_{t+1}}{P_{t+1}K_t}\bigr)^2
+          - \delta^2
+          \Bigr)
+        \Bigr)
+      \Bigr]}  
 \end{equation}
 
 \subsection{Production}\label{production-1}
@@ -1101,7 +1047,7 @@ Index}
 & = \frac{1}{A_t} \left( \frac{R_t^k}{\alpha} \right)^{\alpha} \left( \frac{W_t}{1-\alpha} \right)^{1-\alpha}
 \end{align*}
 
-\begin{equation}\label{marginal_cost}
+\begin{equation}\label{marginal_cost_appendix}
 \boxed{MC_t = \dfrac{1}{A_t} \left( \dfrac{R_t^k}{\alpha} \right)^{\alpha} \left( \dfrac{W_t}{1-\alpha} \right)^{1-\alpha}}
 \end{equation}
 
@@ -1162,35 +1108,98 @@ Noting \(\Lambda_{t,t+1}=\beta\,\tfrac{\lambda_{t+1}}{\lambda_t}\) and
 
 \newpage
 
+\textbf{Derivation of Firm's First-Order Condition with \(\psi = 0\)}
+
+Starting from the firm's optimization problem under Rotemberg pricing,
+set \(\psi = 0\) to eliminate price-adjustment costs:
+
+\begin{align*}
+& \max_{P_t(j)} \;\mathbb{E}_t \sum_{s=0}^{\infty} \Lambda_{t,t+s}
+  \Bigl[
+    \bigl(\tfrac{P_{t+s}(j)}{P_{t+s}}\bigr)^{1-\epsilon} Y_{t+s}
+    - mc_{t+s}\,\bigl(\tfrac{P_{t+s}(j)}{P_{t+s}}\bigr)^{-\epsilon} Y_{t+s}
+  \Bigr] \\
+& \text{subject to} \quad Y_t(j) = \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} Y_t
+\end{align*}
+
+With \(\psi = 0\), the problem becomes \textbf{static} (no intertemporal
+links). For any period \(t\), maximize per-period profits:\\
+\[
+\Pi_t(j) = \underbrace{\bigl(\tfrac{P_t(j)}{P_t}\bigr)^{1-\epsilon} Y_t}_{\text{Revenue}} - \underbrace{mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} Y_t}_{\text{Production cost}}
+\]
+
+First-order condition with respect to \(P_t(j)\):\\
+\begin{align*}
+\frac{\partial \Pi_t(j)}{\partial P_t(j)} 
+&= (1-\epsilon) \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} \tfrac{1}{P_t} Y_t + \epsilon  mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon-1} \tfrac{1}{P_t} Y_t = 0
+\end{align*}
+
+Factor out
+\(\frac{1}{P_t} \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} Y_t\):\\
+\begin{align*}
+\bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} \tfrac{Y_t}{P_t} \Bigl[(1-\epsilon) + \epsilon  mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-1} \Bigr] &= 0
+\end{align*}
+
+Since
+\(\bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-\epsilon} \frac{Y_t}{P_t} \neq 0\),
+solve:\\
+\begin{align*}
+(1-\epsilon) + \epsilon  mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-1} &= 0 \\
+\epsilon  mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-1} &= \epsilon - 1 \\
+mc_t \bigl(\tfrac{P_t(j)}{P_t}\bigr)^{-1} &= \frac{\epsilon - 1}{\epsilon} \\
+\bigl(\tfrac{P_t(j)}{P_t}\bigr) &= \frac{\epsilon}{\epsilon - 1} mc_t
+\end{align*}
+
+In symmetric equilibrium, all firms set \(P_t(j) = P_t\).
+Substituting:\\
+\begin{align*}
+1 &= \frac{\epsilon}{\epsilon - 1} mc_t \\
+\end{align*}
+
+\begin{equation}
+\boxed{
+mc_t = \frac{\epsilon - 1}{\epsilon}
+}
+\end{equation}
+
+\subsection{\texorpdfstring{Steady State
+\label{steady_state_app}}{Steady State }}\label{steady-state-1}
+
+Steady-State Nominal Interest Rate \begin{align*}
+&\text{From the bond FOC:} &\lambda_t &= \beta \mathbb{E}_t[\lambda_{t+1} R^B_t] \\
+&\text{In steady state:} &\lambda &= \beta \lambda R_* \\
+&\text{Solving for real rate:} &R_* &= \frac{1}{\beta} \\
+&\text{Adjusting for inflation:} &R_*^{\text{nominal}} &= R_* \cdot \pi_* = \frac{\pi_*}{\beta}
+\end{align*}
+
+\begin{equation} \label{steady_interest_app}
+\boxed{
+R_* = \frac{\pi_*}{\beta}
+}
+\end{equation}
+
+Steady-State Return on Capital \begin{align*}
+&\text{From the capital FOC:} &\mu_t &= \beta \mathbb{E}_t\bigl[\lambda_{t+1} R^k_{t+1} + \mu_{t+1}(1-\delta)\bigr] \\
+&\text{Investment adjustment cost zero:} &\frac{I}{P K} &= \delta \\
+&\text{Thus:} &\mu &= \beta\bigl[\lambda R^k_* + \mu (1-\delta)\bigr] \\
+&\text{From investment FOC:} &\lambda P &= \mu \\
+&\text{Substitute }\mu=\lambda P: &\lambda P &= \beta\bigl[\lambda R^k_* + \lambda P(1-\delta)\bigr] \\
+&\text{Divide by }\lambda: &P &= \beta R^k_* + \beta P(1-\delta) \\
+&\text{Rearrange:} &\beta R^k_* &= P\bigl[1 - \beta(1-\delta)\bigr] \\
+&\text{Divide by }\beta: &R^k_* &= \frac{P}{\beta}\bigl[1 - \beta(1-\delta)\bigr] \\
+&\text{Real return:} &r^k_* &= \frac{R^k_*}{P} = \frac{1}{\beta} - (1-\delta)
+\end{align*}
+
+\begin{equation}
+\label{steady_capital_return_real_app}
+\boxed{
+r^k_* = \frac{1}{\beta} - (1-\delta)
+}
+\end{equation}
+
 \newpage
 
-\section{Old Stuff}\label{old-stuff}
-
-Components breakdown:
-
-Expenditures:
-
-Consumption: \(P_t c_t\)
-
-Investment: \(P_t i_t\)
-
-Bonds: \(B_t\)
-
-Money holdings: \(M_t\)
-
-Income sources:
-
-Bond returns: \((1 + i_{t-1}) B_{t-1}\)
-
-Money carryover: \(M_{t-1}\)
-
-Labor income: \(W_t h_t\)
-
-Capital returns: \(R_t^k K_{t-1}\) (Key addition missing in Sims)
-
-Firm profits: \(\Pi_t\)
-
-Net transfers: \(-P_t \tau_t\)
+\newpage
 
 \newpage
 
