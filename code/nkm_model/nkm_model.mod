@@ -1,170 +1,149 @@
-// DSGE Model for Dynare (Final)
+
+
+
+
 var 
-    pi          // Inflation (π_t)
-    c           // Real consumption
-    i           // Real investment
-    g           // Real government spending
-    b           // Real bonds
-    h           // Hours worked
-    K           // Capital stock
-    lambda      // Lagrangian multiplier
-    mu          // Capital multiplier
-    Y           // Output
-    mc          // Real marginal cost
-    R           // Nominal interest rate
-    tau         // Real taxes
-    A           // Technology
-    W           // Nominal wage
-    Rk          // Nominal return on capital
-    P           // Price level
-    ;
+    c i b m h K lambda mu 
+    Y w rk Pi_r mc pi 
+    g tau d 
+    R rB A;
 
-varexo
-    eps_R       // Monetary policy shock
-    eps_tau     // Tax shock
-    eps_g       // Government spending shock
-    eps_a       // Technology shock
-    ;
+varexo 
+    epsilon_a epsilon_g epsilon_tau epsilon_R;
 
-parameters
-    beta        eta         theta       chi         gamma      
-    alpha       delta       epsilon     phi_k       psi_p      
-    rho_R       phi_pi      phi_y       pi_star     R_star     
-    rho_tau     tau_bar     rho_g       g_bar       rho_a       
-    Y_star      rk_star     ;
+parameters 
+    alpha beta delta phi_k phi_p eta theta gamma chi psi epsilon 
+    rho_R R_star kappa_pi pi_star kappa_y Y_star 
+    rho_g g_bar 
+    rho_tau tau_bar 
+    rho_a;
 
-// Parameter Calibration
-beta = 0.99;
-eta = 0.7;
-theta = 2.0;
-chi = 1.5;
-gamma = 2.0;
-alpha = 0.33;
-delta = 0.025;
-epsilon = 6.0;
-phi_k = 2.0;
-psi_p = 100;
-rho_R = 0.8;
-phi_pi = 1.5;
-phi_y = 0.1;
-pi_star = 1.00;
-rho_tau = 0.9;
-tau_bar = 0.20;
-rho_g = 0.9;
-g_bar = 0.20;
-rho_a = 0.9;
-R_star = pi_star/beta;       // Eq(25)
-rk_star = 1/beta - (1-delta); // Eq(26)
-Y_star = 1.0;                // Normalized output
+alpha     = 0.33;
+beta      = 0.99;
+delta     = 0.025;
+phi_k     = 0;
+phi_p     = 50;
+eta       = 0;
+theta     = 2;
+gamma     = 1;
+chi       = 1;
+psi       = 1;
+epsilon   = 6;
+
+rho_R     = 0.8;
+R_star    = 1/beta;
+pi_star   = 1;
+kappa_pi  = 1.2;
+kappa_y   = 0;
+Y_star    = 1;
+
+rho_g     = 0.9;
+g_bar     = 0.2;
+
+rho_tau   = 0.9;
+tau_bar   = 0.2;
+
+rho_a     = 0.9;
 
 model;
-    ///////////////
-    // Equations //
-    ///////////////
-    
-    // Inflation definition (eq1)
-    pi = P / P(-1);
-    
-    // FOC Consumption (eq5)
-    lambda * P = (c - eta*c(-1))^(-theta) - beta*eta*(c(1) - eta*c)^(-theta);
-    
-    // FOC Labor (eq6)
-    lambda * W = chi * h^gamma;
-    
-    // FOC Bonds (eq8)
-    lambda = beta * lambda(1) * R;
-    
-    // FOC Investment (eq9)
-    lambda * P = mu * (1 - phi_k*(i/K(-1) - delta));
-    
-    // FOC Capital (eq10)
-    mu = beta * ( 
-        lambda(1) * Rk(1) / P(1) 
-        + mu(1) * ( 
-            (1 - delta) 
-            + phi_k/2 * ((i(1)/K)^2 - delta^2) 
-        ) 
-    );
-    
-    // Capital accumulation (eq4)
-    K = (1 - delta)*K(-1) + i - (phi_k/2)*(i/K(-1) - delta)^2 * K(-1);
-    
-    // Production function (eq12)
-    Y = A * K(-1)^alpha * h^(1 - alpha);
-    
-    // Factor demand - Capital (eq14)
-    Rk = (Y * mc * alpha * P) / K(-1);
-    
-    // Factor demand - Labor (eq15)
-    W = (Y * mc * P * (1 - alpha)) / h;
-    
-    // NK Phillips Curve (eq18)
-    (pi - 1)*pi = (epsilon/psi_p) * (mc - (epsilon-1)/epsilon) 
-                 + beta * (lambda(1)/lambda) * (Y(1)/Y) * (pi(1) - 1)*pi(1);
-    
-    // Government budget constraint (REAL terms)
-    g + (R(-1)/pi) * b(-1) = b + tau;
-    
-    // Resource constraint (eq21)
-    Y = c + i + g + (phi_k/2)*(i/K(-1) - delta)^2 * K(-1) + (psi_p/2)*(pi - 1)^2 * Y;
-    
-    // Taylor rule (eq21)
-    R = rho_R * R(-1) + (1 - rho_R) * (R_star + phi_pi*(pi - pi_star) + phi_y*((Y - Y_star)/Y_star)) + eps_R;
-    
-    // Tax process (eq22)
-    tau = (1 - rho_tau)*tau_bar + rho_tau * tau(-1) + eps_tau;
-    
-    // Gov spending process (eq23)
-    g = (1 - rho_g)*g_bar + rho_g * g(-1) + eps_g;
-    
-    // Technology process (eq24)
-    log(A) = rho_a * log(A(-1)) + eps_a;
+
+// 1. Household flow constraint
+c + i + b + m = rB(-1)*b(-1) + m(-1)/pi + w*h + rk*K(-1) + Pi_r - tau;
+
+// 2. Capital accumulation
+K = (1 - delta)*K(-1) + i - (phi_k/2)*((i/K(-1) - delta)^2)*K(-1);
+
+// 3. Profit
+Pi_r = Y - rk*K(-1) - w*h - (phi_p/2)*(pi - 1)^2*Y;
+
+// 4. FOC consumption
+lambda = (c - eta*c(-1))^(-theta) - beta*eta*((c(+1) - eta*c)^(-theta));
+
+// 5. FOC labour
+h^gamma = lambda*w / chi;
+
+// 6. FOC bonds
+1 = beta*(lambda(+1)/lambda)*rB;
+
+// 7. FOC money
+lambda = psi/m + beta*(lambda(+1)/pi(+1));
+
+// 8. FOC investment
+mu = lambda / (1 - phi_k*(i/K(-1) - delta));
+
+// 9. FOC capital
+1 = beta*( (lambda(+1)/mu)*(rk(+1)) + (mu(+1)/mu)*(1 - delta - (phi_k/2)*(delta^2 - (i(+1)/K)^2)) );
+
+// 10. Production
+Y = A*K(-1)^alpha*h^(1 - alpha);
+
+
+// 11. NK Phillips Curve
+(pi - 1)*pi = (epsilon/phi_p)*(mc - (epsilon - 1)/epsilon) + beta*(lambda(+1)/lambda)*(Y(+1)/Y)*(pi(+1) - 1)*pi(+1);
+
+// 12. Marginal cost
+mc = (1/A)*((rk/alpha)^alpha)*((w/(1 - alpha))^(1 - alpha));
+
+// 13. Government budget
+g + rB(-1)*d(-1) = d + tau;
+
+// 14. Resource constraint
+Y = c + i + g + (phi_k/2)*((i/K(-1) - delta)^2)*K(-1) + (phi_p/2)*(pi - 1)^2*Y;
+
+// 15. Bond market clearing
+b = d;
+
+// 16. Fisher equation
+R = rB * pi(+1);
+
+// 17. Taylor rule
+R = rho_R*R(-1) + (1 - rho_R)*(R_star + kappa_pi*(pi - pi_star) + kappa_y*((Y - Y_star)/Y_star)) + epsilon_R;
+
+// 18. Taxes
+tau = (1 - rho_tau)*tau_bar + rho_tau*tau(-1) + epsilon_tau;
+
+// 19. Government spending
+g = (1 - rho_g)*g_bar + rho_g*g(-1) + epsilon_g;
+
+// 20. Technology process
+log(A) = rho_a*log(A(-1)) + epsilon_a;
+
 end;
 
-// Steady-state initialization
 initval;
-    // Exogenous
+    c = 1.46767; 
+    i = 0.562083; 
+    b = 0; 
+    m = 215.39; 
+    h = 0.714406; 
+    K = 22.4833; 
+    lambda = 0.46424; 
+    mu = 0.46424; 
+    Y = 2.22975; 
+    w = 1.53887; 
+    rk = 0.035101; 
+    Pi_r = 0.341188; 
+    mc = 0.8333; 
+    pi = 1; 
+    g = 0.2; 
+    tau = 0.2; 
+    d = 0; 
+    R = 1.0101; 
+    rB = 1.0101; 
     A = 1;
-    
-    // Prices
-    P = 1;
-    pi = pi_star;
-    R = R_star;
-    mc = (epsilon - 1)/epsilon;  // From NKPC
-    
-    // Production
-    Y = Y_star;
-    K = Y_star * (alpha * mc / rk_star); // Capital demand
-    h = (Y / (A * K^alpha))^(1/(1-alpha));
-    i = delta * K;
-    
-    // Government
-    g = g_bar;
-    tau = tau_bar;
-    b = (tau - g) / (1 - 1/beta); // Gov budget
-    
-    // Consumption
-    c = Y - i - g; // Resource constraint
-    
-    // Multipliers
-    lambda = (c*(1-eta))^(-theta) * (1 - beta*eta) / P;
-    mu = lambda * P;
-    
-    // Factor prices
-    W = (Y * mc * P * (1 - alpha)) / h;
-    Rk = rk_star * P;
 end;
 
-// Set solver tolerance
-options_.solve_tolf = 1e-8;
-steady(maxit=1000);  // Numerical steady-state solution
-
-// Shocks specification
 shocks;
-    var eps_R = 0.01^2;    // 1% monetary policy shock
-    var eps_tau = 0.01^2;  // 1% tax shock
-    var eps_g = 0.01^2;    // 1% spending shock
-    var eps_a = 0.01^2;    // 1% technology shock
+    var epsilon_a; stderr 0.01;
+    var epsilon_g; stderr 0.01;
+    var epsilon_tau; stderr 0.01;
+    var epsilon_R; stderr 0.01;
 end;
 
-stoch_simul(order=1, irf=20);
+steady;
+check;
+stoch_simul(order=1,irf=10);
+
+
+
+
