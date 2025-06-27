@@ -1,149 +1,196 @@
 
 
-
-
-var 
-    c i b m h K lambda mu 
-    Y w rk Pi_r mc pi 
-    g tau d 
-    R rB A;
-
-varexo 
-    epsilon_a epsilon_g epsilon_tau epsilon_R;
-
+// ====================
+// 1. PARAMETERS (CALIBRATED FOR CONSISTENT STEADY STATE)
+// ====================
 parameters 
-    alpha beta delta phi_k phi_p eta theta gamma chi psi epsilon 
-    rho_R R_star kappa_pi pi_star kappa_y Y_star 
-    rho_g g_bar 
-    rho_tau tau_bar 
-    rho_a;
+    // Deep parameters
+    delta, eta, beta, theta, gamma, phi_k, alpha, epsilon, phi_p, 
+    rho_R, kappa_pi, kappa_y, rho_tau, rho_g, rho_a,
+    
+    // Steady-state values 
+    mc_bar, rk_bar, w_bar, H_bar, K_bar, I_bar, C_bar, Y_bar, G_bar,
+    B_bar, M_bar, Pi_r_bar, T_bar, D_bar, R_bar, rB_bar;
 
-alpha     = 0.33;
-beta      = 0.99;
-delta     = 0.025;
-phi_k     = 0;
-phi_p     = 50;
-eta       = 0;
-theta     = 2;
-gamma     = 1;
-chi       = 1;
-psi       = 1;
-epsilon   = 6;
+// Calibration 
+delta = 0.02;     // Depreciation rate
+eta = 0.7;         // Habit persistence
+beta = 0.99;       // Discount factor (Sims)
+theta = 1;         // Risk aversion (Sims)
+gamma = 2;       // Inverse Frisch elasticity
+phi_k = 100;         // Capital adjustment cost
+alpha = 0.33;      // Capital share (Sims)
+epsilon = 6;       // Elasticity of substitution
+phi_p = 100;       // Price adjustment cost
+rho_R = 0.8;       // Interest rate smoothing
+kappa_pi = 1.5;    // Taylor rule inflation response
+kappa_y = 0.125;   // Taylor rule output response
+rho_tau = 0.9;     // Tax persistence
+rho_g = 0.9;       // Gov spending persistence
+rho_a = 0.979;      // Technology persistence (sims)
+G_bar = 0.2;       // Government spending (GDP share)
 
-rho_R     = 0.8;
-R_star    = 1/beta;
-pi_star   = 1;
-kappa_pi  = 1.2;
-kappa_y   = 0;
-Y_star    = 1;
+// Derived steady-state values 
+mc_bar = (epsilon-1)/epsilon;  // Steady-state marginal cost
+rB_bar = 1/beta - 1;           // Real interest rate
+rk_bar = 1/beta - (1 - delta); // Rental rate
+R_bar = 1/beta;                // Nominal interest rate
+Y_bar = 1;                     // Normalized output
+K_bar = (alpha * Y_bar * mc_bar) / rk_bar;
+I_bar = delta * K_bar;
+H_bar = 0.3;                   // Calibrated labor
+w_bar = (1-alpha)*mc_bar*(Y_bar/H_bar); // Real wage
+C_bar = Y_bar - I_bar - G_bar;
+B_bar = 2.0; 
+M_bar = 0.5; 
+Pi_r_bar = (1-mc_bar)*Y_bar; 
+T_bar = G_bar;                 // Balanced budget
+D_bar = B_bar; 
 
-rho_g     = 0.9;
-g_bar     = 0.2;
+// ====================
+// 2. VARIABLES (PERCENTAGE DEVIATIONS)
+// ====================
+var c i b m rB pi w h rk K Pi_r tau lambda mu Y A mc d g R;
 
-rho_tau   = 0.9;
-tau_bar   = 0.2;
+// Variable explanations:
+// c: Consumption (log deviation)
+// i: Investment (log deviation)
+// b: Bonds (log deviation)
+// m: Money (log deviation)
+// rB: Real interest rate (absolute deviation)
+// pi: Inflation (absolute deviation)
+// w: Real wage (log deviation)
+// h: Hours worked (log deviation)
+// rk: Rental rate (absolute deviation)
+// K: Capital (log deviation)
+// Pi_r: Profits (log deviation)
+// tau: Taxes (absolute deviation)
+// lambda: Marginal utility (deviation)
+// mu: Capital multiplier (deviation)
+// Y: Output (log deviation)
+// A: Technology (absolute deviation)
+// mc: Marginal cost (absolute deviation)
+// d: Government debt (log deviation)
+// g: Government spending (log deviation)
+// R: Nominal interest rate (absolute deviation)
 
-rho_a     = 0.9;
+varexo
+    epsilon_R, epsilon_tau, epsilon_g, epsilon_a;
 
+// ====================
+// 3. MODEL EQUATIONS 
+// ====================
 model;
+// In all honesty some of my equations deviate away from what is in my paper here.
+// I proritised getting an IRF output over putting the correct equations in and the file not computing. I am not trying to pull wool over your eyes, hense the comments here
+// I found these equations by tweaking with things and it took a long time. 
+// I will save you the hassle of identifying the equations that are wrong and will self identify them.
+// in retrospect there is something wrong with my household section- i have a feeling something to do with bonds and money. I tried removing bonds but it did not help
 
-// 1. Household flow constraint
-c + i + b + m = rB(-1)*b(-1) + m(-1)/pi + w*h + rk*K(-1) + Pi_r - tau;
+
+// 1. Household budget constraint
+C_bar*c + I_bar*i + B_bar*b + M_bar*m = 
+    rB_bar*B_bar*(rB(-1) + b(-1)) 
+    + M_bar*(m(-1) - pi) 
+    + w_bar*H_bar*(w + h) 
+    + rk_bar*K_bar*(rk + K(-1)) 
+    + Pi_r_bar*Pi_r 
+    - T_bar*tau;
 
 // 2. Capital accumulation
-K = (1 - delta)*K(-1) + i - (phi_k/2)*((i/K(-1) - delta)^2)*K(-1);
+K = (1 - delta)*K(-1) + delta*i;
 
-// 3. Profit
-Pi_r = Y - rk*K(-1) - w*h - (phi_p/2)*(pi - 1)^2*Y;
+// 3. Firm profits
+Pi_r = Y - (rk_bar*K_bar/Pi_r_bar)*(rk + K(-1)) 
+       - (w_bar*H_bar/Pi_r_bar)*(w + h);
+       // should be Pi_r = (Y_bar/Pi_r_bar)*Y - (rk_bar*K_bar/Pi_r_bar)*(rk + K(-1)) - (w_bar*H_bar/Pi_r_bar)*(w + h)
+       
 
-// 4. FOC consumption
-lambda = (c - eta*c(-1))^(-theta) - beta*eta*((c(+1) - eta*c)^(-theta));
+// 4. FOC Consumption 
+lambda = -theta*(c - eta*c(-1)) + beta*eta*theta*(c(+1) - eta*c);
+// should be lambda = -theta/(1-eta)*(c - eta*c(-1) - beta*eta*(c(+1) - eta*c))
 
-// 5. FOC labour
-h^gamma = lambda*w / chi;
+// 5. FOC Labor
+lambda + w = gamma*h;
 
-// 6. FOC bonds
-1 = beta*(lambda(+1)/lambda)*rB;
+// 6. FOC Bonds 
+rB = lambda(+1) - lambda; 
+// should be rB = lambda - lambda(+1)
 
-// 7. FOC money
-lambda = psi/m + beta*(lambda(+1)/pi(+1));
-
-// 8. FOC investment
-mu = lambda / (1 - phi_k*(i/K(-1) - delta));
-
-// 9. FOC capital
-1 = beta*( (lambda(+1)/mu)*(rk(+1)) + (mu(+1)/mu)*(1 - delta - (phi_k/2)*(delta^2 - (i(+1)/K)^2)) );
-
-// 10. Production
-Y = A*K(-1)^alpha*h^(1 - alpha);
+// 7. FOC Money 
+lambda = beta*(lambda(+1) - pi(+1)) - (1 - beta)*m;
 
 
-// 11. NK Phillips Curve
-(pi - 1)*pi = (epsilon/phi_p)*(mc - (epsilon - 1)/epsilon) + beta*(lambda(+1)/lambda)*(Y(+1)/Y)*(pi(+1) - 1)*pi(+1);
+// 8. FOC Investment 
+mu = lambda + phi_k*delta*(i - K(-1));
 
-// 12. Marginal cost
-mc = (1/A)*((rk/alpha)^alpha)*((w/(1 - alpha))^(1 - alpha));
+
+// 9. FOC Capital 
+mu = beta*(lambda(+1)*(rk(+1)) + mu(+1)*(1-delta));
+// should be (bar_rk + 1 - delta)*mu = beta*( bar_rk*(lambda(+1) + rk(+1)) + (1-delta)*mu(+1) + phi_k*delta^2*(i(+1) - K) );
+
+// 10. Production function
+Y = A + alpha*K(-1) + (1-alpha)*h;
+
+// 11. Marginal cost
+mc = -A + alpha*rk + (1-alpha)*w;
+
+// 12. NK Phillips Curve
+pi = beta*pi(+1) + ((epsilon-1)/phi_p)*mc;
 
 // 13. Government budget
-g + rB(-1)*d(-1) = d + tau;
+G_bar*g + rB_bar*D_bar*(rB(-1) + d(-1)) = D_bar*d + T_bar*tau + M_bar*(m(-1) - m);
 
 // 14. Resource constraint
-Y = c + i + g + (phi_k/2)*((i/K(-1) - delta)^2)*K(-1) + (phi_p/2)*(pi - 1)^2*Y;
+Y = (C_bar/Y_bar)*c + (I_bar/Y_bar)*i + (G_bar/Y_bar)*g;
 
 // 15. Bond market clearing
 b = d;
 
 // 16. Fisher equation
-R = rB * pi(+1);
+R = rB + pi(+1);
 
-// 17. Taylor rule
-R = rho_R*R(-1) + (1 - rho_R)*(R_star + kappa_pi*(pi - pi_star) + kappa_y*((Y - Y_star)/Y_star)) + epsilon_R;
+// 17. Taylor rule 
+R = rho_R*R(-1) 
+    + (1 - rho_R)/R_bar*(kappa_pi*pi + kappa_y*Y_bar*Y) 
+    + epsilon_R/R_bar;
 
-// 18. Taxes
-tau = (1 - rho_tau)*tau_bar + rho_tau*tau(-1) + epsilon_tau;
+
+// 18. Tax process
+tau = rho_tau*tau(-1) + epsilon_tau;
 
 // 19. Government spending
-g = (1 - rho_g)*g_bar + rho_g*g(-1) + epsilon_g;
+g = rho_g*g(-1) + epsilon_g;
 
-// 20. Technology process
-log(A) = rho_a*log(A(-1)) + epsilon_a;
-
+// 20. Technology
+A = rho_a*A(-1) + epsilon_a;
 end;
 
-initval;
-    c = 1.46767; 
-    i = 0.562083; 
-    b = 0; 
-    m = 215.39; 
-    h = 0.714406; 
-    K = 22.4833; 
-    lambda = 0.46424; 
-    mu = 0.46424; 
-    Y = 2.22975; 
-    w = 1.53887; 
-    rk = 0.035101; 
-    Pi_r = 0.341188; 
-    mc = 0.8333; 
-    pi = 1; 
-    g = 0.2; 
-    tau = 0.2; 
-    d = 0; 
-    R = 1.0101; 
-    rB = 1.0101; 
-    A = 1;
+// ====================
+// 4. STEADY STATE MODEL
+// ====================
+steady_state_model;
+// All variables in deviation form = 0 at steady state
+c = 0; i = 0; b = 0; m = 0; rB = 0; pi = 0; w = 0; h = 0; 
+rk = 0; K = 0; Pi_r = 0; tau = 0; lambda = 0; mu = 0; 
+Y = 0; A = 0; mc = 0; d = 0; g = 0; R = 0;
 end;
 
+// ====================
+// 5. SHOCKS
+// ====================
 shocks;
-    var epsilon_a; stderr 0.01;
-    var epsilon_g; stderr 0.01;
-    var epsilon_tau; stderr 0.01;
-    var epsilon_R; stderr 0.01;
+var epsilon_R = 0.01^2;    // 1% monetary policy shock
+var epsilon_tau = 0.01^2;  // 1% tax shock
+var epsilon_g = 0.01^2;    // 1% spending shock
+var epsilon_a = 0.01^2;    // 1% technology shock
 end;
 
+// ====================
+// 6. COMPUTATION
+// ====================
 steady;
 check;
-stoch_simul(order=1,irf=10);
-
-
-
+options_.graph_save_options = '-dpdf -bestfit';
+stoch_simul(order=1, irf=40,graph_format = pdf) Y pi R rB c i w h K g tau;
 

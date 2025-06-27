@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  25 JUN 2025 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.11)  27 JUN 2025 23:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,33 +527,134 @@ LaTeX Warning: Command \underbar  has changed.
 LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
-) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen271
+\WF@size=\dimen272
+\c@WF@wrappedlines=\count349
+\WF@box=\box78
+\WF@everypar=\toks42
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
-(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (./DSGE_Project.aux)
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+\everycr=\toks43
+\minrowclearance=\skip89
+\rownum=\count350
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2025-06-23 v0.14 Display of landscape pages in PDF
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PDF (HO)
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box79
+\sift@deathcycles=\count351
+\@vwid@loff=\dimen273
+\@vwid@roff=\dimen274
+)
+==> First Aid for varwidth.sty applied!
+\c@taburow=\count352
+\tabu@nbcols=\count353
+\tabu@cnt=\count354
+\tabu@Xcol=\count355
+\tabu@alloc=\count356
+\tabu@nested=\count357
+\tabu@target=\dimen275
+\tabu@spreadtarget=\dimen276
+\tabu@naturalX=\dimen277
+\tabucolX=\dimen278
+\tabu@Xsum=\dimen279
+\extrarowdepth=\dimen280
+\abovetabulinesep=\dimen281
+\belowtabulinesep=\dimen282
+\tabustrutrule=\dimen283
+\tabu@thebody=\toks44
+\tabu@footnotes=\toks45
+\tabu@box=\box80
+\tabu@arstrutbox=\box81
+\tabu@hleads=\box82
+\tabu@vleads=\box83
+\tabu@cellskip=\skip90
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box84
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip91
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box85
+\UL@hyphenbox=\box86
+\UL@skip=\skip92
+\UL@hook=\toks46
+\UL@height=\dimen284
+\UL@pe=\count358
+\UL@pixel=\dimen285
+\ULC@box=\box87
+Package: ulem 2019/11/18
+\ULdepth=\dimen286
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen287
+\c@nlinenum=\count359
+\TeXr@lab=\toks47
+) (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+(c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (./DSGE_Project.aux
+
+LaTeX Warning: Label `eq:mc' multiply defined.
+
+)
 \openout1 = `DSGE_Project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 212.
+LaTeX Font Info:    ... okay on input line 212.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -594,719 +695,285 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 199.
+Package hyperref Info: Link coloring ON on input line 212.
 (./DSGE_Project.out) (./DSGE_Project.out)
 \@outlinefile=\write4
 \openout4 = `DSGE_Project.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 237.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 237.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 237.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 237.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 237.
+(Font)              <9> on input line 251.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 237.
+(Font)              <6> on input line 251.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 237.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 237.
+(Font)              <5> on input line 251.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 237.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 237.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 251.
 (c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 237.
+(Font)              <10.95> on input line 251.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 237.
+(Font)              <8> on input line 251.
 
 
 [1
 
 
-{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
 
-[2{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[2{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 430--432
-
- []
-
-
 
 [4]
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
+[6]
+Overfull \hbox (12.08955pt too wide) in paragraph at lines 632--644
+\T1/lmr/m/n/10.95 In equi-lib-rium, a com-pet-i-tive al-lo-ca-tion con-sists of se-quences of real al-lo-ca-tions $\OMS/lmsy/m/n/10.95 f\OML/lmm/m/it/10.95 c[]; h[]; m[]; b[]; K[]; i[]; Y[]\OMS/lmsy/m/n/10.95 g[]$
  []
 
 
 
-[6]
-
 [7]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 676.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 676.
 
-[8]
 
-[9]
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.731 \end{equation}
+                    ]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.733 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.733 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.733 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.733 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.737 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.737 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.737 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.737 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.742 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.742 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.742 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.742 \begin{equation}
+                      
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.797 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.797 \end{equation}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.797 \end{equation}
+                    ]
 
 [10]
 
-[11
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.800 \end{equation}
-                    ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.802 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.802 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.802 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.802 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.806 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.806 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.806 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.806 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.811 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.811 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.811 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.811 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.816 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.816 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.816 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.816 \begin{equation}
-                      
+[11]
 
 [12
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.863 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2}) has been already used, duplicate ignored
+l.950 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.863 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.863 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.863 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.863 \end{equation}
-                    ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.950 
+      ]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.865 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.951 \begin{equation}
+                      \tag{\ref{nkpc_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.865 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.951 \begin{equation}
+                      \tag{\ref{nkpc_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.865 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.951 \begin{equation}
+                      \tag{\ref{nkpc_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.865 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.951 \begin{equation}
+                      \tag{\ref{nkpc_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.870 \begin{equation}
-                      \tag{\ref{foc_C}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.961 \begin{equation}
+                      \tag{\ref{taylor_rule_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.870 \begin{equation}
-                      \tag{\ref{foc_C}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.961 \begin{equation}
+                      \tag{\ref{taylor_rule_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.870 \begin{equation}
-                      \tag{\ref{foc_C}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
+l.961 \begin{equation}
+                      \tag{\ref{taylor_rule_linearised}}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.870 \begin{equation}
-                      \tag{\ref{foc_C}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.874 \begin{equation}
-                      \tag{\ref{foc_h}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.874 \begin{equation}
-                      \tag{\ref{foc_h}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.874 \begin{equation}
-                      \tag{\ref{foc_h}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.874 \begin{equation}
-                      \tag{\ref{foc_h}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.878 \begin{equation}
-                      \tag{\ref{foc_B}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.878 \begin{equation}
-                      \tag{\ref{foc_B}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.878 \begin{equation}
-                      \tag{\ref{foc_B}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.878 \begin{equation}
-                      \tag{\ref{foc_B}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.882 \begin{equation}
-                      \tag{\ref{foc_M}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.882 \begin{equation}
-                      \tag{\ref{foc_M}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.882 \begin{equation}
-                      \tag{\ref{foc_M}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.882 \begin{equation}
-                      \tag{\ref{foc_M}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.886 \begin{equation}
-                      \tag{\ref{foc_I}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.886 \begin{equation}
-                      \tag{\ref{foc_I}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.886 \begin{equation}
-                      \tag{\ref{foc_I}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.886 \begin{equation}
-                      \tag{\ref{foc_I}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.890 \begin{equation}
-                      \tag{\ref{foc_K}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.890 \begin{equation}
-                      \tag{\ref{foc_K}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.890 \begin{equation}
-                      \tag{\ref{foc_K}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.890 \begin{equation}
-                      \tag{\ref{foc_K}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.894 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.894 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.894 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.894 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.898 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.898 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.898 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.898 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.902 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.902 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.902 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.902 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.906 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.906 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.906 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.906 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.910 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.910 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.910 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.910 \begin{equation}
-                      
-
-[13
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.912 \end{equation}
-                    ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.914 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.914 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.914 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.914 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.918 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.918 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.918 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.918 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.923 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.923 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.923 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.923 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.928 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.928 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.928 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.928 \begin{equation}
-                      
-
-[14
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.963 \end{equation}
-                    ]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.965 \begin{equation}
-                      \tag{\ref{eq:Omega_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.965 \begin{equation}
-                      \tag{\ref{eq:Omega_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.965 \begin{equation}
-                      \tag{\ref{eq:Omega_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.965 \begin{equation}
-                      \tag{\ref{eq:Omega_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.970 \begin{equation}
-                      \tag{\ref{eq:D_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.970 \begin{equation}
-                      \tag{\ref{eq:D_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.970 \begin{equation}
-                      \tag{\ref{eq:D_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.970 \begin{equation}
-                      \tag{\ref{eq:D_ss}}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.974 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.974 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.974 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.974 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.979 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.979 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.979 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.979 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.984 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.984 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.984 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.984 \begin{equation}
-                      
-
-[15
-pdfTeX warning (ext4): destination with the same identifier (name{equation.6.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.989 \newpage
-              ]
-<code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png, id=374, 354.6048pt x 275.3487pt>
-File: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png Graphic file (type png)
-<use code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>
-Package pdftex.def Info: code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png  used on input line 995.
-(pdftex.def)             Requested size: 354.60391pt x 275.348pt.
+l.961 \begin{equation}
+                      \tag{\ref{taylor_rule_linearised}} [13]
+<data/IRF_trimmed.png, id=307, 240.9pt x 181.27725pt>
+File: data/IRF_trimmed.png Graphic file (type png)
+<use data/IRF_trimmed.png>
+Package pdftex.def Info: data/IRF_trimmed.png  used on input line 1081.
+(pdftex.def)             Requested size: 338.38702pt x 254.66049pt.
 
 
-[16 <./code/rbc_model/rbc_model/graphs/rbc_model_IRF_eps_cropped.png>]
-Overfull \hbox (160.41098pt too wide) detected at line 1019
+[14]
+<data/dePaoli_IRF.png, id=314, 495.65175pt x 390.258pt>
+File: data/dePaoli_IRF.png Graphic file (type png)
+<use data/dePaoli_IRF.png>
+Package pdftex.def Info: data/dePaoli_IRF.png  used on input line 1095.
+(pdftex.def)             Requested size: 290.06476pt x 254.77228pt.
+
+
+[15 <./data/IRF_trimmed.png>]
+
+[16 <./data/dePaoli_IRF.PNG>]
+Overfull \hbox (76.13274pt too wide) detected at line 1144
 []
  []
 
@@ -1331,30 +998,57 @@ Overfull \hbox (160.41098pt too wide) detected at line 1019
 [25]
 
 [26]
+
+[27]
+
+[28]
+
+[29]
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35]
+
+[36]
+
+[37]
+
+[38]
 No file DSGE_Project.bbl.
 
 
-[27] (./DSGE_Project.aux)
+[39] (./DSGE_Project.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `DSGE_Project.out' has not changed.
-(rerunfilecheck)             Checksum: 1913507260140A9315516B1878914274;3874.
+(rerunfilecheck)             Checksum: 758A398CFA7C6FDF056CC6205B430AE0;3552.
  ) 
 Here is how much of TeX's memory you used:
- 17053 strings out of 469866
- 318739 string characters out of 5482728
- 714815 words of memory out of 5000000
- 44934 multiletter control sequences out of 15000+600000
- 691685 words of font info for 82 fonts, out of 8000000 for 9000
+ 18896 strings out of 469866
+ 348954 string characters out of 5482728
+ 750297 words of memory out of 5000000
+ 46702 multiletter control sequences out of 15000+600000
+ 705800 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,20n,79p,549b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on DSGE_Project.pdf (27 pages, 469328 bytes).
+ 75i,20n,79p,549b,1185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb><c:/Users/E5570/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on DSGE_Project.pdf (39 pages, 1398262 bytes).
 PDF statistics:
- 576 PDF objects out of 1000 (max. 8388607)
- 500 compressed objects within 5 object streams
- 172 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 657 PDF objects out of 1000 (max. 8388607)
+ 545 compressed objects within 6 object streams
+ 184 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
