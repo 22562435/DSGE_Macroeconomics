@@ -155,7 +155,7 @@ R_bar = 1/beta;                // Nominal interest rate
 Y_bar = 1;                     // Normalized output
 K_bar = (alpha * Y_bar * mc_bar) / rk_bar;
 I_bar = delta * K_bar;
-H_bar = 0.3;                   // Calibrated labor
+H_bar = 0.3;                   // Calibrated labour
 w_bar = (1-alpha)*mc_bar*(Y_bar/H_bar); // Real wage
 C_bar = Y_bar - I_bar - G_bar;
 B_bar = 2.0; 
@@ -227,7 +227,7 @@ Pi_r = Y - (rk_bar*K_bar/Pi_r_bar)*(rk + K(-1))
 lambda = -theta*(c - eta*c(-1)) + beta*eta*theta*(c(+1) - eta*c);
 // should be lambda = -theta/(1-eta)*(c - eta*c(-1) - beta*eta*(c(+1) - eta*c))
 
-// 5. FOC Labor
+// 5. FOC labour
 lambda + w = gamma*h;
 
 // 6. FOC Bonds 
@@ -1076,7 +1076,7 @@ fiscal_dsge_moments <- tibble(
 
 table4_data <- tibble(
   Series = c("Output", "Consumption", "Investment", "Hours", 
-             "Avg. Labor Productivity", "Wage", "Real Rate", "TFP"),
+             "Avg. labour Productivity", "Wage", "Real Rate", "TFP"),
   `Std. Dev.` = c(0.0164, 0.0063, 0.0533, 0.0070, 
                   0.0096, 0.0096, 0.0005, 0.0117),
   `Corr w/ y_t` = c(1.0000, 0.9549, 0.9924, 0.9842, 
@@ -1564,7 +1564,7 @@ mc^*=\frac{\epsilon-1}{\epsilon}
 \end{align*}
 
 \begin{align*}
-& \text{Solve for Capital-Labor Ratio} \\
+& \text{Solve for Capital-labour Ratio} \\
 & k = \left(\frac{mc^*\alpha A}{r^{k,*}}\right)^{\!\frac{1}{1-\alpha}}
 \end{align*}
 
